@@ -1,16 +1,28 @@
 using UnityEngine;
-
+using UnityEngine.InputSystem;
 public class PlayerMovementController : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    public float moveSpeed = 10;
+
+    private PlayerInput playerInput;
+    private InputAction attackAction;
+    private InputAction moveAction;
+
     void Start()
     {
-        
+        playerInput = GetComponent<PlayerInput>();
+        attackAction = playerInput.actions["Attack"];
+        moveAction = playerInput.actions["Move"];
     }
 
-    // Update is called once per frame
     void Update()
     {
+        if (attackAction.triggered)
+        {
+            print("if (attackAction.triggered)");
+        }
+
+        transform.Translate(moveAction.ReadValue<Vector2>() * Time.deltaTime * moveSpeed);
         
     }
 }
