@@ -1,5 +1,8 @@
+using System.Runtime.CompilerServices;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
+
 public class PlayerMovementController : MonoBehaviour
 {
     public float moveSpeed = 10;
@@ -8,8 +11,12 @@ public class PlayerMovementController : MonoBehaviour
     private InputAction attackAction;
     private InputAction moveAction;
 
+    private Rigidbody2D rb2D;
+
     void Start()
     {
+        rb2D = GetComponent<Rigidbody2D>();
+
         playerInput = GetComponent<PlayerInput>();
         attackAction = playerInput.actions["Attack"];
         moveAction = playerInput.actions["Move"];
@@ -23,6 +30,13 @@ public class PlayerMovementController : MonoBehaviour
         }
 
         transform.Translate(moveAction.ReadValue<Vector2>() * Time.deltaTime * moveSpeed);
+
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
         
     }
 }
+
+
