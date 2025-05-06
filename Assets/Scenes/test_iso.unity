@@ -131,7 +131,7 @@ GameObject:
   - component: {fileID: 83412713}
   - component: {fileID: 83412712}
   - component: {fileID: 83412711}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Tilemap Walls Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -817,7 +817,7 @@ GameObject:
   - component: {fileID: 162766582}
   - component: {fileID: 162766581}
   - component: {fileID: 162766580}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Tilemap Walls Foreground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1617,7 +1617,7 @@ Camera:
   far clip plane: 1000
   field of view: 34
   orthographic: 1
-  orthographic size: 2
+  orthographic size: 3
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -6383,7 +6383,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9fdcd9b7f1527504fa65e2ce7c35052d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 10
+  moveSpeed: 1500
+  canMove: 1
+  defaultPushBackForce: 50
 --- !u!114 &1377680418
 MonoBehaviour:
   m_ObjectHideFlags: 0
