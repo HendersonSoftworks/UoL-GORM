@@ -145,6 +145,26 @@ MonoBehaviour:
   moveSpeed: 2000
   canMove: 1
   defaultPushBackForce: 0
+  moveInput: {x: 0, y: 0}
+  playerInput: {fileID: 0}
+  attackAction:
+    m_Name: Attack
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: 7a8e15c2-de9c-4c9a-9eff-13ec6bce33fd
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings: []
+    m_Flags: 0
+  moveAction:
+    m_Name: Move
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: f645304e-d731-4f75-931c-707617a57b97
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings: []
+    m_Flags: 0
 --- !u!1 &6908912580209774044
 GameObject:
   m_ObjectHideFlags: 0
