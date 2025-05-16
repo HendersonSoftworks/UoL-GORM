@@ -499,7 +499,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6898707864579352175, guid: 48b2afc2cf45b3449993b1fd62b327b3, type: 3}
       propertyPath: maxSteps
-      value: 200
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 6898707864579352175, guid: 48b2afc2cf45b3449993b1fd62b327b3, type: 3}
+      propertyPath: maxRoomCount
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 6898707864579352175, guid: 48b2afc2cf45b3449993b1fd62b327b3, type: 3}
+      propertyPath: minRoomCount
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6898707864579352175, guid: 48b2afc2cf45b3449993b1fd62b327b3, type: 3}
+      propertyPath: agentStepDistance
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6898707864579352175, guid: 48b2afc2cf45b3449993b1fd62b327b3, type: 3}
       propertyPath: generationDelayInSecods

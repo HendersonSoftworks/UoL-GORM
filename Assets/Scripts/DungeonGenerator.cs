@@ -8,6 +8,10 @@ public class DungeonGenerator : MonoBehaviour
     private enum agentDirections { up, down, left, right };
 
     [SerializeField]
+    int minRoomCount = 5;
+    [SerializeField]
+    int maxRoomCount = 7;
+    [SerializeField]
     private float generationDelayInSecods = 1;
     [SerializeField]
     private GameObject roomPrefab;
@@ -41,11 +45,12 @@ public class DungeonGenerator : MonoBehaviour
     private IEnumerator InvokeDelayedPlacement()
     {
         for (int i = 0; i < maxSteps; i++)
-        {
+        {            
             PlaceCorridor();
             PlaceRoom();
             MoveAgent();
             ChooseRandomDirection();
+
             yield return new WaitForSeconds(generationDelayInSecods);
         }
     }
@@ -140,6 +145,7 @@ public class DungeonGenerator : MonoBehaviour
         BoundsInt newBoundsInt = new BoundsInt((int)transform.position.x, (int)transform.position.y, 0,
             roomW, roomH, 0);
 
+        newRoom.transform.localScale = new Vector3(roomW, roomH, 0);
         newRoom.GetComponent<RoomData>().bounds = newBoundsInt;
 
         // instantiate new room
@@ -187,6 +193,6 @@ public class DungeonGenerator : MonoBehaviour
         bool xOverlap = a.x < b.x + b.size.x && a.x + a.size.x > b.x;
         bool yOverlap = a.y < b.y + b.size.y && a.y + a.size.y > b.y;
 
-        return xOverlap || yOverlap;
+        return xOverlap && yOverlap;
     }
 }
