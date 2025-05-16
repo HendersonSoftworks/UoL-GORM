@@ -6,15 +6,13 @@ using UnityEngine.InputSystem;
 
 public class PlayerMovementController : MonoBehaviour
 {
-
     public float moveSpeed = 10;
     public bool canMove = true;
     public float defaultPushBackForce;
-
-    private PlayerInput playerInput;
-    private InputAction attackAction;
-    private InputAction moveAction;
-    private Vector2 moveInput;
+    public Vector2 moveInput;
+    public PlayerInput playerInput;
+    public InputAction attackAction;
+    public InputAction moveAction;
 
     private Rigidbody2D rb2D;
 
@@ -51,6 +49,36 @@ public class PlayerMovementController : MonoBehaviour
     private void ProcessMovement()
     {
         rb2D.linearVelocity = (moveInput * Time.deltaTime * moveSpeed);
+        RotatePlayerBody(moveInput);
+    }
+
+    private void RotatePlayerBody(Vector2 moveInput)
+    {
+        //if (moveInput == Vector2.up)
+        //{
+        //    transform.rotation = Quaternion.Euler(new Vector3(transform.rotation.x, transform.rotation.y, 0));
+        //}
+        //if (moveInput == Vector2.down)
+        //{
+        //    transform.rotation = Quaternion.Euler(new Vector3(transform.rotation.x, transform.rotation.y, 180));
+        //}
+        //if (moveInput == Vector2.left)
+        //{
+        //    transform.rotation = Quaternion.Euler(new Vector3(transform.rotation.x, transform.rotation.y, 90));
+        //}
+        //if (moveInput == Vector2.right)
+        //{
+        //    transform.rotation = Quaternion.Euler(new Vector3(transform.rotation.x, transform.rotation.y, -90));
+        //}
+
+        if (moveInput.magnitude > 0.1f)
+        {
+            float angle = Mathf.Atan2(moveInput.y, moveInput.x) * Mathf.Rad2Deg;
+            angle -= 90f;
+
+            Quaternion targetRotation = Quaternion.Euler(0, 0, angle);
+            transform.rotation = targetRotation;
+        }
     }
 
     private void PushPlayerInRandomDirection(Vector2 force)

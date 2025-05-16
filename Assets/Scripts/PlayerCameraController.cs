@@ -19,7 +19,7 @@ public class PlayerCameraController : MonoBehaviour
             player.transform.position.y + yOffset,
             player.transform.position.z + zOffset);
 
-        transform.rotation = new Quaternion(xRot, transform.rotation.y, transform.rotation.z, transform.rotation.w);
+        //transform.rotation = new Quaternion(xRot, transform.rotation.y, transform.rotation.z, transform.rotation.w);
 
     }
 }
