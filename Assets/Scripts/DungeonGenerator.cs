@@ -9,13 +9,17 @@ public class DungeonGenerator : MonoBehaviour
 
     [Header("Config")]
     [SerializeField]
-    int minRoomCount = 5;
+    private int minRoomCount = 5;
     [SerializeField]
-    int maxRoomCount = 7;
+    private int maxRoomCount = 7;
+    [SerializeField]
+    private float wallDistFromAgent = 1.51f;
     [SerializeField]
     private float generationDelayInSecods = 1;
     [SerializeField]
     private int maxSteps = 100;
+    [SerializeField]
+    private int currentStep = 0;
     [SerializeField]
     private agentDirections agentDirection = agentDirections.right;
     [SerializeField]
@@ -53,27 +57,10 @@ public class DungeonGenerator : MonoBehaviour
 
     private void Generate()
     {    
-        //StartCoroutine(InvokeDelayedPlacement());
-        InvokePlacement();
 
-        foreach (var item in rooms)
-        {
-            if (item != null)
-            {
-                outlineGenerator.tilePositions.Add(new Vector2Int(Mathf.RoundToInt(item.transform.position.x),
-                    Mathf.RoundToInt(item.transform.position.y)));
-            }
-        }
-        foreach (var item in corridors)
-        {
-            if (item != null)
-            {
-                outlineGenerator.tilePositions.Add(new Vector2Int(Mathf.RoundToInt(item.transform.position.x),
-                    Mathf.RoundToInt(item.transform.position.y)));
-            }
-        }
 
-        outlineGenerator.StartOutlineGen();
+        StartCoroutine(InvokeDelayedPlacement());
+        //InvokePlacement();
     }
 
     private void InvokePlacement()
@@ -90,13 +77,39 @@ public class DungeonGenerator : MonoBehaviour
     private IEnumerator InvokeDelayedPlacement()
     {
         for (int i = 0; i < maxSteps; i++)
-        {            
+        {
             PlaceCorridor();
             PlaceRoom();
             MoveAgent();
             ChooseRandomDirection();
 
             yield return new WaitForSeconds(generationDelayInSecods);
+        }
+    }
+
+    private void PlaceTurnWall()
+    {
+        // Place wall when agent turns
+        switch (agentDirection)
+        {
+            case agentDirections.up:
+                // Place bottom wall
+                PlaceWall(wallBottomPrefab, new Vector2(transform.position.x, transform.position.y - wallDistFromAgent));
+                break;
+            case agentDirections.down:
+                // Place top wall
+                PlaceWall(wallTopPrefab, new Vector2(transform.position.x, transform.position.y + wallDistFromAgent));
+                break;
+            case agentDirections.left:
+                // Place right wall
+                PlaceWall(wallSidePrefab, new Vector2(transform.position.x + wallDistFromAgent, transform.position.y));
+                break;
+            case agentDirections.right:
+                // Place left wall
+                PlaceWall(wallSidePrefab, new Vector2(transform.position.x - wallDistFromAgent, transform.position.y));
+                break;
+            default:
+                break;
         }
     }
 
@@ -119,40 +132,48 @@ public class DungeonGenerator : MonoBehaviour
                     agentDirection == agentDirections.down)
                 {
                     agentDirection = agentDirections.left;
+                    PlaceTurnWall();
                     return;
                 }
 
                 agentDirection = agentDirections.up;
+                PlaceTurnWall();
                 break;
             case 1:
                 if (agentDirection == agentDirections.down ||
                     agentDirection == agentDirections.up)
                 {
                     agentDirection = agentDirections.right;
+                    PlaceTurnWall();
                     return;
                 }
 
                 agentDirection = agentDirections.down;
+                PlaceTurnWall();
                 break;
             case 2:
                 if (agentDirection == agentDirections.left ||
                     agentDirection == agentDirections.right)
                 {
                     agentDirection = agentDirections.up;
+                    PlaceTurnWall();
                     return;
                 }
 
                 agentDirection = agentDirections.left;
+                PlaceTurnWall();
                 break;
             case 3:
                 if (agentDirection == agentDirections.right ||
                     agentDirection == agentDirections.left)
                 {
                     agentDirection = agentDirections.down;
+                    PlaceTurnWall();
                     return;
                 }
 
                 agentDirection = agentDirections.right;
+                PlaceTurnWall();
                 break;
             default:
                 print("ERROR");
@@ -178,15 +199,26 @@ public class DungeonGenerator : MonoBehaviour
         changeDirPercentage += 1;
         placeRoomPercentage += 1;
 
-        // Place top wall
-        //PlaceWall(wallTopPrefab, new Vector2(transform.position.x, transform.position.y + 2));
-        // Place bottom wall
-        //PlaceWall(wallBottomPrefab, new Vector2(transform.position.x, transform.position.y - 2));
-        // Place left wall
-        //PlaceWall(wallSidePrefab, new Vector2(transform.position.x + 2, transform.position.y));
-        // Place right wall
-        //PlaceWall(wallSidePrefab, new Vector2(transform.position.x - 2, transform.position.y));
+        if (currentStep == 0)
+        {
+            //Place left wall
+            PlaceWall(wallSidePrefab, new Vector2(transform.position.x - wallDistFromAgent, transform.position.y));
+        }
 
+        if (agentDirection == agentDirections.right || agentDirection == agentDirections.left)
+        {
+            // Place top wall
+            PlaceWall(wallTopPrefab, new Vector2(transform.position.x, transform.position.y + wallDistFromAgent));
+            // Place bottom wall
+            PlaceWall(wallBottomPrefab, new Vector2(transform.position.x, transform.position.y - wallDistFromAgent));
+        }
+        if (agentDirection == agentDirections.up || agentDirection == agentDirections.down)
+        {
+            // Place left wall
+            PlaceWall(wallSidePrefab, new Vector2(transform.position.x - wallDistFromAgent, transform.position.y));
+            // Place right wall
+            PlaceWall(wallSidePrefab, new Vector2(transform.position.x + wallDistFromAgent, transform.position.y));
+        }
     }
 
     private void PlaceWall(GameObject _wallType, Vector2 _pos)
@@ -309,6 +341,8 @@ public class DungeonGenerator : MonoBehaviour
                 print("ERROR");
                 break;
         }
+
+        currentStep++;
     }
 
     public bool BoundsIntOverlap(BoundsInt a, BoundsInt b)
