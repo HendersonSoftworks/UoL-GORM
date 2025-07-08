@@ -44,10 +44,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 544727f625c697b44bbae6b6bd6dd462, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  generationDelayInSecods: 0.25
+  minRoomCount: 5
+  maxRoomCount: 7
+  generationDelayInSecods: 0.2
+  maxSteps: 1000
+  agentDirection: 3
+  agentStepDistance: 2
+  changeDirPercentage: 0
+  placeRoomPercentage: 0
+  corridors: []
+  rooms: []
+  walls: []
   roomPrefab: {fileID: 1412325085217939537, guid: 13c185ff0d02fcb4ca4e65da754bae26, type: 3}
   corridorPrefab: {fileID: 2229778524449285034, guid: 03312dbe6c62f8744ad3580f99521397, type: 3}
-  maxSteps: 100
-  agentDirection: 3
-  agentStepDistance: 1
-  changeDirPercentage: 0
+  wallTopPrefab: {fileID: 7560836600224425988, guid: c46b48e648c6e0248987a88d404d5bf1, type: 3}
+  wallBottomPrefab: {fileID: 7560836600224425988, guid: 402179a543435b0438ffd4eeecaba169, type: 3}
+  wallSidePrefab: {fileID: 7560836600224425988, guid: ceb9cb3775813854a8914d97ef95eb80, type: 3}
