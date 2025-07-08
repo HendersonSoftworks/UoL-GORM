@@ -23,12 +23,17 @@ public class DungeonGenerator : MonoBehaviour
     [SerializeField]
     private agentDirections agentDirection = agentDirections.right;
     [SerializeField]
+    private agentDirections agentPrevDirection = agentDirections.right;
+
+    [SerializeField]
     private int agentStepDistance = 1;
     [SerializeField][Range(0, 100)]
     private float changeDirPercentage = 0;
     [SerializeField][Range(0, 100)]
     private float placeRoomPercentage = 0;
-    
+    [SerializeField]
+    private bool delayPlaceWalls = false;
+
     [Header("Lists")]
     public List<GameObject> corridors;
     public List<GameObject> rooms;
@@ -56,9 +61,7 @@ public class DungeonGenerator : MonoBehaviour
     }
 
     private void Generate()
-    {    
-
-
+    {   
         StartCoroutine(InvokeDelayedPlacement());
         //InvokePlacement();
     }
@@ -89,24 +92,78 @@ public class DungeonGenerator : MonoBehaviour
 
     private void PlaceTurnWall()
     {
+        delayPlaceWalls = true;
+
         // Place wall when agent turns
         switch (agentDirection)
         {
             case agentDirections.up:
                 // Place bottom wall
                 PlaceWall(wallBottomPrefab, new Vector2(transform.position.x, transform.position.y - wallDistFromAgent));
+
+                // Place turn wall depending on previous direction
+                if (agentPrevDirection == agentDirections.left)
+                {
+                    // Place left wall
+                    PlaceWall(wallSidePrefab, new Vector2(transform.position.x - wallDistFromAgent, transform.position.y));
+                }
+                else if (agentPrevDirection == agentDirections.right)
+                {
+                    // Place right wall
+                    PlaceWall(wallSidePrefab, new Vector2(transform.position.x + wallDistFromAgent, transform.position.y));
+                }
+
                 break;
             case agentDirections.down:
                 // Place top wall
                 PlaceWall(wallTopPrefab, new Vector2(transform.position.x, transform.position.y + wallDistFromAgent));
+
+                // Place turn wall depending on previous direction
+                if (agentPrevDirection == agentDirections.left)
+                {
+                    // Place left wall
+                    PlaceWall(wallSidePrefab, new Vector2(transform.position.x - wallDistFromAgent, transform.position.y));
+                }
+                else if (agentPrevDirection == agentDirections.right)
+                {
+                    // Place right wall
+                    PlaceWall(wallSidePrefab, new Vector2(transform.position.x + wallDistFromAgent, transform.position.y));
+                }
+
                 break;
             case agentDirections.left:
                 // Place right wall
                 PlaceWall(wallSidePrefab, new Vector2(transform.position.x + wallDistFromAgent, transform.position.y));
+
+                // Place turn wall depending on previous direction
+                if (agentPrevDirection == agentDirections.up)
+                {
+                    // Place top wall
+                    PlaceWall(wallTopPrefab, new Vector2(transform.position.x, transform.position.y + wallDistFromAgent));
+                }
+                else if (agentPrevDirection == agentDirections.down)
+                {
+                    // Place bottom wall
+                    PlaceWall(wallBottomPrefab, new Vector2(transform.position.x, transform.position.y - wallDistFromAgent));
+                }
+
                 break;
             case agentDirections.right:
                 // Place left wall
                 PlaceWall(wallSidePrefab, new Vector2(transform.position.x - wallDistFromAgent, transform.position.y));
+
+                // Place turn wall depending on previous direction
+                if (agentPrevDirection == agentDirections.up)
+                {
+                    // Place top wall
+                    PlaceWall(wallTopPrefab, new Vector2(transform.position.x, transform.position.y + wallDistFromAgent));
+                }
+                else if (agentPrevDirection == agentDirections.down)
+                {
+                    // Place bottom wall
+                    PlaceWall(wallBottomPrefab, new Vector2(transform.position.x, transform.position.y - wallDistFromAgent));
+                }
+
                 break;
             default:
                 break;
@@ -121,6 +178,9 @@ public class DungeonGenerator : MonoBehaviour
         {
             return;
         }
+
+        // Store previous direction
+        agentPrevDirection = agentDirection;
 
         // Otherwise, change direction and reset percentage chance
         // Added OR cases so that the agent cannot go back on itself
@@ -205,14 +265,20 @@ public class DungeonGenerator : MonoBehaviour
             PlaceWall(wallSidePrefab, new Vector2(transform.position.x - wallDistFromAgent, transform.position.y));
         }
 
-        if (agentDirection == agentDirections.right || agentDirection == agentDirections.left)
+        // Do not place walls when a turn is made
+        if (delayPlaceWalls)
+        {
+            delayPlaceWalls = false;
+            return;
+        }
+        else if (agentDirection == agentDirections.right || agentDirection == agentDirections.left)
         {
             // Place top wall
             PlaceWall(wallTopPrefab, new Vector2(transform.position.x, transform.position.y + wallDistFromAgent));
             // Place bottom wall
             PlaceWall(wallBottomPrefab, new Vector2(transform.position.x, transform.position.y - wallDistFromAgent));
         }
-        if (agentDirection == agentDirections.up || agentDirection == agentDirections.down)
+        else if (agentDirection == agentDirections.up || agentDirection == agentDirections.down)
         {
             // Place left wall
             PlaceWall(wallSidePrefab, new Vector2(transform.position.x - wallDistFromAgent, transform.position.y));
