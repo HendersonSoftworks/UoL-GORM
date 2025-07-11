@@ -385,6 +385,88 @@ public class DungeonGenerator : MonoBehaviour
         
         rooms.Add(newRoom);
         placeRoomPercentage = 0;
+
+        // Place walls around the room
+        PlaceRoomWalls(newRoom, roomW, roomH);
+    }
+
+    private void PlaceRoomWalls(GameObject room, int width, int height)
+    {
+        BoundsInt roomBounds = room.GetComponent<RoomData>().bounds;
+        Vector2 roomCenter = new Vector2(roomBounds.x + width / 2, roomBounds.y + height / 2);
+
+        // Place top and bottom walls
+        for (int x = roomBounds.x; x < roomBounds.x + width; x++)
+        {
+            // Check if there's a corridor at this position before placing wall
+            bool shouldPlaceTopWall = true;
+            bool shouldPlaceBottomWall = true;
+
+            foreach (var corridor in corridors)
+            {
+                Vector2 corridorPos = corridor.transform.position;
+
+                // Top wall check
+                if (Mathf.Approximately(corridorPos.x, x) &&
+                    Mathf.Approximately(corridorPos.y, roomBounds.y + height))
+                {
+                    shouldPlaceTopWall = false;
+                }
+
+                // Bottom wall check
+                if (Mathf.Approximately(corridorPos.x, x) &&
+                    Mathf.Approximately(corridorPos.y, roomBounds.y - 1))
+                {
+                    shouldPlaceBottomWall = false;
+                }
+            }
+
+            if (shouldPlaceTopWall)
+            {
+                PlaceWall(wallTopPrefab, new Vector2(x, roomBounds.y + height));
+            }
+
+            if (shouldPlaceBottomWall)
+            {
+                PlaceWall(wallBottomPrefab, new Vector2(x, roomBounds.y - 1));
+            }
+        }
+
+        // Place side walls
+        for (int y = roomBounds.y; y < roomBounds.y + height; y++)
+        {
+            bool shouldPlaceLeftWall = true;
+            bool shouldPlaceRightWall = true;
+
+            foreach (var corridor in corridors)
+            {
+                Vector2 corridorPos = corridor.transform.position;
+
+                // Left wall check
+                if (Mathf.Approximately(corridorPos.y, y) &&
+                    Mathf.Approximately(corridorPos.x, roomBounds.x - 1))
+                {
+                    shouldPlaceLeftWall = false;
+                }
+
+                // Right wall check
+                if (Mathf.Approximately(corridorPos.y, y) &&
+                    Mathf.Approximately(corridorPos.x, roomBounds.x + width))
+                {
+                    shouldPlaceRightWall = false;
+                }
+            }
+
+            if (shouldPlaceLeftWall)
+            {
+                PlaceWall(wallSidePrefab, new Vector2(roomBounds.x - 1, y));
+            }
+
+            if (shouldPlaceRightWall)
+            {
+                PlaceWall(wallSidePrefab, new Vector2(roomBounds.x + width, y));
+            }
+        }
     }
 
     private void MoveAgent()
