@@ -470,7 +470,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6898707864579352175, guid: 48b2afc2cf45b3449993b1fd62b327b3, type: 3}
       propertyPath: maxSteps
-      value: 1000
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 6898707864579352175, guid: 48b2afc2cf45b3449993b1fd62b327b3, type: 3}
       propertyPath: wallTopPrefab
@@ -499,6 +499,14 @@ PrefabInstance:
     - target: {fileID: 6898707864579352175, guid: 48b2afc2cf45b3449993b1fd62b327b3, type: 3}
       propertyPath: wallDistFromAgent
       value: 1.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6898707864579352175, guid: 48b2afc2cf45b3449993b1fd62b327b3, type: 3}
+      propertyPath: wallLayerMask.m_Bits
+      value: 64
+      objectReference: {fileID: 0}
+    - target: {fileID: 6898707864579352175, guid: 48b2afc2cf45b3449993b1fd62b327b3, type: 3}
+      propertyPath: cleanupRaycastDistance
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6898707864579352175, guid: 48b2afc2cf45b3449993b1fd62b327b3, type: 3}
       propertyPath: generationDelayInSecods

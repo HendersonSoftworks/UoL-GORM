@@ -7,6 +7,14 @@ public class DungeonGenerator : MonoBehaviour
 {
     private enum agentDirections { up, down, left, right };
 
+    [Header("Cleanup")]
+    [SerializeField]
+    private List<Vector2> agentPath = new List<Vector2>();
+    [SerializeField] 
+    private float cleanupRaycastDistance = 1.5f;
+    [SerializeField] 
+    private LayerMask wallLayerMask;
+
     [Header("Config")]
     [SerializeField]
     private int minRoomCount = 5;
@@ -62,9 +70,97 @@ public class DungeonGenerator : MonoBehaviour
 
     private void Generate()
     {   
-        StartCoroutine(InvokeDelayedPlacement());
-        //InvokePlacement();
+        //StartCoroutine(InvokeDelayedPlacement());
+        InvokePlacement();
+        CleanupExtraWalls();
     }
+
+    private void CleanupExtraWalls()
+    {
+        if (agentPath.Count < 2) return;
+
+        // Visualize all rays in the scene for better debugging
+        Debug.DrawRay(agentPath[agentPath.Count - 1],
+                     (agentPath[agentPath.Count - 2] - agentPath[agentPath.Count - 1]).normalized * cleanupRaycastDistance,
+                     Color.red, 10f);
+
+        // Check from the end backwards
+        for (int i = agentPath.Count - 1; i > 0; i--)
+        {
+            Vector2 currentPos = agentPath[i];
+            Vector2 nextPos = agentPath[i - 1]; // The position we're moving toward
+            Vector2 direction = (nextPos - currentPos).normalized;
+
+            // Raycast in the movement direction
+            RaycastHit2D[] hits = Physics2D.RaycastAll(
+                currentPos,
+                direction,
+                cleanupRaycastDistance,
+                wallLayerMask
+            );
+
+            // Draw the ray for debugging (visible for 10 seconds)
+            Debug.DrawRay(currentPos, direction * cleanupRaycastDistance, Color.magenta, 10f);
+
+            // Process all hits
+            foreach (var hit in hits)
+            {
+                if (hit.collider != null)
+                {
+                    GameObject wall = hit.collider.gameObject;
+                    if (walls.Contains(wall))
+                    {
+                        Debug.Log($"Found wall to remove at {wall.transform.position}");
+                        walls.Remove(wall);
+                        Destroy(wall);
+                    }
+                }
+            }
+        }
+    }
+
+    /*
+    private void CleanupExtraWalls()
+    {
+        if (agentPath.Count < 2) return;
+
+        // Backtrack along the path
+        for (int i = agentPath.Count - 1; i > 0; i--)
+        {
+            Vector2 currentPos = agentPath[i];
+            Vector2 previousPos = agentPath[i - 1];
+            Vector2 direction = (previousPos - currentPos).normalized;
+
+            // Raycast ahead in movement direction
+            RaycastHit2D hit = Physics2D.Raycast(
+                currentPos,
+                direction,
+                cleanupRaycastDistance,
+                wallLayerMask
+            );
+
+            Debug.DrawRay(currentPos, direction * cleanupRaycastDistance, Color.red, 2f);
+
+            //if (hit.collider.gameObject != null)
+            //{
+            //    Destroy(hit.collider.gameObject);
+            //}
+
+            if (hit.collider != null)
+            {
+                GameObject wall = hit.collider.gameObject;
+                if (walls.Contains(wall))
+                {
+                    walls.Remove(wall);
+                    Destroy(wall);
+                }
+            }
+        }
+
+        // Clear path for next generation
+        //agentPath.Clear();
+    }
+    */
 
     private void InvokePlacement()
     {
@@ -392,7 +488,6 @@ public class DungeonGenerator : MonoBehaviour
 
     private void PlaceRoomWalls(GameObject room, int width, int height)
     {
-        BoundsInt roomBounds = room.GetComponent<RoomData>().bounds;
         Vector2 roomOffset = new Vector2(room.transform.position.x,
             room.transform.position.y);
 
@@ -475,90 +570,10 @@ public class DungeonGenerator : MonoBehaviour
         }
     }
 
-    /*
-     
-    private void PlaceRoomWalls(GameObject room, int width, int height)
-    {
-        BoundsInt roomBounds = room.GetComponent<RoomData>().bounds;
-        Vector2 roomCenter = new Vector2(roomBounds.x + width / 2, roomBounds.y + height / 2);
-
-        // Place top and bottom walls
-        for (int x = roomBounds.x; x < roomBounds.x + width; x++)
-        {
-            // Check if there's a corridor at this position before placing wall
-            bool shouldPlaceTopWall = true;
-            bool shouldPlaceBottomWall = true;
-
-            foreach (var corridor in corridors)
-            {
-                Vector2 corridorPos = corridor.transform.position;
-
-                // Top wall check
-                if (Mathf.Approximately(corridorPos.x, x) &&
-                    Mathf.Approximately(corridorPos.y, roomBounds.y + height))
-                {
-                    shouldPlaceTopWall = false;
-                }
-
-                // Bottom wall check
-                if (Mathf.Approximately(corridorPos.x, x) &&
-                    Mathf.Approximately(corridorPos.y, roomBounds.y - 1))
-                {
-                    shouldPlaceBottomWall = false;
-                }
-            }
-
-            if (shouldPlaceTopWall)
-            {
-                PlaceWall(wallTopPrefab, new Vector2(x, roomBounds.y + height));
-            }
-
-            if (shouldPlaceBottomWall)
-            {
-                PlaceWall(wallBottomPrefab, new Vector2(x, roomBounds.y - 1));
-            }
-        }
-
-        // Place side walls
-        for (int y = roomBounds.y; y < roomBounds.y + height; y++)
-        {
-            bool shouldPlaceLeftWall = true;
-            bool shouldPlaceRightWall = true;
-
-            foreach (var corridor in corridors)
-            {
-                Vector2 corridorPos = corridor.transform.position;
-
-                // Left wall check
-                if (Mathf.Approximately(corridorPos.y, y) &&
-                    Mathf.Approximately(corridorPos.x, roomBounds.x - 1))
-                {
-                    shouldPlaceLeftWall = false;
-                }
-
-                // Right wall check
-                if (Mathf.Approximately(corridorPos.y, y) &&
-                    Mathf.Approximately(corridorPos.x, roomBounds.x + width))
-                {
-                    shouldPlaceRightWall = false;
-                }
-            }
-
-            if (shouldPlaceLeftWall)
-            {
-                PlaceWall(wallSidePrefab, new Vector2(roomBounds.x - 1, y));
-            }
-
-            if (shouldPlaceRightWall)
-            {
-                PlaceWall(wallSidePrefab, new Vector2(roomBounds.x + width, y));
-            }
-        }
-    }
-    */
-
     private void MoveAgent()
     {
+        Vector2 previousPosition = transform.position;
+
         switch (agentDirection)
         {
             case agentDirections.up:
@@ -577,6 +592,8 @@ public class DungeonGenerator : MonoBehaviour
                 print("ERROR");
                 break;
         }
+
+        agentPath.Add(previousPosition);
 
         currentStep++;
     }
