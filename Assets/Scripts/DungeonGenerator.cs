@@ -393,6 +393,93 @@ public class DungeonGenerator : MonoBehaviour
     private void PlaceRoomWalls(GameObject room, int width, int height)
     {
         BoundsInt roomBounds = room.GetComponent<RoomData>().bounds;
+        Vector2 roomOffset = new Vector2(room.transform.position.x,
+            room.transform.position.y);
+
+        // Calculate exact wall positions relative to room center
+        float halfWidth = width / 2f;
+        float halfHeight = height / 2f;
+
+        // Wall positions (1 unit outside the room)
+        float leftWallX = roomOffset.x - halfWidth - 0.1f;
+        float rightWallX = roomOffset.x + halfWidth + 0.1f;
+        float topWallY = roomOffset.y + halfHeight + 0.1f;
+        float bottomWallY = roomOffset.y - halfHeight - 0.1f;
+
+        // Place top and bottom walls
+        for (float x = roomOffset.x - halfWidth + 0.5f; x <= roomOffset.x + halfWidth - 0.5f; x += 1f)
+        {
+            // Check for corridors at top
+            bool topWallNeeded = true;
+            foreach (var corridor in corridors)
+            {
+                if (Vector2.Distance(corridor.transform.position, new Vector2(x, topWallY)) < 0.1f)
+                {
+                    topWallNeeded = false;
+                    break;
+                }
+            }
+            if (topWallNeeded)
+            {
+                PlaceWall(wallTopPrefab, new Vector2(x, topWallY));
+            }
+
+            // Check for corridors at bottom
+            bool bottomWallNeeded = true;
+            foreach (var corridor in corridors)
+            {
+                if (Vector2.Distance(corridor.transform.position, new Vector2(x, bottomWallY)) < 0.1f)
+                {
+                    bottomWallNeeded = false;
+                    break;
+                }
+            }
+            if (bottomWallNeeded)
+            {
+                PlaceWall(wallBottomPrefab, new Vector2(x, bottomWallY));
+            }
+        }
+
+        // Place left and right walls
+        for (float y = roomOffset.y - halfHeight + 0.5f; y <= roomOffset.y + halfHeight - 0.5f; y += 1f)
+        {
+            // Check for corridors at left
+            bool leftWallNeeded = true;
+            foreach (var corridor in corridors)
+            {
+                if (Vector2.Distance(corridor.transform.position, new Vector2(leftWallX, y)) < 0.1f)
+                {
+                    leftWallNeeded = false;
+                    break;
+                }
+            }
+            if (leftWallNeeded)
+            {
+                PlaceWall(wallSidePrefab, new Vector2(leftWallX, y));
+            }
+
+            // Check for corridors at right
+            bool rightWallNeeded = true;
+            foreach (var corridor in corridors)
+            {
+                if (Vector2.Distance(corridor.transform.position, new Vector2(rightWallX, y)) < 0.1f)
+                {
+                    rightWallNeeded = false;
+                    break;
+                }
+            }
+            if (rightWallNeeded)
+            {
+                PlaceWall(wallSidePrefab, new Vector2(rightWallX, y));
+            }
+        }
+    }
+
+    /*
+     
+    private void PlaceRoomWalls(GameObject room, int width, int height)
+    {
+        BoundsInt roomBounds = room.GetComponent<RoomData>().bounds;
         Vector2 roomCenter = new Vector2(roomBounds.x + width / 2, roomBounds.y + height / 2);
 
         // Place top and bottom walls
@@ -468,6 +555,7 @@ public class DungeonGenerator : MonoBehaviour
             }
         }
     }
+    */
 
     private void MoveAgent()
     {
