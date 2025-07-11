@@ -67,18 +67,40 @@ public class DungeonGenerator : MonoBehaviour
 
     void Start()
     {
-        Generate();
-    }
-
-    private void Generate()
-    {   
         //StartCoroutine(InvokeDelayedPlacement());
         InvokePlacement();
         CleanupExtraWalls();
     }
 
+    private void Generate()
+    {
+        PlaceCorridor();
+        PlaceRoom();
+        MoveAgent();
+        ChooseRandomDirection();
+    }
+
+    private void InvokePlacement()
+    {
+        for (int i = 0; i < maxSteps; i++)
+        {
+            Generate();
+        }
+    }
+
+    private IEnumerator InvokeDelayedPlacement()
+    {
+        for (int i = 0; i < maxSteps; i++)
+        {
+            Generate();
+
+            yield return new WaitForSeconds(generationDelayInSecods);
+        }
+    }
+
     private void CleanupExtraWalls()
     {
+        // Corridor walls
         if (agentPath.Count < 2) return;
 
         for (int i = agentPath.Count - 1; i > 0; i--)
@@ -110,72 +132,61 @@ public class DungeonGenerator : MonoBehaviour
                            currentPos + direction * cleanupRaycastDistance + Vector2.Perpendicular(direction) * rayRadius,
                            Color.blue, 2f);
         }
+
+        // Corridor walls in rooms
+        CleanCorridorWallsInRooms();
     }
 
-    /*
-    private void CleanupExtraWalls()
+    private void CleanCorridorWallsInRooms()
     {
-        if (agentPath.Count < 2) return;
+        // TODO
+        // 1, Agent backtracks and reaches middle of room
+        // 2. Fire boxcast out and delete all walls with boxcast
 
-        // Backtrack along the path
-        for (int i = agentPath.Count - 1; i > 0; i--)
+        // Iterate through all rooms
+        foreach (GameObject room in rooms)
         {
-            Vector2 currentPos = agentPath[i];
-            Vector2 previousPos = agentPath[i - 1];
-            Vector2 direction = (previousPos - currentPos).normalized;
+            if (room == null) continue;
 
-            // Raycast ahead in movement direction
-            RaycastHit2D hit = Physics2D.Raycast(
-                currentPos,
-                direction,
-                cleanupRaycastDistance,
+            // Get room bounds
+            BoundsInt roomBounds = room.GetComponent<RoomData>().bounds;
+            int xOffset = 0;
+            int yOffset = 0;
+            Vector2 roomCenter = new Vector2(roomBounds.x + xOffset,
+                                            roomBounds.y + yOffset);
+
+            // Calculate boxcast size based on room dimensions
+            Vector2 boxSize = new Vector2(3, 3);
+
+            // Fire boxcast in all four directions from room center
+            // We'll use a small distance since we're casting from center to edges
+            float castDistance = Mathf.Max(roomBounds.size.x, roomBounds.size.y) / 2f;
+
+            // Cast in all four directions (though any direction should work for a boxcast)
+            RaycastHit2D[] hits = Physics2D.BoxCastAll(
+                roomCenter,
+                boxSize,
+                0f,
+                Vector2.zero,
+                castDistance,
                 wallLayerMask
             );
 
-            Debug.DrawRay(currentPos, direction * cleanupRaycastDistance, Color.red, 2f);
-
-            //if (hit.collider.gameObject != null)
-            //{
-            //    Destroy(hit.collider.gameObject);
-            //}
-
-            if (hit.collider != null)
+            // Remove any walls found inside the room
+            foreach (var hit in hits)
             {
-                GameObject wall = hit.collider.gameObject;
-                if (walls.Contains(wall))
+                if (hit.collider != null && walls.Contains(hit.collider.gameObject))
                 {
+                    GameObject wall = hit.collider.gameObject;
                     walls.Remove(wall);
                     Destroy(wall);
                 }
             }
-        }
 
-        // Clear path for next generation
-        //agentPath.Clear();
-    }
-    */
-
-    private void InvokePlacement()
-    {
-        for (int i = 0; i < maxSteps; i++)
-        {
-            PlaceCorridor();
-            PlaceRoom();
-            MoveAgent();
-            ChooseRandomDirection();
-        }
-    }
-
-    private IEnumerator InvokeDelayedPlacement()
-    {
-        for (int i = 0; i < maxSteps; i++)
-        {
-            PlaceCorridor();
-            PlaceRoom();
-            MoveAgent();
-            ChooseRandomDirection();
-
-            yield return new WaitForSeconds(generationDelayInSecods);
+            // Debug visualization
+            Debug.DrawLine(roomCenter - new Vector2(boxSize.x / 2, boxSize.y / 2),
+                          roomCenter + new Vector2(boxSize.x / 2, boxSize.y / 2),
+                          Color.cyan, 60f);
         }
     }
 
@@ -597,5 +608,24 @@ public class DungeonGenerator : MonoBehaviour
         bool yOverlap = a.y < b.y + b.size.y && a.y + a.size.y > b.y;
 
         return xOverlap && yOverlap;
+    }
+
+    private void OnDrawGizmos()
+    {
+        foreach (var room in rooms)
+        {
+
+            //BoundsInt roomBounds = room.GetComponent<RoomData>().bounds;
+            //Vector2 roomCenter = new Vector2(roomBounds.x + roomBounds.size.x / 2f - 2,
+            //                                roomBounds.y + roomBounds.size.y / 2f - 2);
+
+            //// Calculate boxcast size based on room dimensions
+            //Vector2 boxSize = new Vector2(roomBounds.size.x - 1, roomBounds.size.y - 1);
+
+            //// Debug visualization
+            //Debug.DrawLine(roomCenter - new Vector2(boxSize.x / 2, boxSize.y / 2),
+            //              roomCenter + new Vector2(boxSize.x / 2, boxSize.y / 2),
+            //              Color.green, 2f);
+        }
     }
 }
