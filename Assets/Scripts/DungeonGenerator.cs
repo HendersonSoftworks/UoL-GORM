@@ -11,9 +11,11 @@ public class DungeonGenerator : MonoBehaviour
     [SerializeField]
     private List<Vector2> agentPath = new List<Vector2>();
     [SerializeField] 
-    private float cleanupRaycastDistance = 1.5f;
+    private float cleanupRaycastDistance = 2f;
     [SerializeField] 
     private LayerMask wallLayerMask;
+    [SerializeField]
+    float rayRadius = 1f;
 
     [Header("Config")]
     [SerializeField]
@@ -79,43 +81,34 @@ public class DungeonGenerator : MonoBehaviour
     {
         if (agentPath.Count < 2) return;
 
-        // Visualize all rays in the scene for better debugging
-        Debug.DrawRay(agentPath[agentPath.Count - 1],
-                     (agentPath[agentPath.Count - 2] - agentPath[agentPath.Count - 1]).normalized * cleanupRaycastDistance,
-                     Color.red, 10f);
-
-        // Check from the end backwards
         for (int i = agentPath.Count - 1; i > 0; i--)
         {
             Vector2 currentPos = agentPath[i];
-            Vector2 nextPos = agentPath[i - 1]; // The position we're moving toward
-            Vector2 direction = (nextPos - currentPos).normalized;
+            Vector2 direction = (agentPath[i - 1] - currentPos).normalized;
 
-            // Raycast in the movement direction
-            RaycastHit2D[] hits = Physics2D.RaycastAll(
+            RaycastHit2D[] hits = Physics2D.CircleCastAll(
                 currentPos,
+                rayRadius,
                 direction,
                 cleanupRaycastDistance,
                 wallLayerMask
             );
 
-            // Draw the ray for debugging (visible for 10 seconds)
-            Debug.DrawRay(currentPos, direction * cleanupRaycastDistance, Color.magenta, 10f);
-
-            // Process all hits
             foreach (var hit in hits)
             {
-                if (hit.collider != null)
+                if (hit.collider != null && walls.Contains(hit.collider.gameObject))
                 {
                     GameObject wall = hit.collider.gameObject;
-                    if (walls.Contains(wall))
-                    {
-                        Debug.Log($"Found wall to remove at {wall.transform.position}");
-                        walls.Remove(wall);
-                        Destroy(wall);
-                    }
+                    walls.Remove(wall);
+                    Destroy(wall);
                 }
             }
+
+            // Debug visualization
+            Debug.DrawRay(currentPos, direction * cleanupRaycastDistance, Color.red, 2f);
+            Debug.DrawLine(currentPos + Vector2.Perpendicular(direction) * rayRadius,
+                           currentPos + direction * cleanupRaycastDistance + Vector2.Perpendicular(direction) * rayRadius,
+                           Color.blue, 2f);
         }
     }
 

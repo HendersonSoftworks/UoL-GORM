@@ -473,6 +473,10 @@ PrefabInstance:
       value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 6898707864579352175, guid: 48b2afc2cf45b3449993b1fd62b327b3, type: 3}
+      propertyPath: rayRadius
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6898707864579352175, guid: 48b2afc2cf45b3449993b1fd62b327b3, type: 3}
       propertyPath: wallTopPrefab
       value: 
       objectReference: {fileID: 7560836600224425988, guid: 0e4eb8248e0cd874fa9b350e36154d6c, type: 3}
