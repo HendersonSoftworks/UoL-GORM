@@ -54,23 +54,6 @@ public class PlayerMovementController : MonoBehaviour
 
     private void RotatePlayerBody(Vector2 moveInput)
     {
-        //if (moveInput == Vector2.up)
-        //{
-        //    transform.rotation = Quaternion.Euler(new Vector3(transform.rotation.x, transform.rotation.y, 0));
-        //}
-        //if (moveInput == Vector2.down)
-        //{
-        //    transform.rotation = Quaternion.Euler(new Vector3(transform.rotation.x, transform.rotation.y, 180));
-        //}
-        //if (moveInput == Vector2.left)
-        //{
-        //    transform.rotation = Quaternion.Euler(new Vector3(transform.rotation.x, transform.rotation.y, 90));
-        //}
-        //if (moveInput == Vector2.right)
-        //{
-        //    transform.rotation = Quaternion.Euler(new Vector3(transform.rotation.x, transform.rotation.y, -90));
-        //}
-
         if (moveInput.magnitude > 0.1f)
         {
             float angle = Mathf.Atan2(moveInput.y, moveInput.x) * Mathf.Rad2Deg;
