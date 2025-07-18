@@ -159,6 +159,22 @@ public class EnemyMovementController : MonoBehaviour
         targetObject = playerObject;
     }
 
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Player")
+        {
+            inContactWithPlayer = true;
+        }
+    }
+
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Player")
+        {
+            inContactWithPlayer = false;
+        }
+    }
+
     private void OnDrawGizmos()
     {
         // Attack distance

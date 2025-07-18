@@ -63,20 +63,13 @@ public class DungeonGenerator : MonoBehaviour
 
     [Header("References")]
     [SerializeField]
-    private TileOutlineGenerator outlineGenerator;
+    private FollowPlayerAndRescan setBoundsAndScan;
 
     void Start()
     {
-        //StartCoroutine(InvokeDelayedPlacement());
         InvokePlacement();
         CleanupExtraWalls();
-        ScanAStarGraph();
-    }
-
-    private void ScanAStarGraph()
-    {
-        // Initial scan to kick off enemies
-        AstarPath.active.data.gridGraph.Scan();
+        setBoundsAndScan.SetGraphBoundsAndRescan();
     }
 
     private void Generate()
@@ -92,16 +85,6 @@ public class DungeonGenerator : MonoBehaviour
         for (int i = 0; i < maxSteps; i++)
         {
             Generate();
-        }
-    }
-
-    private IEnumerator InvokeDelayedPlacement()
-    {
-        for (int i = 0; i < maxSteps; i++)
-        {
-            Generate();
-
-            yield return new WaitForSeconds(generationDelayInSecods);
         }
     }
 
