@@ -44,6 +44,14 @@ public class EnemyMovementController : MonoBehaviour
 
         rb2D = GetComponent<Rigidbody2D>();
         seeker = GetComponent<Seeker>();
+
+        InvokeRepeating("UpdatePath", 0f, 0.5f);
+    }
+
+    private void UpdatePath()
+    {
+        if (!seeker.IsDone()) { return; }
+
         seeker.StartPath(rb2D.position, targetObject.transform.position, OnPathComplete);
     }
 
@@ -56,10 +64,28 @@ public class EnemyMovementController : MonoBehaviour
         }
     }
 
-    void Update()
+    void FixedUpdate()
     {
         DetectIfTargetInRange();
         ManageMovement();
+    }
+
+    private void Update()
+    {
+        ManageRotation();
+    }
+
+    private void ManageRotation()
+    {
+        // A* causes rotation to become stilted - this smoothens it out
+        if (!isChasing)
+        {
+            return;
+        }
+
+        Vector2 _moveDir = ((Vector2)targetObject.transform.position - (Vector2)transform.position).normalized;
+
+        RotatePlayerBody(_moveDir);
     }
 
     private void ManageMovement()
@@ -84,19 +110,24 @@ public class EnemyMovementController : MonoBehaviour
         }
         else if (isChasing)
         {
-            Vector2 moveDir = (targetObject.transform.position - transform.position).normalized;
-            RotatePlayerBody(moveDir);
+            Vector2 moveDir = ((Vector2)path.vectorPath[currentWaypoint] - rb2D.position).normalized;
+            Vector2 force = moveDir * moveSpeed * Time.deltaTime;
 
-            rb2D.linearVelocity = (moveDir * moveSpeed * Time.deltaTime);
+            float distance = Vector2.Distance(rb2D.position, path.vectorPath[currentWaypoint]);
+
+            if (distance < nextWaypointDistance) { currentWaypoint++; }
+
+            rb2D.linearVelocity = force;
         }
     }
 
-    private void RotatePlayerBody(Vector2 moveInput)
+    private void RotatePlayerBody(Vector2 _moveDir)
     {
+
         // Bit of duplication here - move to helper class
-        if (moveInput.magnitude > 0.1f)
+        if (_moveDir.magnitude > 0.1f)
         {
-            float angle = Mathf.Atan2(moveInput.y, moveInput.x) * Mathf.Rad2Deg;
+            float angle = Mathf.Atan2(_moveDir.y, _moveDir.x) * Mathf.Rad2Deg;
             angle -= 90f;
 
             Quaternion targetRotation = Quaternion.Euler(0, 0, angle);

@@ -70,6 +70,13 @@ public class DungeonGenerator : MonoBehaviour
         //StartCoroutine(InvokeDelayedPlacement());
         InvokePlacement();
         CleanupExtraWalls();
+        ScanAStarGraph();
+    }
+
+    private void ScanAStarGraph()
+    {
+        // Initial scan to kick off enemies
+        AstarPath.active.data.gridGraph.Scan();
     }
 
     private void Generate()
