@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 6c956270d5c9b4a42ab2c7204ee3e7c1
+ShaderImporter:
+  defaultTextures: []
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 36700
+  packageName: KBH Toon Skeleton
+  packageVersion: 1.0
+  assetPath: Assets/Materials/ToonShader.shader
+  uploadId: 63235

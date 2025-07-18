@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: de62371144ea3d349a12e6e17fed6b21
+timeCreated: 1431425937
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 36700
+  packageName: KBH Toon Skeleton
+  packageVersion: 1.0
+  assetPath: Assets/Materials/Skel_clothing01Unlit.mat
+  uploadId: 63235
