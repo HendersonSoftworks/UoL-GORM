@@ -38,12 +38,6 @@ public class PlayerMovementController : MonoBehaviour
         {
             ProcessMovement();
         }
-
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            Vector2 randVec = new Vector2(Random.Range(-10, 10), Random.Range(-10, 10));
-            PushPlayerInRandomDirection(randVec.normalized * defaultPushBackForce);
-        }
     }
 
     private void ProcessMovement()
@@ -64,9 +58,10 @@ public class PlayerMovementController : MonoBehaviour
         }
     }
 
-    private void PushPlayerInRandomDirection(Vector2 force)
+    private void PushPlayerInRandomDirection()
     {
-        rb2D.AddForce(force, ForceMode2D.Impulse);
+        Vector2 randVec = new Vector2(Random.Range(-10, 10), Random.Range(-10, 10));
+        rb2D.AddForce(randVec.normalized * defaultPushBackForce, ForceMode2D.Impulse);
         StartCoroutine(DisabledMovementWhilePushed());
     }
 
