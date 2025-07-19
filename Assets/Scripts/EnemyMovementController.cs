@@ -79,7 +79,7 @@ public class EnemyMovementController : MonoBehaviour
         Vector2 _moveDir = ((Vector2)targetObject.transform.position - (Vector2)transform.position).normalized;
 
         // Do not rotate while attacking - more souls-like
-        if (currentMoveState == MoveStates.attacking) { RotatePlayerBody(_moveDir);}
+        if (currentMoveState != MoveStates.attacking) { RotatePlayerBody(_moveDir);}
     }
 
     private void ManageMovement()
@@ -135,7 +135,7 @@ public class EnemyMovementController : MonoBehaviour
 
         float dist = Vector2.Distance(transform.position,
             targetObject.transform.position);
-        if (dist <= chaseDist)
+        if (dist <= chaseDist && currentMoveState != MoveStates.attacking)
         {
             currentMoveState = MoveStates.chasing;
         }
