@@ -103,7 +103,7 @@ GameObject:
   - component: {fileID: 1319836224415689049}
   m_Layer: 0
   m_Name: Player (Test)
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -218,7 +218,7 @@ CircleCollider2D:
   m_CompositeOperation: 0
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
-  m_Radius: 0.5
+  m_Radius: 0.3
 --- !u!114 &2364384162840473713
 MonoBehaviour:
   m_ObjectHideFlags: 0

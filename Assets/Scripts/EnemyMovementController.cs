@@ -7,10 +7,8 @@ public class EnemyMovementController : MonoBehaviour
     public enum MoveStates { idle, chasing, attacking }
 
     [Header("Setup - Leave empty")]
-    [SerializeField]
-    public MoveStates currentMoveState;
-    [SerializeField]
-    private GameObject targetObject;
+    public MoveStates currentMoveState = MoveStates.idle;
+    public GameObject targetObject;
     [SerializeField]
     private GameObject playerObject;
     [SerializeField]
@@ -18,15 +16,13 @@ public class EnemyMovementController : MonoBehaviour
     [SerializeField]
     private float distFromTarget;
     [SerializeField]
-    private bool isChasing = false;
-    [SerializeField]
     private bool inContactWithPlayer;
     [SerializeField]
     private Rigidbody2D rb2D;
 
     [Header("Config - Set enemy stats")]
     [SerializeField]
-    private float attackDist;
+    private float chaseDist;
     [SerializeField]
     private float moveSpeed;
     [SerializeField]
@@ -34,7 +30,7 @@ public class EnemyMovementController : MonoBehaviour
 
     private Path path;
     private int currentWaypoint = 0;
-    private bool reachedEndOfPath = false;
+    private bool reachedEndOfPath = false; // May not be needed
     private Seeker seeker;
     
     void Start()
@@ -77,15 +73,13 @@ public class EnemyMovementController : MonoBehaviour
 
     private void ManageRotation()
     {
-        // A* causes rotation to become stilted - this smoothens it out
-        if (!isChasing)
-        {
-            return;
-        }
+        // A* causes rotation to become stilted - smoothen out
+        if (currentMoveState != MoveStates.chasing) { return; }
 
         Vector2 _moveDir = ((Vector2)targetObject.transform.position - (Vector2)transform.position).normalized;
 
-        RotatePlayerBody(_moveDir);
+        // Do not rotate while attacking - more souls-like
+        if (currentMoveState == MoveStates.attacking) { RotatePlayerBody(_moveDir);}
     }
 
     private void ManageMovement()
@@ -108,7 +102,7 @@ public class EnemyMovementController : MonoBehaviour
         {
             rb2D.linearVelocity = Vector2.zero;
         }
-        else if (isChasing)
+        else if (currentMoveState == MoveStates.chasing)
         {
             Vector2 moveDir = ((Vector2)path.vectorPath[currentWaypoint] - rb2D.position).normalized;
             Vector2 force = moveDir * moveSpeed * Time.deltaTime;
@@ -141,9 +135,9 @@ public class EnemyMovementController : MonoBehaviour
 
         float dist = Vector2.Distance(transform.position,
             targetObject.transform.position);
-        if (dist <= attackDist)
+        if (dist <= chaseDist)
         {
-            isChasing = true;
+            currentMoveState = MoveStates.chasing;
         }
     }
 
@@ -167,6 +161,14 @@ public class EnemyMovementController : MonoBehaviour
         }
     }
 
+    private void OnCollisionStay2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Player")
+        {
+            inContactWithPlayer = true;
+        }
+    }
+
     private void OnCollisionExit2D(Collision2D collision)
     {
         if (collision.gameObject.tag == "Player")
@@ -175,10 +177,10 @@ public class EnemyMovementController : MonoBehaviour
         }
     }
 
-    private void OnDrawGizmos()
+    private void OnDrawGizmosSelected()
     {
         // Attack distance
-        Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(transform.position, attackDist);
+        Gizmos.color = Color.yellow;
+        Gizmos.DrawWireSphere(transform.position, chaseDist);
     }
 }

@@ -47,7 +47,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   version: 1
   data:
-    dataString: UEsDBBQAAAgIAAAAIez1pyFCbQIAACEFAAALACQAZ3JhcGgwLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQFlVE1zokAQ/SvWnNcUoIm6t11izB6SWHG3cuEyMI1MOcxQ8xE1Kf/79gwgxpxo+r3ufv0Bn4RL00BhlV5pzp4UA/JzRLxNfowG8BEOdKvkhn9Az3njzFaeRAPnlVqu0B/7MKNqsJoXv+RWeHKETid5qXS9ZFtIlbEG3SUVBhDSyvpoia7PETngY7zwIUe0kpm3PtBaRKMTmgVIC3qg9sSe1rKcLAStG2Be8kCe3dx2dLQCUWI7HScKYKGE4KZTQ+yxCd2mtDEOe0EC4xS7CxISfK2AbyvbvZyDX8rSgO1kaXq85xqH1GYlv1U7uZqaXavtnQrn68SLJKhqkz59w8dxgEut6se+bhz5Grbixe6VHgtq7MVoL933g/A4jGhPxY7mAt4qkM9qpZWTDEGrnQ91BpL74fXcWlpBsRv8rdQrp2u+Lyi5mcyn8fxucrccR7NuW76hUxjFIRW8zsMapq1jI1QYfrgF0LioP6g+XIrp8qLXS/pn4C/dXp5UBzxwbSxCXcvSa82V055KHtDwayicTZWWELxdAw1IKuxxjVns9TqvsIuqV8gD9d9OV7vD+k/iKiS4B34UXUFrtT8vzlRq/wSmenFWcAmDaA8845hSJWV7beYr6KM2Tpe0uIjaOs6+Xhm5zfM8YvPFLZ1CNE8W4/kM4ryYRrP5LJ/Ek4SEM+QS26Ri3erspoM7k0NyiSfX/1FGK02bcPhM0/2Kf9TqQh+XpdoUGkC+tBn6CRnQWAQ/UbZkHOezAWu5DNsmnxkRqtgBy86JstDp8mA1zYYsGWn4u7Lek5E0/EIy4t3ns15reOew98X7ZCdy+g9QSwMEFAAACAgAAAAh7P1PUyxtAAAAeAAAAAkAJABtZXRhLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQGrVipLLSrOzM9TslIw0TPSMzTXUVBKL0osyCgGihiCOKWZKSB2tJJpUlKSQYqFpWmiSaqBhZGlroV5qmFSsomBuYV5krGhsZFSLFB9SWVBql9ibipET0BiSUZaZl5KZl66nntRZoo7yGil2FoAUEsBAi0AFAAACAgAAAAh7PWnIUJtAgAAIQUAAAsAJAAAAAAAAAAAAAAAAAAAAGdyYXBoMC5qc29uCgAgAAAAAAABABgAAIA+1d6xnQEAgD7V3rGdAQCAPtXesZ0BUEsBAi0AFAAACAgAAAAh7P1PUyxtAAAAeAAAAAkAJAAAAAAAAAAAAAAAugIAAG1ldGEuanNvbgoAIAAAAAAAAQAYAACAPtXesZ0BAIA+1d6xnQEAgD7V3rGdAVBLBQYAAAAAAgACALgAAAByAwAAAAA=
+    dataString: UEsDBBQAAAgIAAAAIez/cIoCawIAACIFAAALACQAZ3JhcGgwLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQFlVE1zokAQ/SvWnNcUoIm6t100Zg9JrLhbuXAZhkamHGaomSFqUv737RlA0Jxo+r3ufv0BX4RLUwGzSq81z55VBuTniDib/Bj14BMc6U7JLf+EjvPOM1s4EvWcN2q5Qn/owowqwWrOfsmdcOQAnbXkudLlKttBrIw16M6pMICQVtZFS3R9jcgRH+OFCzmhFc2c9YnWIhid0WQgLeie2hE7WsOqJRO0rCBzknvy7O6+paPliRLbaTmBB5kSgptWDbGnyncb08rU2AsSMk6xOy8hwtcC+K6w7csl+DXPDdhWlqanJdc4pCYr+a2ayZXU7BttH1TUrk64iLyqJunzN3wcejjXqnzq6oaBq2ELzvZv9MSosYPRDt3LXnjoR3SgYk9TAe8FyBe11qqWGYJW1y60NhAt+9dLa3EBbN/7G6k3zrr6vqDobjKfhvOHycNqHMzabbmGzn4Ux1jwMvVrmDaOrVB++P4WQOOi/qB6fymmzYteJ+mfgb90NzypFnjk2liE2pal05qqWjsqeUTDrYHVNlZagve2DVQgqbCnDWaxt+u8wQZVb5BH6r6dtnaLdZ/ETYh39/wguIE26nBZnCnU4RlM8VpbwSX0oh3wgmOKlZTNtZlr0EVta51TNoja1Ty7vjJyn6ZpkM0X93QKwTxajOczCFM2DWbzWToJJxHxZ8gltknFptHZTgd3NhyJxJvrfimjtaaVv/xM08Oaf5ZqIJDLXG2ZBpCv1ykMaKyC32i2yjgOaAvWcunXTb4SIhTbQ5ZcEiW+1dXRapr0WRJS8Q9lnSchsf+HJMS5L3e90fDB4eCKd8nO5PwfUEsDBBQAAAgIAAAAIez9T1MsbQAAAHgAAAAJACQAbWV0YS5qc29uCgAgAAAAAAABABgAAIA+1d6xnQEAgD7V3rGdAQCAPtXesZ0Bq1YqSy0qzszPU7JSMNEz0jM011FQSi9KLMgoBooYgjilmSkgdrSSaVJSkkGKhaVpokmqgYWRpa6FeaphUrKJgbmFeZKxobGRUixQfUllQapfYm4qRE9AYklGWmZeSmZeup57UWaKO8hopdhaAFBLAQItABQAAAgIAAAAIez/cIoCawIAACIFAAALACQAAAAAAAAAAAAAAAAAAABncmFwaDAuanNvbgoAIAAAAAAAAQAYAACAPtXesZ0BAIA+1d6xnQEAgD7V3rGdAVBLAQItABQAAAgIAAAAIez9T1MsbQAAAHgAAAAJACQAAAAAAAAAAAAAALgCAABtZXRhLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQFQSwUGAAAAAAIAAgC4AAAAcAMAAAAA
     upgradeData: 
     file_cachedStartup: {fileID: 0}
     data_cachedStartup: 
@@ -60,7 +60,7 @@ MonoBehaviour:
   manualDebugFloorRoof: 0
   showSearchTree: 0
   unwalkableNodeDebugSize: 0.3
-  logPathResults: 1
+  logPathResults: 0
   maxNearestNodeDistance: 100
   scanOnStartup: 1
   fullGetNearestSearch: 0
@@ -79,7 +79,7 @@ MonoBehaviour:
   heuristic: 2
   heuristicScale: 1
   threadCount: 1
-  maxFrameTime: 1
+  maxFrameTime: 10
   batchGraphUpdates: 0
   graphUpdateBatchingInterval: 0.2
   euclideanEmbedding:
@@ -87,7 +87,7 @@ MonoBehaviour:
     seed: 0
     pivotPointRoot: {fileID: 0}
     spreadOutCount: 1
-  showGraphs: 1
+  showGraphs: 0
 --- !u!114 &5360861254420362239
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -100,6 +100,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 151fb0d52c7596c469b4ed3284e70743, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerObject: {fileID: 0}
-  timer: 1
-  graphSize: 25
+  graphTopLeft: {x: 0, y: 0}
+  graphBottomRight: {x: 0, y: 0}
