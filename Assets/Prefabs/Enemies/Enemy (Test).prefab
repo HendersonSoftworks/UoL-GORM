@@ -205,6 +205,7 @@ MonoBehaviour:
   inContactWithPlayer: 0
   rb2D: {fileID: 0}
   attackController: {fileID: 0}
+  animationController: {fileID: 0}
   chaseDist: 3
   moveSpeed: 100
   normalSpeed: 0
@@ -238,7 +239,7 @@ MonoBehaviour:
   movementController: {fileID: 0}
   animationController: {fileID: 0}
   attackState: 0
-  attackWarmupTimer: 3
+  attackWarmupTimer: 1
   attackCooldownTimer: 1
   attackDist: 1.5
   attackMoveSpeed: 0

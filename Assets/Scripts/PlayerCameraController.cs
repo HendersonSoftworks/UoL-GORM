@@ -13,13 +13,15 @@ public class PlayerCameraController : MonoBehaviour
     [SerializeField]
     private float xRot;
 
+    private void Start()
+    {
+        player = FindFirstObjectByType<PlayerMovementController>().gameObject;
+    }
+
     void Update()
     {
         transform.position = new Vector3(player.transform.position.x + xOffset,
             player.transform.position.y + yOffset,
             player.transform.position.z + zOffset);
-
-        //transform.rotation = new Quaternion(xRot, transform.rotation.y, transform.rotation.z, transform.rotation.w);
-
     }
 }

@@ -71,7 +71,7 @@ MonoBehaviour:
   wallTopPrefab: {fileID: 7560836600224425988, guid: 0e4eb8248e0cd874fa9b350e36154d6c, type: 3}
   wallBottomPrefab: {fileID: 7560836600224425988, guid: 0e4eb8248e0cd874fa9b350e36154d6c, type: 3}
   wallSidePrefab: {fileID: 7560836600224425988, guid: 83a4e45b4d9c3b64c99bdd8376067d15, type: 3}
-  outlineGenerator: {fileID: 0}
+  setBoundsAndScan: {fileID: 0}
 --- !u!50 &7153873509790576395
 Rigidbody2D:
   serializedVersion: 5
