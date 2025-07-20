@@ -16,7 +16,7 @@ public class EnemyAnimationController : MonoBehaviour
 
     void Update()
     {
-        ManageAnimationStates();
+        //ManageAnimationStates();
     }
 
     public void SetState(EnemyMovementController.MoveStates moveState)

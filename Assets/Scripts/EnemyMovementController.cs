@@ -6,7 +6,7 @@ public class EnemyMovementController : MonoBehaviour
 {
     public enum MoveStates { idle, chasing, attacking }
 
-    [Header("Setup - Leave empty")]
+    [Header("Setup - Load on start")]
     public MoveStates currentMoveState = MoveStates.idle;
     public GameObject targetObject;
     [SerializeField]
@@ -21,6 +21,8 @@ public class EnemyMovementController : MonoBehaviour
     private Rigidbody2D rb2D;
     [SerializeField]
     private EnemyAttackController attackController;
+    [SerializeField]
+    private EnemyAnimationController animationController;
 
     [Header("Config - Set enemy stats")]
     [SerializeField]
@@ -44,6 +46,7 @@ public class EnemyMovementController : MonoBehaviour
         rb2D = GetComponent<Rigidbody2D>();
         seeker = GetComponent<Seeker>();
         attackController = GetComponent<EnemyAttackController>();
+        animationController = GetComponent<EnemyAnimationController>();
 
         normalSpeed = moveSpeed;
 
@@ -108,6 +111,12 @@ public class EnemyMovementController : MonoBehaviour
         {
             rb2D.linearVelocity = Vector2.zero;
         }
+
+        if (currentMoveState == MoveStates.idle)
+        {
+            // Anim
+            animationController.SetState(MoveStates.idle);
+        }
         else if (currentMoveState == MoveStates.chasing)
         {
             Vector2 moveDir = ((Vector2)path.vectorPath[currentWaypoint] - rb2D.position).normalized;
@@ -118,6 +127,9 @@ public class EnemyMovementController : MonoBehaviour
             if (distance < nextWaypointDistance) { currentWaypoint++; }
 
             rb2D.linearVelocity = force;
+
+            // Anim
+            animationController.SetState(MoveStates.chasing);
         }
     }
 
