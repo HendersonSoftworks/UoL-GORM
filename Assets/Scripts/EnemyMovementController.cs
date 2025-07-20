@@ -23,8 +23,9 @@ public class EnemyMovementController : MonoBehaviour
     [Header("Config - Set enemy stats")]
     [SerializeField]
     private float chaseDist;
-    [SerializeField]
-    private float moveSpeed;
+    public float moveSpeed;
+    public float normalSpeed;
+
     [SerializeField]
     public float nextWaypointDistance = 3f;
 
@@ -40,6 +41,7 @@ public class EnemyMovementController : MonoBehaviour
 
         rb2D = GetComponent<Rigidbody2D>();
         seeker = GetComponent<Seeker>();
+        normalSpeed = moveSpeed;
 
         InvokeRepeating("UpdatePath", 0f, 0.5f);
     }
@@ -85,8 +87,8 @@ public class EnemyMovementController : MonoBehaviour
     private void ManageMovement()
     {
         if (targetObject == null) { return; }
-
         if (path == null) { return; }
+        if (currentMoveState == MoveStates.attacking) { return; }
 
         if (currentWaypoint >= path.vectorPath.Count)
         {

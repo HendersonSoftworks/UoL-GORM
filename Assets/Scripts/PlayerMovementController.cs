@@ -31,7 +31,7 @@ public class PlayerMovementController : MonoBehaviour
 
         if (attackAction.triggered)
         {
-            print("if (attackAction.triggered)");
+            //print("if (attackAction.triggered)");
         }
 
         if (canMove)

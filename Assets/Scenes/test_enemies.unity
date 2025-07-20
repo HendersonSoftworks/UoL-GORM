@@ -477,10 +477,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movementController: {fileID: 0}
+  animationController: {fileID: 0}
   attackState: 0
   attackWarmupTimer: 3
   attackCooldownTimer: 1
   attackDist: 1.5
+  attackMoveSpeed: 0
 --- !u!1 &1946111219 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1977922700859533924, guid: d09568861f3a6d642bafcd3d8443574d, type: 3}
@@ -810,6 +812,14 @@ PrefabInstance:
     - target: {fileID: 2973716213438860500, guid: dc7045bf486d4724fb35cda5998ed9dd, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 2.082914
+      objectReference: {fileID: 0}
+    - target: {fileID: 2995515843750210805, guid: dc7045bf486d4724fb35cda5998ed9dd, type: 3}
+      propertyPath: moveSpeed
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 2995515843750210805, guid: dc7045bf486d4724fb35cda5998ed9dd, type: 3}
+      propertyPath: normalSpeed
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3540292103744768220, guid: dc7045bf486d4724fb35cda5998ed9dd, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x

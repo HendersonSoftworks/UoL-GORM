@@ -8,6 +8,8 @@ public class EnemyAttackController : MonoBehaviour
     [Header("Setup - Loaded on start")]
     [SerializeField]
     private EnemyMovementController movementController;
+    [SerializeField]
+    private EnemyAnimationController animationController;
 
     [Header("Config - Enemy")]
     public AttackStates attackState = AttackStates.ready;
@@ -19,12 +21,14 @@ public class EnemyAttackController : MonoBehaviour
     private float attackCooldownTimerReset;
     [SerializeField]
     private float attackDist = 0;
+    public float attackMoveSpeed;
 
     #region System Methods
 
     void Start()
     {
         movementController = GetComponent<EnemyMovementController>();
+        animationController = GetComponent<EnemyAnimationController>();
 
         attackWarmupTimerReset = attackWarmupTimer;
         attackCooldownTimerReset = attackCooldownTimer;
@@ -55,10 +59,10 @@ public class EnemyAttackController : MonoBehaviour
                 ManageWarmupToAttacking();
 
                 break;
-            case AttackStates.attacking:
-                ManageAttackingingToCooldown();
+            //case AttackStates.attacking:
+            //    ManageAttackingingToCooldown();
 
-                break;
+                //break;
             case AttackStates.cooldown:
                 ManageCooldownToReady();
 
@@ -82,23 +86,22 @@ public class EnemyAttackController : MonoBehaviour
 
     private void ManageWarmupToAttacking()
     {
+        if (attackState == AttackStates.attacking) { return; }
+
         attackWarmupTimer -= Time.deltaTime;
         if (attackWarmupTimer <= 0)
         {
             attackWarmupTimer = attackWarmupTimerReset;
             attackState = AttackStates.attacking;
+            //movementController.currentMoveState = EnemyMovementController.MoveStates.attacking; // breaking it
+            animationController.SetState(EnemyMovementController.MoveStates.attacking);
         }
     }
 
-    private void ManageAttackingingToCooldown()
-    {
-        // Change move state to attacking as well
-        movementController.currentMoveState = EnemyMovementController.MoveStates.attacking;
-
-        // Wait for attack anim to give signal
-        print("waiting for attack animation finish...");
-
-    }
+    //private void ManageAttackingingToCooldown()
+    //{
+        
+    //}
 
     private void ManageCooldownToReady()
     {

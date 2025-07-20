@@ -14,6 +14,11 @@ public class EnemyEventHelper : MonoBehaviour
         attackController = GetComponentInParent<EnemyAttackController>();
     }
 
+    public void EventSetSpeedToAttackMoveSpeed()
+    {
+        movementController.moveSpeed = attackController.attackMoveSpeed;
+    }
+
     public void EventAttackTarget()
     {
         // Attack stuff - animation, hitbox activiation, etc
@@ -24,5 +29,6 @@ public class EnemyEventHelper : MonoBehaviour
     {
         // Set movement state to chase at end of attack anim
         attackController.attackState = EnemyAttackController.AttackStates.cooldown;
+        movementController.moveSpeed = movementController.normalSpeed;
     }
 }
