@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class EnemyAnimationController : MonoBehaviour
 {
-    [Header("Setup - Leave empty")]
+    [Header("Setup - Loaded on start")]
     [SerializeField]
     private EnemyMovementController movementController;
     [SerializeField]

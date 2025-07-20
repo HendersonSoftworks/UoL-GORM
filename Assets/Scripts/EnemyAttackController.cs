@@ -3,26 +3,25 @@ using System.Collections;
 
 public class EnemyAttackController : MonoBehaviour
 {
-    private enum AttackStates { ready, warmup, cooldown };
+    public enum AttackStates { ready, warmup, attacking, cooldown };
 
-    [Header("Setup - Leave empty")]
+    [Header("Setup - Loaded on start")]
     [SerializeField]
     private EnemyMovementController movementController;
 
-    [Header("Config - Customise Enemy")]
-    [SerializeField]
-    private AttackStates attackState = AttackStates.ready;
+    [Header("Config - Enemy")]
+    public AttackStates attackState = AttackStates.ready;
     [SerializeField]
     private float attackWarmupTimer;
     private float attackWarmupTimerReset;
     [SerializeField]
     private float attackCooldownTimer;
     private float attackCooldownTimerReset;
-
     [SerializeField]
     private float attackDist = 0;
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    #region System Methods
+
     void Start()
     {
         movementController = GetComponent<EnemyMovementController>();
@@ -31,8 +30,20 @@ public class EnemyAttackController : MonoBehaviour
         attackCooldownTimerReset = attackCooldownTimer;
     }
 
-    // Update is called once per frame
     void Update()
+    {
+        ManageAttackState();
+    }
+
+    #endregion
+
+    #region Public Methods
+
+    #endregion
+
+    #region Private Methods
+
+    private void ManageAttackState()
     {
         switch (attackState)
         {
@@ -41,30 +52,19 @@ public class EnemyAttackController : MonoBehaviour
                 break;
 
             case AttackStates.warmup:
-                ManageWarmupToAttack();
+                ManageWarmupToAttacking();
+
+                break;
+            case AttackStates.attacking:
+                ManageAttackingingToCooldown();
 
                 break;
             case AttackStates.cooldown:
-                ManageAttackToCooldown();
+                ManageCooldownToReady();
 
                 break;
             default:
                 break;
-        }
-    }
-
-    private void ManageAttackToCooldown()
-    {
-        throw new System.NotImplementedException();
-    }
-
-    private void ManageWarmupToAttack()
-    {
-        attackWarmupTimer -= Time.deltaTime;
-        if (attackWarmupTimer <= 0)
-        {
-            AttackTarget(movementController.targetObject);
-            attackWarmupTimer = attackWarmupTimerReset;
         }
     }
 
@@ -80,24 +80,36 @@ public class EnemyAttackController : MonoBehaviour
         }
     }
 
-    private void StartAttackCooldownTimer()
+    private void ManageWarmupToAttacking()
+    {
+        attackWarmupTimer -= Time.deltaTime;
+        if (attackWarmupTimer <= 0)
+        {
+            attackWarmupTimer = attackWarmupTimerReset;
+            attackState = AttackStates.attacking;
+        }
+    }
+
+    private void ManageAttackingingToCooldown()
+    {
+        // Change move state to attacking as well
+        movementController.currentMoveState = EnemyMovementController.MoveStates.attacking;
+
+        // Wait for attack anim to give signal
+        print("waiting for attack animation finish...");
+
+    }
+
+    private void ManageCooldownToReady()
     {
         attackCooldownTimer -= Time.deltaTime;
         if (attackCooldownTimer <= 0)
         {
-            AttackTarget(movementController.targetObject);
             attackCooldownTimer = attackCooldownTimerReset;
+            attackState = AttackStates.ready;
         }
     }
 
-    private void AttackTarget(GameObject target)
-    {
-        movementController.currentMoveState = EnemyMovementController.MoveStates.attacking;
-
-        // Attack stuff
-
-        StartAttackCooldownTimer();
-    }
 
     private void OnDrawGizmosSelected()
     {
@@ -105,4 +117,6 @@ public class EnemyAttackController : MonoBehaviour
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position, attackDist);
     }
+
+    #endregion
 }
