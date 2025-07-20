@@ -1,0 +1,107 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-1295625731005819218
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4fa0faded47ee1147b00b1a7d602d3fd, type: 3}
+  m_Name: CRTVolumeComponent
+  m_EditorClassIdentifier: 
+  active: 1
+  screenBend:
+    m_OverrideState: 0
+    m_Value: 4
+  screenOverscan:
+    m_OverrideState: 0
+    m_Value: 1
+  vignetteSize:
+    m_OverrideState: 0
+    m_Value: 5.7
+  vignetteSmooth:
+    m_OverrideState: 0
+    m_Value: 2
+  vignetteRound:
+    m_OverrideState: 0
+    m_Value: 25
+  blur:
+    m_OverrideState: 0
+    m_Value: 0
+  bleed:
+    m_OverrideState: 0
+    m_Value: 1
+  smidge:
+    m_OverrideState: 0
+    m_Value: 0
+  scanlinesStrength:
+    m_OverrideState: 0
+    m_Value: 6
+  apertureStrength:
+    m_OverrideState: 0
+    m_Value: 0.5
+  shadowlines:
+    m_OverrideState: 0
+    m_Value: 6
+  shadowlinesSpeed:
+    m_OverrideState: 0
+    m_Value: 2
+  shadowlinesAlpha:
+    m_OverrideState: 0
+    m_Value: 0.1
+  noiseSize:
+    m_OverrideState: 0
+    m_Value: 50
+  noiseSpeed:
+    m_OverrideState: 0
+    m_Value: 2
+  noiseAlpha:
+    m_OverrideState: 0
+    m_Value: 0.1
+  brightness:
+    m_OverrideState: 0
+    m_Value: 1
+  contrast:
+    m_OverrideState: 0
+    m_Value: 1
+  gamma:
+    m_OverrideState: 0
+    m_Value: 1
+  red:
+    m_OverrideState: 0
+    m_Value: 1
+  green:
+    m_OverrideState: 0
+    m_Value: 1
+  blue:
+    m_OverrideState: 0
+    m_Value: 1
+  chromaticAberration:
+    m_OverrideState: 0
+    m_Value: 1
+  redOffset:
+    m_OverrideState: 0
+    m_Value: {x: 0.1, y: -0.1}
+  blueOffset:
+    m_OverrideState: 0
+    m_Value: {x: 0, y: 0.1}
+  greenOffset:
+    m_OverrideState: 0
+    m_Value: {x: -0.1, y: 0}
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d7fd9488000d3734a9e00ee676215985, type: 3}
+  m_Name: ExampleVolume
+  m_EditorClassIdentifier: 
+  components:
+  - {fileID: -1295625731005819218}

@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 9774f4e73ae79684b84fd8bb3984fd4f
+DefaultImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 231831
+  packageName: CRT Filter for URP & PixelPerfect
+  packageVersion: 1.1.1
+  assetPath: Assets/CRTFilter/Documentation/README.pdf
+  uploadId: 718705

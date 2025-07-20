@@ -1,5 +1,96 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-8295050871522032383
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4fa0faded47ee1147b00b1a7d602d3fd, type: 3}
+  m_Name: CRTVolumeComponent
+  m_EditorClassIdentifier: 
+  active: 1
+  screenBend:
+    m_OverrideState: 1
+    m_Value: 0
+  screenOverscan:
+    m_OverrideState: 1
+    m_Value: 0
+  vignetteSize:
+    m_OverrideState: 1
+    m_Value: 0
+  vignetteSmooth:
+    m_OverrideState: 1
+    m_Value: 2
+  vignetteRound:
+    m_OverrideState: 1
+    m_Value: 25
+  blur:
+    m_OverrideState: 1
+    m_Value: 0
+  bleed:
+    m_OverrideState: 1
+    m_Value: 0
+  smidge:
+    m_OverrideState: 1
+    m_Value: 0
+  scanlinesStrength:
+    m_OverrideState: 1
+    m_Value: 0
+  apertureStrength:
+    m_OverrideState: 1
+    m_Value: 0
+  shadowlines:
+    m_OverrideState: 1
+    m_Value: 6
+  shadowlinesSpeed:
+    m_OverrideState: 1
+    m_Value: 2
+  shadowlinesAlpha:
+    m_OverrideState: 1
+    m_Value: 0
+  noiseSize:
+    m_OverrideState: 1
+    m_Value: 50
+  noiseSpeed:
+    m_OverrideState: 1
+    m_Value: 2
+  noiseAlpha:
+    m_OverrideState: 1
+    m_Value: 0
+  brightness:
+    m_OverrideState: 1
+    m_Value: 1
+  contrast:
+    m_OverrideState: 1
+    m_Value: 1
+  gamma:
+    m_OverrideState: 1
+    m_Value: 1
+  red:
+    m_OverrideState: 1
+    m_Value: 1
+  green:
+    m_OverrideState: 1
+    m_Value: 1
+  blue:
+    m_OverrideState: 1
+    m_Value: 1
+  chromaticAberration:
+    m_OverrideState: 1
+    m_Value: 1
+  redOffset:
+    m_OverrideState: 1
+    m_Value: {x: 0, y: 0}
+  blueOffset:
+    m_OverrideState: 1
+    m_Value: {x: 0, y: 0}
+  greenOffset:
+    m_OverrideState: 1
+    m_Value: {x: 0, y: 0}
 --- !u!114 &-8186968272690591729
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -506,6 +597,7 @@ MonoBehaviour:
   - {fileID: -8186968272690591729}
   - {fileID: -3978695733392391637}
   - {fileID: -1083910812058648046}
+  - {fileID: -8295050871522032383}
 --- !u!114 &156332030701414761
 MonoBehaviour:
   m_ObjectHideFlags: 3

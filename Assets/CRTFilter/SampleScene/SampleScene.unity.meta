@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 8c9cfa26abfee488c85f1582747f6a02
+DefaultImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 231831
+  packageName: CRT Filter for URP & PixelPerfect
+  packageVersion: 1.1.1
+  assetPath: Assets/CRTFilter/SampleScene/SampleScene.unity
+  uploadId: 718705

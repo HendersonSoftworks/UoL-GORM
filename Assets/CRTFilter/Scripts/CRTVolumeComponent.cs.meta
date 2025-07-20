@@ -1,0 +1,9 @@
+fileFormatVersion: 2
+guid: 4fa0faded47ee1147b00b1a7d602d3fd
+AssetOrigin:
+  serializedVersion: 1
+  productId: 231831
+  packageName: CRT Filter for URP & PixelPerfect
+  packageVersion: 1.1.1
+  assetPath: Assets/CRTFilter/Scripts/CRTVolumeComponent.cs
+  uploadId: 718705

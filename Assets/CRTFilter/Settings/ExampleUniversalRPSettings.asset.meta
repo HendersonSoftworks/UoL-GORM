@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: fdf8a42af633653479dd6761917696fa
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 11400000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 231831
+  packageName: CRT Filter for URP & PixelPerfect
+  packageVersion: 1.1.1
+  assetPath: Assets/CRTFilter/Settings/ExampleUniversalRPSettings.asset
+  uploadId: 718705
