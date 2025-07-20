@@ -19,6 +19,8 @@ public class EnemyMovementController : MonoBehaviour
     private bool inContactWithPlayer;
     [SerializeField]
     private Rigidbody2D rb2D;
+    [SerializeField]
+    private EnemyAttackController attackController;
 
     [Header("Config - Set enemy stats")]
     [SerializeField]
@@ -41,6 +43,8 @@ public class EnemyMovementController : MonoBehaviour
 
         rb2D = GetComponent<Rigidbody2D>();
         seeker = GetComponent<Seeker>();
+        attackController = GetComponent<EnemyAttackController>();
+
         normalSpeed = moveSpeed;
 
         InvokeRepeating("UpdatePath", 0f, 0.5f);
@@ -76,7 +80,7 @@ public class EnemyMovementController : MonoBehaviour
     private void ManageRotation()
     {
         // A* causes rotation to become stilted - smoothen out
-        if (currentMoveState != MoveStates.chasing) { return; }
+        if (attackController.attackState == EnemyAttackController.AttackStates.attacking) { return; }
 
         Vector2 _moveDir = ((Vector2)targetObject.transform.position - (Vector2)transform.position).normalized;
 
