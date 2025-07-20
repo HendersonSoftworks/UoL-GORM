@@ -93,6 +93,7 @@ public class EnemyMovementController : MonoBehaviour
 
     private void ManageMovement()
     {
+        // Guard checks
         if (targetObject == null) { return; }
         if (path == null) { return; }
         if (currentMoveState == MoveStates.attacking) { return; }
@@ -107,11 +108,13 @@ public class EnemyMovementController : MonoBehaviour
             reachedEndOfPath = false;
         }
 
+        // Stop enemy if in contact
         if (inContactWithPlayer)
         {
             rb2D.linearVelocity = Vector2.zero;
         }
 
+        // Manage movement and different states - needs tidying up
         if (currentMoveState == MoveStates.idle)
         {
             // Anim
@@ -135,7 +138,6 @@ public class EnemyMovementController : MonoBehaviour
 
     private void RotatePlayerBody(Vector2 _moveDir)
     {
-
         // Bit of duplication here - move to helper class
         if (_moveDir.magnitude > 0.1f)
         {
