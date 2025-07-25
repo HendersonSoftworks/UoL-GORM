@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 2995515843750210805}
   - component: {fileID: 9030377188876613526}
   - component: {fileID: 6588122017044426186}
+  - component: {fileID: 4139520753992903909}
   m_Layer: 8
   m_Name: Enemy (Test)
   m_TagString: Enemy
@@ -200,7 +201,6 @@ MonoBehaviour:
   currentMoveState: 0
   targetObject: {fileID: 0}
   playerObject: {fileID: 0}
-  targetIsInRange: 0
   distFromTarget: 0
   inContactWithPlayer: 0
   rb2D: {fileID: 0}
@@ -243,6 +243,38 @@ MonoBehaviour:
   attackCooldownTimer: 1
   attackDist: 1.5
   attackMoveSpeed: 0
+--- !u!114 &4139520753992903909
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2000065753673016632}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d69b144f3b07d91469911bfc7fdee445, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  names: []
+  displayName: EnemyDisplau
+  portrait: {fileID: 0}
+  maxHP: 0
+  currentHP: 0
+  ac: 0
+  strength: 0
+  dexterity: 0
+  constitution: 0
+  intelligence: 0
+  wisdom: 0
+  charisma: 0
+  weapons: []
+  headArmour: {fileID: 0}
+  bodyArmour: {fileID: 0}
+  rings:
+  - {fileID: 0}
+  spells: []
+  items: []
+  proficiencies: []
 --- !u!1001 &5993288080213479614
 PrefabInstance:
   m_ObjectHideFlags: 0

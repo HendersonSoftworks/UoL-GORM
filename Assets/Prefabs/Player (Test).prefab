@@ -101,6 +101,7 @@ GameObject:
   - component: {fileID: 6629248301336771911}
   - component: {fileID: 2364384162840473713}
   - component: {fileID: 1319836224415689049}
+  - component: {fileID: 830310071679652015}
   m_Layer: 0
   m_Name: Player (Test)
   m_TagString: Player
@@ -267,6 +268,42 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerAnimator: {fileID: 4664980421819227733}
+--- !u!114 &830310071679652015
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2917134400188328422}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4b7f3d3207db9ea4bb2a4f6093474eb1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  names: []
+  displayName: PlayerDisplay
+  portrait: {fileID: 7482667652216324306, guid: da9cc44b356b8cd45baed6d2deafbb48, type: 3}
+  maxHP: 0
+  currentHP: 0
+  ac: 0
+  strength: 0
+  dexterity: 0
+  constitution: 0
+  intelligence: 0
+  wisdom: 0
+  charisma: 0
+  weapons:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  headArmour: {fileID: 0}
+  bodyArmour: {fileID: 0}
+  rings:
+  - {fileID: 0}
+  - {fileID: 0}
+  spells: []
+  items: []
+  proficiencies: []
 --- !u!1 &6908912580209774044
 GameObject:
   m_ObjectHideFlags: 0

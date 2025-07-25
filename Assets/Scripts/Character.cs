@@ -12,10 +12,16 @@ public class Character : MonoBehaviour
     public string displayName;
     public Sprite portrait;
 
-    [Header("HP & AC")]
+    [Header("Max & Current Stats")]
     public uint maxHP;
-    public int currentHP;
-    public uint ac;
+    public uint currentHP;
+    public float maxStamina;
+    public float currentStamina;
+    public uint maxMana;
+    public uint currentMana;
+
+    [Header("Armour")]
+    public uint armourClass;
 
     [Header("Statblock")]
     public uint strength;
@@ -39,6 +45,15 @@ public class Character : MonoBehaviour
 
     [Header("Proficiencies")]
     public List<Proficiency> proficiencies;
- 
+
+    #endregion
+
+    #region Public Methods
+
+    public virtual void CalculateMaxCurrentStats()
+    {
+        // TODO
+    }
+
     #endregion
 }

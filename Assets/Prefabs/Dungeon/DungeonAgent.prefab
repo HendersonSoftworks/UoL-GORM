@@ -51,10 +51,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   rayRadius: 1
-  minRoomCount: 5
-  maxRoomCount: 7
   wallDistFromAgent: 1.1
-  generationDelayInSecods: 0
   maxSteps: 100
   currentStep: 0
   agentDirection: 3
