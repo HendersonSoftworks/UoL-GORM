@@ -18,14 +18,14 @@ public class DungeonGenerator : MonoBehaviour
     float rayRadius = 1f;
 
     [Header("Config")]
-    [SerializeField]
-    private int minRoomCount = 5;
-    [SerializeField]
-    private int maxRoomCount = 7;
+    //[SerializeField]
+    //private int minRoomCount = 5;
+    //[SerializeField]
+    //private int maxRoomCount = 7;
     [SerializeField]
     private float wallDistFromAgent = 1.51f;
-    [SerializeField]
-    private float generationDelayInSecods = 1;
+    //[SerializeField]
+    //private float generationDelayInSecods = 1;
     [SerializeField]
     private int maxSteps = 100;
     [SerializeField]

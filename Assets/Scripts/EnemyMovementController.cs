@@ -11,8 +11,8 @@ public class EnemyMovementController : MonoBehaviour
     public GameObject targetObject;
     [SerializeField]
     private GameObject playerObject;
-    [SerializeField]
-    private bool targetIsInRange = false;
+    //[SerializeField]
+    //private bool targetIsInRange = false;
     [SerializeField]
     private float distFromTarget;
     [SerializeField]
@@ -35,7 +35,6 @@ public class EnemyMovementController : MonoBehaviour
 
     private Path path;
     private int currentWaypoint = 0;
-    private bool reachedEndOfPath = false; // May not be needed
     private Seeker seeker;
     
     void Start()
@@ -97,22 +96,10 @@ public class EnemyMovementController : MonoBehaviour
         if (targetObject == null) { return; }
         if (path == null) { return; }
         if (currentMoveState == MoveStates.attacking) { return; }
-
-        if (currentWaypoint >= path.vectorPath.Count)
-        {
-            reachedEndOfPath = true;
-            return;
-        }
-        else
-        {
-            reachedEndOfPath = false;
-        }
+        if (currentWaypoint >= path.vectorPath.Count) { return;}
 
         // Stop enemy if in contact
-        if (inContactWithPlayer)
-        {
-            rb2D.linearVelocity = Vector2.zero;
-        }
+        if (inContactWithPlayer) { rb2D.linearVelocity = Vector2.zero; }
 
         // Manage movement and different states - needs tidying up
         if (currentMoveState == MoveStates.idle)

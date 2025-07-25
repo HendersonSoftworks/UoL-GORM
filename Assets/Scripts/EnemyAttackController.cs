@@ -95,7 +95,6 @@ public class EnemyAttackController : MonoBehaviour
             attackState = AttackStates.attacking;
             //movementController.currentMoveState = EnemyMovementController.MoveStates.attacking; // breaking it
             animationController.SetState(EnemyMovementController.MoveStates.attacking);
-            print("GYUGYUG");
         }
     }
 
