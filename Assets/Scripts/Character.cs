@@ -6,17 +6,18 @@ using UnityEngine.UI;
 public class Character : MonoBehaviour
 {
     #region Character Sheet
-    // Identity
+
+    [Header("Identity")]
     public string[] names;
     public string displayName;
     public Sprite portrait;
 
-    // HP & AC
+    [Header("HP & AC")]
     public uint maxHP;
     public int currentHP;
     public uint ac;
 
-    // Statblock
+    [Header("Statblock")]
     public uint strength;
     public uint dexterity;
     public uint constitution;
@@ -24,21 +25,20 @@ public class Character : MonoBehaviour
     public uint wisdom;
     public uint charisma;
 
-    // Gear
-    public List<Weapon> weapons;
-    public List<Armour> armour;
+    [Header("Gear")]
+    public Weapon[] weapons = new Weapon[3];
+    public Armour headArmour;
+    public Armour bodyArmour;
+    public Ring[] rings = new Ring[2];
 
-    // SpellBook
+    [Header("Spellcasting")]
     public List<Spell> spells;
 
-    // Items
+    [Header("Items")]
     public List<Item> items;
 
-    // Proficiencies
+    [Header("Proficiencies")]
     public List<Proficiency> proficiencies;
-    #endregion
-
-    #region Engine logic
-    public bool conversing;
+ 
     #endregion
 }

@@ -7,9 +7,4 @@ public class Item : MonoBehaviour
     public string itemName;
     public string description;
     public bool isConsumable;
-
-    virtual public void Use(Character character)
-    {
-        print("Base behaviour");
-    }
 }
