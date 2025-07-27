@@ -52,13 +52,6 @@ public class PlayerCharacter : Character
         SetMaxCurrentStats();
     }
 
-    private void SetMaxCurrentStats()
-    {
-        currentHP = maxHP;
-        currentStamina = maxStamina;
-        currentMana = maxMana;
-    }
-
     public override void CalculateMaxCurrentStats()
     {
         // HP
@@ -167,5 +160,12 @@ public class PlayerCharacter : Character
             default:
                 break;
         }
+    }
+
+    private void SetMaxCurrentStats()
+    {
+        currentHP = maxHP;
+        currentStamina = maxStamina;
+        currentMana = maxMana;
     }
 }
