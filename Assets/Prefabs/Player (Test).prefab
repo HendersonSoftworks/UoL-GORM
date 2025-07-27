@@ -234,7 +234,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 110
   canMove: 1
-  defaultPushBackForce: 0
+  pushTime: 0.25
   moveInput: {x: 0, y: 0}
   playerInput: {fileID: 0}
   attackAction:
@@ -255,6 +255,7 @@ MonoBehaviour:
     m_Interactions: 
     m_SingletonActionBindings: []
     m_Flags: 0
+  rb2D: {fileID: 0}
 --- !u!114 &1319836224415689049
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -285,7 +286,11 @@ MonoBehaviour:
   portrait: {fileID: 7482667652216324306, guid: da9cc44b356b8cd45baed6d2deafbb48, type: 3}
   maxHP: 0
   currentHP: 0
-  ac: 0
+  maxStamina: 0
+  currentStamina: 0
+  maxMana: 0
+  currentMana: 0
+  armourClass: 0
   strength: 0
   dexterity: 0
   constitution: 0
@@ -304,6 +309,9 @@ MonoBehaviour:
   spells: []
   items: []
   proficiencies: []
+  playerClass: 1
+  playerRace: 1
+  specialAbility: 0
 --- !u!1 &6908912580209774044
 GameObject:
   m_ObjectHideFlags: 0

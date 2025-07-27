@@ -44,3 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e5bcfb4edf8df014885bc31705ece329, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  healthSlider: {fileID: 0}
+  staminaSlider: {fileID: 0}
+  manaSlider: {fileID: 0}
+  playerCharacter: {fileID: 0}

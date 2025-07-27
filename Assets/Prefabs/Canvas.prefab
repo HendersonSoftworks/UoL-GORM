@@ -998,7 +998,7 @@ GameObject:
   - component: {fileID: 975202938282252175}
   m_Layer: 5
   m_Name: Slider
-  m_TagString: Untagged
+  m_TagString: sSlider
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1071,7 +1071,7 @@ MonoBehaviour:
   m_Direction: 0
   m_MinValue: 0
   m_MaxValue: 1000
-  m_WholeNumbers: 1
+  m_WholeNumbers: 0
   m_Value: 500
   m_OnValueChanged:
     m_PersistentCalls:
@@ -2208,7 +2208,7 @@ GameObject:
   - component: {fileID: 8037280566060412691}
   m_Layer: 5
   m_Name: Slider
-  m_TagString: Untagged
+  m_TagString: mSlider
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3839,7 +3839,7 @@ GameObject:
   - component: {fileID: 4438507678135360152}
   m_Layer: 5
   m_Name: Slider
-  m_TagString: Untagged
+  m_TagString: hSlider
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
