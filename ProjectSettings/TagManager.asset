@@ -9,6 +9,8 @@ TagManager:
   - hSlider
   - sSlider
   - mSlider
+  - eHitbox
+  - pHitbox
   layers:
   - Default
   - TransparentFX

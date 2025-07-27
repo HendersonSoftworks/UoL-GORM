@@ -44,8 +44,13 @@ public class PlayerCharacter : Character
     public Races playerRace;
     public SpecialAbilities specialAbility;
 
+    [Header("Loaded on start")]
+    private PlayerMovementController movementController;
+
     private void Start()
     {
+        movementController = GetComponent<PlayerMovementController>();
+
         DontDestroyOnLoad(gameObject);
 
         CalculateMaxCurrentStats();
@@ -110,9 +115,8 @@ public class PlayerCharacter : Character
         }
 
         // Stamina
-        strength += 3; // Testing
-        dexterity += 3; // Testing
-        maxStamina += ((strength / 2) + (dexterity / 2));
+        maxStamina += 1;
+        maxStamina += strength;
 
         // Mana
         switch (playerRace)
@@ -167,5 +171,13 @@ public class PlayerCharacter : Character
         currentHP = maxHP;
         currentStamina = maxStamina;
         currentMana = maxMana;
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.tag == "eHitbox")
+        {
+            movementController.PushPlayerInDirection(gameObject, collision.gameObject);
+        }
     }
 }

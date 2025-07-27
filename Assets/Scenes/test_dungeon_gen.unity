@@ -151,6 +151,14 @@ PrefabInstance:
       propertyPath: playerClass
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2364384162840473713, guid: 254077e57090ca946a0f43addf2732d1, type: 3}
+      propertyPath: pushTime
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 2364384162840473713, guid: 254077e57090ca946a0f43addf2732d1, type: 3}
+      propertyPath: defaultPushBackForce
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 2917134400188328422, guid: 254077e57090ca946a0f43addf2732d1, type: 3}
       propertyPath: m_Name
       value: Player (Test)
@@ -1136,7 +1144,7 @@ GameObject:
   - component: {fileID: 2102760670}
   m_Layer: 8
   m_Name: Hitbox
-  m_TagString: Untagged
+  m_TagString: eHitbox
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

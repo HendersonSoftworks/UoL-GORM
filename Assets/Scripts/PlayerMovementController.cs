@@ -6,21 +6,22 @@ using UnityEngine.InputSystem;
 
 public class PlayerMovementController : MonoBehaviour
 {
+    [Header("Loaded on start")]
     public float moveSpeed = 10;
     public bool canMove = true;
-    public float defaultPushBackForce;
+    public float pushTime;
     public Vector2 moveInput;
     public PlayerInput playerInput;
     public InputAction attackAction;
     public InputAction moveAction;
-
+    [SerializeField]
     private Rigidbody2D rb2D;
 
     void Start()
     {
         rb2D = GetComponent<Rigidbody2D>();
-
         playerInput = GetComponent<PlayerInput>();
+
         attackAction = playerInput.actions["Attack"];
         moveAction = playerInput.actions["Move"];
     }
@@ -40,6 +41,21 @@ public class PlayerMovementController : MonoBehaviour
         }
     }
 
+    #region Public methods
+    
+    public void PushPlayerInDirection(GameObject player, GameObject enemy, float force = 10, bool randomDir = false)
+    {
+        Vector2 forceAngle = (player.transform.position - enemy.transform.position).normalized;
+        if (randomDir) { forceAngle = new Vector2(Random.Range(-10, 10), Random.Range(-10, 10)); }
+
+        rb2D.AddForce(forceAngle * force, ForceMode2D.Impulse);
+        StartCoroutine(DisabledMovementWhilePushed());
+    }
+
+    #endregion
+
+    #region Private methods
+
     private void ProcessMovement()
     {
         rb2D.linearVelocity = (moveInput * Time.deltaTime * moveSpeed);
@@ -58,18 +74,25 @@ public class PlayerMovementController : MonoBehaviour
         }
     }
 
-    private void PushPlayerInRandomDirection()
-    {
-        Vector2 randVec = new Vector2(Random.Range(-10, 10), Random.Range(-10, 10));
-        rb2D.AddForce(randVec.normalized * defaultPushBackForce, ForceMode2D.Impulse);
-        StartCoroutine(DisabledMovementWhilePushed());
-    }
-
     private IEnumerator DisabledMovementWhilePushed()
     {
         canMove = false;
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(pushTime);
         canMove = true;
     }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        // Wall or obstacle
+        if (collision.gameObject.layer == 6 ||
+            collision.gameObject.layer == 7 &&
+            canMove == false)
+        {
+            canMove = true;
+        }
+    }
+
+
+    #endregion 
 }
 
