@@ -22,7 +22,6 @@ public class PlayerMovementController : MonoBehaviour
         rb2D = GetComponent<Rigidbody2D>();
         playerInput = GetComponent<PlayerInput>();
 
-        attackAction = playerInput.actions["Attack"];
         moveAction = playerInput.actions["Move"];
     }
 
