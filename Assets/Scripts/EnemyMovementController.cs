@@ -17,8 +17,7 @@ public class EnemyMovementController : MonoBehaviour
     private float distFromTarget;
     [SerializeField]
     private bool inContactWithPlayer;
-    [SerializeField]
-    private Rigidbody2D rb2D;
+    public  Rigidbody2D rb2D;
     [SerializeField]
     private EnemyAttackController attackController;
     [SerializeField]
@@ -36,6 +35,9 @@ public class EnemyMovementController : MonoBehaviour
     private Path path;
     private int currentWaypoint = 0;
     private Seeker seeker;
+
+    [Header("Logic")]
+    public bool beingPushed = false;
     
     void Start()
     {
@@ -93,6 +95,7 @@ public class EnemyMovementController : MonoBehaviour
     private void ManageMovement()
     {
         // Guard checks
+        if (beingPushed) { return; }
         if (targetObject == null) { return; }
         if (path == null) { return; }
         if (currentMoveState == MoveStates.attacking) { return; }

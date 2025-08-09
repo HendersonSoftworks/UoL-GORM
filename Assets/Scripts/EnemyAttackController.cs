@@ -1,5 +1,4 @@
 using UnityEngine;
-using System.Collections;
 
 public class EnemyAttackController : MonoBehaviour
 {
@@ -59,10 +58,6 @@ public class EnemyAttackController : MonoBehaviour
                 ManageWarmupToAttacking();
 
                 break;
-            //case AttackStates.attacking:
-            //    ManageAttackingingToCooldown();
-
-                //break;
             case AttackStates.cooldown:
                 ManageCooldownToReady();
 
@@ -98,11 +93,6 @@ public class EnemyAttackController : MonoBehaviour
         }
     }
 
-    //private void ManageAttackingingToCooldown()
-    //{
-        
-    //}
-
     private void ManageCooldownToReady()
     {
         attackCooldownTimer -= Time.deltaTime;
@@ -112,7 +102,6 @@ public class EnemyAttackController : MonoBehaviour
             attackState = AttackStates.ready;
         }
     }
-
 
     private void OnDrawGizmosSelected()
     {
