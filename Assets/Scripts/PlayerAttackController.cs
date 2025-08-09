@@ -41,8 +41,18 @@ public class PlayerAttackController : MonoBehaviour
         StartAttack();
     }
 
-    private void StartAttack()
+    public void StartAttack()
     {
         animationController.playerAnimator.SetBool("isAttacking", true);
+        movementController.SetVelToZero();
+        movementController.canMove = false;
+        movementController.moveSpeed = movementController.attackMoveSpeed;
+    }
+    
+    public void FinishAttack()
+    {
+        isAttacking = false;
+        movementController.canMove = true;
+        movementController.moveSpeed = movementController.baseSpeed;
     }
 }

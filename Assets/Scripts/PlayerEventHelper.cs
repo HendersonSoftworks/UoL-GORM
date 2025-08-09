@@ -14,12 +14,17 @@ public class PlayerEventHelper : MonoBehaviour
     {
         movementController = GetComponentInParent<PlayerMovementController>();
         attackController = GetComponentInParent<PlayerAttackController>();
-        animationController = GetComponent<PlayerAnimationController>();
+        animationController = GetComponentInParent<PlayerAnimationController>();
     }
 
-    public void EventSetIsAttackingFlag()
+    public void EventSetIsAttackingFlagFalse()
     {
         animationController.playerAnimator.SetBool("isAttacking", false);
+    }
+
+    public void EventSetIsAttackingFlag(bool value)
+    {
+        animationController.playerAnimator.SetBool("isAttacking", value);
     }
 
     public void EventSetSpeedToAttackMoveSpeed()
@@ -38,5 +43,6 @@ public class PlayerEventHelper : MonoBehaviour
         // Set movement state to chase at end of attack anim
         //attackController.attackState = EnemyAttackController.AttackStates.cooldown;
         //movementController.moveSpeed = movementController.normalSpeed;
+        attackController.FinishAttack();
     }
 }

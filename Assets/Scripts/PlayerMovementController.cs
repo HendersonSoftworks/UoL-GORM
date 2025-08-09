@@ -8,6 +8,9 @@ public class PlayerMovementController : MonoBehaviour
 {
     [Header("Loaded on start")]
     public float moveSpeed = 10;
+    public float baseSpeed = 10;
+    public float attackMoveSpeed;
+
     public bool canMove = true;
     public float pushTime;
     public Vector2 moveInput;
@@ -23,6 +26,8 @@ public class PlayerMovementController : MonoBehaviour
         playerInput = GetComponent<PlayerInput>();
 
         moveAction = playerInput.actions["Move"];
+
+        baseSpeed = moveSpeed;
     }
 
     void FixedUpdate()
@@ -49,6 +54,11 @@ public class PlayerMovementController : MonoBehaviour
 
         rb2D.AddForce(forceAngle * force, ForceMode2D.Impulse);
         StartCoroutine(DisabledMovementWhilePushed());
+    }
+
+    public void SetVelToZero()
+    {
+        rb2D.linearVelocity = Vector2.zero;
     }
 
     #endregion
