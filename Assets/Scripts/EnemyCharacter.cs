@@ -36,8 +36,8 @@ public class EnemyCharacter : Character
     {
         if (collision.tag == "pHitbox")
         {
-            print("enemy oof!");
             PushEnemyAway(collision);
+            DamageCharacter(collision.GetComponentInParent<PlayerCharacter>(), this);
         }
     }
 }

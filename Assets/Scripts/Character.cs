@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -14,7 +15,7 @@ public class Character : MonoBehaviour
 
     [Header("Max & Current Stats")]
     public uint maxHP;
-    public uint currentHP;
+    public int currentHP;
     public float maxStamina;
     public float currentStamina;
     public uint maxMana;
@@ -53,19 +54,23 @@ public class Character : MonoBehaviour
     #endregion
 
     private void Start()
-    {
-        currentWeapon = weapons[0];
-        
-        CalculateMaxCurrentStats();
-        
+    {                
         SetDamageMod();
         SetArmourClass();
+    }
+
+    private void Update()
+    {
+        ManageHealth();
     }
 
     #region Public Methods
 
     public void DamageCharacter(Character attacker, Character defender)
     {
+        if (attacker == null) { return; }
+        if (defender == null) { return; }
+
         uint incomingDamage = attacker.statDamageBonus
             + attacker.currentWeapon.damage;
         uint damageReduction = defender.armourClass;
@@ -73,9 +78,18 @@ public class Character : MonoBehaviour
 
         uint damageResult = (uint)Mathf.Clamp(baseResult, 1, 999);
 
-        defender.currentHP -= damageResult;
+        defender.currentHP -= (int)damageResult;
         print(attacker.name + " attacked " + defender.name + " dealing "
             + damageResult + " damage! ");
+
+        // Change anim state if player killed - should really be in EnemyCharacter class
+        // Bug - anim not changing...
+        EnemyAnimationController enemyAnimationController = 
+            attacker.gameObject.GetComponent<EnemyAnimationController>();
+        if (defender.currentHP <= 0 && enemyAnimationController != null)
+        {
+            enemyAnimationController.SetState(EnemyMovementController.MoveStates.idle);
+        }
     }
 
     public virtual void CalculateMaxCurrentStats()
@@ -87,7 +101,23 @@ public class Character : MonoBehaviour
 
     #region Private Methods
 
-    public void SetArmourClass()
+    public void ManageHealth()
+    {
+        currentHP = Mathf.Clamp(currentHP, 0, 999);
+
+        if (currentHP <= 0)
+        {
+            KillCharacter();
+        }
+    }
+
+    private void KillCharacter()
+    {
+        Destroy(gameObject);
+        // TODO death anim
+    }
+
+    private void SetArmourClass()
     {
         armourClass = bodyArmour.armourClassBonus
             + headArmour.armourClassBonus

@@ -56,6 +56,8 @@ public class EnemyMovementController : MonoBehaviour
 
     private void UpdatePath()
     {
+        if (targetObject == null) { return; }
+
         if (!seeker.IsDone()) { return; }
 
         seeker.StartPath(rb2D.position, targetObject.transform.position, OnPathComplete);
@@ -83,6 +85,8 @@ public class EnemyMovementController : MonoBehaviour
 
     private void ManageRotation()
     {
+        if (targetObject == null) { return; }
+
         // A* causes rotation to become stilted - smoothen out
         if (attackController.attackState == EnemyAttackController.AttackStates.attacking) { return; }
 

@@ -51,10 +51,13 @@ public class PlayerCharacter : Character
     {
         movementController = GetComponent<PlayerMovementController>();
 
+        currentWeapon = weapons[0];
+
         DontDestroyOnLoad(gameObject);
 
         CalculateMaxCurrentStats();
         SetMaxCurrentStats();
+
     }
 
     public override void CalculateMaxCurrentStats()
@@ -168,7 +171,7 @@ public class PlayerCharacter : Character
 
     private void SetMaxCurrentStats()
     {
-        currentHP = maxHP;
+        currentHP = (int)maxHP;
         currentStamina = maxStamina;
         currentMana = maxMana;
     }
@@ -178,6 +181,7 @@ public class PlayerCharacter : Character
         if (collision.tag == "eHitbox")
         {
             movementController.PushPlayerInDirection(gameObject, collision.gameObject);
+            DamageCharacter(collision.GetComponentInParent<EnemyCharacter>(), this);
         }
     }
 }
