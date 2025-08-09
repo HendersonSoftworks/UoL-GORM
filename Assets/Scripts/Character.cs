@@ -20,8 +20,11 @@ public class Character : MonoBehaviour
     public uint maxMana;
     public uint currentMana;
 
-    [Header("Armour")]
+    [Header("Modifiers")]
+    public uint statDamageBonus;
+    public uint miscDamageBonus;
     public uint armourClass;
+    public uint miscarmourBonus;
 
     [Header("Statblock")]
     public uint strength;
@@ -32,6 +35,7 @@ public class Character : MonoBehaviour
     public uint charisma;
 
     [Header("Gear")]
+    public Weapon currentWeapon;
     public Weapon[] weapons = new Weapon[3];
     public Armour headArmour;
     public Armour bodyArmour;
@@ -48,11 +52,109 @@ public class Character : MonoBehaviour
 
     #endregion
 
+    private void Start()
+    {
+        currentWeapon = weapons[0];
+        
+        CalculateMaxCurrentStats();
+        
+        SetDamageMod();
+        SetArmourClass();
+    }
+
     #region Public Methods
+
+    public void DamageCharacter(Character attacker, Character defender)
+    {
+        uint incomingDamage = attacker.statDamageBonus
+            + attacker.currentWeapon.damage;
+        uint damageReduction = defender.armourClass;
+        uint baseResult = incomingDamage - damageReduction;
+
+        uint damageResult = (uint)Mathf.Clamp(baseResult, 1, 999);
+
+        defender.currentHP -= damageResult;
+        print(attacker.name + " attacked " + defender.name + " dealing "
+            + damageResult + " damage! ");
+    }
 
     public virtual void CalculateMaxCurrentStats()
     {
-        // TODO
+        Debug.LogError("Base form, requires override!");
+    }
+
+    #endregion
+
+    #region Private Methods
+
+    public void SetArmourClass()
+    {
+        armourClass = bodyArmour.armourClassBonus
+            + headArmour.armourClassBonus
+            + miscarmourBonus;
+    }
+
+    private uint ReturnGreatestMeleeStat()
+    {
+        uint value = strength;
+        if (dexterity > value) { value = dexterity; }
+
+        return value;
+    }
+
+    private uint ReturnGreatestMagicStat()
+    {
+        uint value = intelligence;
+        if (wisdom > value) { value = wisdom; }
+
+        return value;
+    }
+
+    private void SetDamageMod()
+    {
+        switch (currentWeapon.damageType)
+        {
+            case DamageTypes.bludgeoning:
+                statDamageBonus = ReturnGreatestMeleeStat();
+                
+                break;
+            case DamageTypes.slashing:
+                statDamageBonus = ReturnGreatestMeleeStat();
+
+                break;
+            case DamageTypes.piercing:
+                statDamageBonus = ReturnGreatestMeleeStat();
+
+                break;
+            case DamageTypes.divine:
+                statDamageBonus = ReturnGreatestMagicStat();
+
+                break;
+            case DamageTypes.water:
+                statDamageBonus = ReturnGreatestMagicStat();
+
+                break;
+            case DamageTypes.fire:
+                statDamageBonus = ReturnGreatestMagicStat();
+
+                break;
+            case DamageTypes.forest:
+                statDamageBonus = ReturnGreatestMagicStat();
+
+                break;
+            case DamageTypes.earth:
+                statDamageBonus = ReturnGreatestMagicStat();
+
+                break;
+            case DamageTypes.thunder:
+                statDamageBonus = ReturnGreatestMagicStat();
+
+                break;
+            default:
+                Debug.LogError("SetDamageMod");
+                
+                break;
+        }
     }
 
     #endregion

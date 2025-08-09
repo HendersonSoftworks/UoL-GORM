@@ -13,11 +13,8 @@ public class Weapon : MonoBehaviour
 {
     public string weaponName;
     public WeaponAttributes weaponAttribute;
-    public uint minDamage;
-    public uint maxDamage;
+    public uint damage;
     public bool isMagical;
     public DamageTypes damageType;
-    public Spell[] spells;
-    public Image image;
-    public Animation weaponAnimation;
+    public Sprite image;
 }

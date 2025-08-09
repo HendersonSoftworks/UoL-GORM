@@ -13,6 +13,8 @@ public class EnemyCharacter : Character
     private void Start()
     {
         movementController = GetComponent<EnemyMovementController>();
+
+        currentWeapon = weapons[0];
     }
 
     private void PushEnemyAway(Collider2D collider, float force = 200f, float pushDuration = 0.5f)
