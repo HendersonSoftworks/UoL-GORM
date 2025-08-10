@@ -11,6 +11,7 @@ TagManager:
   - mSlider
   - eHitbox
   - pHitbox
+  - pBlockbox
   layers:
   - Default
   - TransparentFX

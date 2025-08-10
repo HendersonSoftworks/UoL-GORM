@@ -178,6 +178,7 @@ public class PlayerCharacter : Character
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        // Damage player if hit by enemy attack
         if (collision.tag == "eHitbox")
         {
             movementController.PushPlayerInDirection(gameObject, collision.gameObject);

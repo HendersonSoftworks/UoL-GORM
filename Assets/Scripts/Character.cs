@@ -78,6 +78,19 @@ public class Character : MonoBehaviour
 
         uint damageResult = (uint)Mathf.Clamp(baseResult, 1, 999);
 
+        PlayerAttackController playerAttackController = defender.GetComponent<PlayerAttackController>();
+        if (playerAttackController != null && defender.currentStamina > 0)
+        {
+            if (playerAttackController.isDefending)
+            {
+                defender.currentStamina -= damageResult;
+                print(attacker.name + " attacked " + defender.name + " dealing "
+                    + damageResult + " of stamina! ");
+
+                return;
+            }
+        }
+
         defender.currentHP -= (int)damageResult;
         print(attacker.name + " attacked " + defender.name + " dealing "
             + damageResult + " damage! ");

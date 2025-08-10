@@ -4,6 +4,13 @@ public class EnemyAttackController : MonoBehaviour
 {
     public enum AttackStates { ready, warmup, attacking, cooldown };
 
+    [Header("Setup - Set in UI")]
+    public BoxCollider2D hitbox;
+    [SerializeField]
+    private float hitboxTimer;
+    [SerializeField]
+    private float hitboxTimerReset;
+
     [Header("Setup - Loaded on start")]
     [SerializeField]
     private EnemyMovementController movementController;

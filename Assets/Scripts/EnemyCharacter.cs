@@ -34,6 +34,7 @@ public class EnemyCharacter : Character
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        // Damage enemy if hit by player attack
         if (collision.tag == "pHitbox")
         {
             PushEnemyAway(collision);

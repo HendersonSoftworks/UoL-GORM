@@ -36,10 +36,11 @@ public class PlayerAttackController : MonoBehaviour
 
     private void ManageDefending()
     {
-        if (!blockAction.triggered) { return; }
+        //if (!movementController.canMove) { return; }
         if (isAttacking) { return; }
         
         float blockValue = blockAction.ReadValue<float>();
+
         if (blockValue == 0) { FinishDefend(); ; }
         else if (blockValue == 1) { StartDefend(); }
     }
@@ -47,8 +48,8 @@ public class PlayerAttackController : MonoBehaviour
     private void ManageAttacking()
     {
         if (isDefending) { return; }
-
         if (isAttacking) { return; }
+
         float attackValue = attackAction.ReadValue<float>();
         if (attackValue == 0) { return; }
         
@@ -60,7 +61,6 @@ public class PlayerAttackController : MonoBehaviour
     {
         animationController.playerAnimator.SetBool("isDefending", true);
         movementController.SetVelToZero();
-        movementController.canMove = false;
         movementController.moveSpeed = movementController.attackMoveSpeed;
         isDefending = true;
     }
@@ -68,7 +68,6 @@ public class PlayerAttackController : MonoBehaviour
     public void FinishDefend()
     {
         animationController.playerAnimator.SetBool("isDefending", false);
-        movementController.canMove = true;
         movementController.moveSpeed = movementController.baseSpeed;
         isDefending = false;
     }
