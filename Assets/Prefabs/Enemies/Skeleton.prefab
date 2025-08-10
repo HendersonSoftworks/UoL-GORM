@@ -376,6 +376,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 886e80f143130fc49a6b5d4b6d84140e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hitbox: {fileID: 0}
+  hitboxTimer: 0
+  hitboxTimerReset: 0
   movementController: {fileID: 0}
   animationController: {fileID: 0}
   attackState: 0
@@ -396,22 +399,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   names: []
-  displayName: EnemyDisplay
+  displayName: Skeleton
   portrait: {fileID: 0}
   maxHP: 0
-  currentHP: 0
+  currentHP: 10
   maxStamina: 0
   currentStamina: 0
   maxMana: 0
   currentMana: 0
+  statDamageBonus: 0
+  miscDamageBonus: 0
   armourClass: 0
+  miscarmourBonus: 0
+  isInvulnerable: 0
   strength: 0
   dexterity: 0
   constitution: 0
   intelligence: 0
   wisdom: 0
   charisma: 0
-  weapons: []
+  currentWeapon: {fileID: 0}
+  weapons:
+  - {fileID: 2540567430011674128, guid: f8979481cbc07cd43a8970f33b2f77c5, type: 3}
   headArmour: {fileID: 0}
   bodyArmour: {fileID: 0}
   rings:

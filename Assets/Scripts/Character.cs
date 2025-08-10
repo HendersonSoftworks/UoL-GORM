@@ -26,6 +26,7 @@ public class Character : MonoBehaviour
     public uint miscDamageBonus;
     public uint armourClass;
     public uint miscarmourBonus;
+    public bool isInvulnerable;
 
     [Header("Statblock")]
     public uint strength;
@@ -70,6 +71,7 @@ public class Character : MonoBehaviour
     {
         if (attacker == null) { return; }
         if (defender == null) { return; }
+        if (isInvulnerable) { return; }
 
         uint incomingDamage = attacker.statDamageBonus
             + attacker.currentWeapon.damage;
@@ -95,6 +97,11 @@ public class Character : MonoBehaviour
         print(attacker.name + " attacked " + defender.name + " dealing "
             + damageResult + " damage! ");
 
+        if (tag == "Player")
+        {
+            StartCoroutine(StartInvulnerableTimer());
+        }
+        
         // Change anim state if player killed - should really be in EnemyCharacter class
         // Bug - anim not changing...
         EnemyAnimationController enemyAnimationController = 
@@ -108,6 +115,22 @@ public class Character : MonoBehaviour
     public virtual void CalculateMaxCurrentStats()
     {
         Debug.LogError("Base form, requires override!");
+    }
+
+    public void SetSpriteAlpha(float alpha)
+    {
+        SpriteRenderer sr = GetComponent<SpriteRenderer>();
+        Color newCol = new Color(sr.color.r, sr.color.g, sr.color.b, alpha);
+        sr.color = newCol;
+    }
+
+    public IEnumerator StartInvulnerableTimer(float timer = 1)
+    {
+        isInvulnerable = true;
+        //SetSpriteAlpha(127.5f);
+        yield return new WaitForSeconds(timer);
+        //SetSpriteAlpha(255);
+        isInvulnerable = false;
     }
 
     #endregion
