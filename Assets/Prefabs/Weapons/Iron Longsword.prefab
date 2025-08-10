@@ -47,6 +47,7 @@ MonoBehaviour:
   weaponName: Iron Longsword
   weaponAttribute: 0
   damage: 4
+  staminaCost: 3
   isMagical: 0
   damageType: 1
   image: {fileID: -8012857750607112913, guid: 7003e644cb84213428211912f7ff366c, type: 3}

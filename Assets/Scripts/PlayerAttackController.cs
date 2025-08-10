@@ -12,16 +12,21 @@ public class PlayerAttackController : MonoBehaviour
     public PlayerInput playerInput;
     public InputAction attackAction;
     public InputAction blockAction;
+    [SerializeField]
+    private PlayerCharacter playerCharacter;
 
     [Header("Logic - Do not change")]
     public bool isAttacking = false;
     public bool isDefending = false;
+
+    
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         movementController = GetComponentInParent<PlayerMovementController>();
         animationController = GetComponent<PlayerAnimationController>();
+        playerCharacter = GetComponent<PlayerCharacter>();
 
         attackAction = playerInput.actions["Attack"];
         blockAction = playerInput.actions["Block"];
@@ -52,7 +57,15 @@ public class PlayerAttackController : MonoBehaviour
 
         float attackValue = attackAction.ReadValue<float>();
         if (attackValue == 0) { return; }
-        
+
+        if (playerCharacter.currentWeapon.staminaCost > playerCharacter.currentStamina) 
+        {
+            print("TODO show low stamina!");
+            return; 
+        }
+
+        playerCharacter.currentStamina -= playerCharacter.currentWeapon.staminaCost;
+
         isAttacking = true; // reset from eventhelper
         StartAttack();
     }

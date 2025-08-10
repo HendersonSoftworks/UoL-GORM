@@ -137,7 +137,7 @@ public class Character : MonoBehaviour
 
     #region Private Methods
 
-    public void ManageHealth()
+    private void ManageHealth()
     {
         currentHP = Mathf.Clamp(currentHP, 0, 999);
 

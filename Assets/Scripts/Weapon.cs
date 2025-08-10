@@ -14,6 +14,7 @@ public class Weapon : MonoBehaviour
     public string weaponName;
     public WeaponAttributes weaponAttribute;
     public uint damage;
+    public uint staminaCost;
     public bool isMagical;
     public DamageTypes damageType;
     public Sprite image;
