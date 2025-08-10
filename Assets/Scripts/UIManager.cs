@@ -5,6 +5,8 @@ public class UIManager : MonoBehaviour
 {
     [Header("Setup - Loaded on start")]
     [SerializeField]
+    private GameObject canvas; // added in gui
+    [SerializeField]
     private Slider healthSlider;
     [SerializeField]
     private Slider staminaSlider;
@@ -12,13 +14,24 @@ public class UIManager : MonoBehaviour
     private Slider manaSlider;
     [SerializeField]
     private PlayerCharacter playerCharacter;
-    
+    public GameObject stairsContinuePanel;
+    public Button stairsYesButton;
+
+    private void Awake()
+    {
+        canvas.SetActive(true);
+    }
+
     void Start()
     {
         playerCharacter = FindFirstObjectByType<PlayerCharacter>();
         healthSlider = GameObject.FindGameObjectWithTag("hSlider").GetComponent<Slider>();
         staminaSlider = GameObject.FindGameObjectWithTag("sSlider").GetComponent<Slider>();
         manaSlider = GameObject.FindGameObjectWithTag("mSlider").GetComponent<Slider>();
+        stairsContinuePanel = GameObject.FindGameObjectWithTag("stairsContinuePanel");
+        stairsYesButton = GameObject.FindGameObjectWithTag("stairsYesButton").GetComponent<Button>();
+
+        stairsContinuePanel.SetActive(false);
     }
 
     void Update()

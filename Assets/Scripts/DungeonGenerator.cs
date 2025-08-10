@@ -64,12 +64,18 @@ public class DungeonGenerator : MonoBehaviour
     [Header("References")]
     [SerializeField]
     private FollowPlayerAndRescan setBoundsAndScan;
+    [SerializeField]
+    private DungeonPlacer dungeonPlacer;
 
     void Start()
     {
+        dungeonPlacer = GetComponent<DungeonPlacer>();
+        
         InvokePlacement();
         CleanupExtraWalls();
         setBoundsAndScan.SetGraphBoundsAndRescan();
+        dungeonPlacer.RandomlyPlaceEnemies();
+        dungeonPlacer.PlaceStairs();
     }
 
     private void Generate()

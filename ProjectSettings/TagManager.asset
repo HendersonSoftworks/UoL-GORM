@@ -12,6 +12,10 @@ TagManager:
   - eHitbox
   - pHitbox
   - pBlockbox
+  - Agent
+  - Stairs
+  - stairsContinuePanel
+  - stairsYesButton
   layers:
   - Default
   - TransparentFX

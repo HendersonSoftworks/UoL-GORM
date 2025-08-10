@@ -19,6 +19,13 @@ public class PlayerMovementController : MonoBehaviour
     public InputAction moveAction;
     [SerializeField]
     private Rigidbody2D rb2D;
+    [SerializeField]
+    private GameManager gameManager;
+
+    private void Awake()
+    {
+        gameManager = FindFirstObjectByType<GameManager>();
+    }
 
     void Start()
     {
@@ -32,12 +39,9 @@ public class PlayerMovementController : MonoBehaviour
 
     void FixedUpdate()
     {
-        moveInput = moveAction.ReadValue<Vector2>();
+        if (gameManager.isGamePaused) { return; }
 
-        if (attackAction.triggered)
-        {
-            //print("if (attackAction.triggered)");
-        }
+        moveInput = moveAction.ReadValue<Vector2>();
 
         if (canMove)
         {

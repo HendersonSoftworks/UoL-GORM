@@ -48,6 +48,13 @@ public class PlayerCharacter : Character
 
     [Header("Loaded on start")]
     private PlayerMovementController movementController;
+    [SerializeField]
+    private GameManager gameManager;
+
+    private void Awake()
+    {
+        gameManager = FindFirstObjectByType<GameManager>();
+    }
 
     private void Start()
     {
@@ -226,6 +233,14 @@ public class PlayerCharacter : Character
         {
             movementController.PushPlayerInDirection(gameObject, collision.gameObject);
             DamageCharacter(collision.GetComponentInParent<EnemyCharacter>(), this);
+        }
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Stairs")
+        {
+            gameManager.ShowContinueChoice(true);
         }
     }
 }

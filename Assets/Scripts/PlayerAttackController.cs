@@ -14,14 +14,18 @@ public class PlayerAttackController : MonoBehaviour
     public InputAction blockAction;
     [SerializeField]
     private PlayerCharacter playerCharacter;
+    [SerializeField]
+    private GameManager gameManager;
 
     [Header("Logic - Do not change")]
     public bool isAttacking = false;
     public bool isDefending = false;
 
-    
+    private void Awake()
+    {
+        gameManager = FindFirstObjectByType<GameManager>();        
+    }
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         movementController = GetComponentInParent<PlayerMovementController>();
@@ -32,9 +36,10 @@ public class PlayerAttackController : MonoBehaviour
         blockAction = playerInput.actions["Block"];
     }
 
-    // Update is called once per frame
     void Update()
     {
+        if (gameManager.isGamePaused) { return; }
+
         ManageDefending();
         ManageAttacking();
     }
