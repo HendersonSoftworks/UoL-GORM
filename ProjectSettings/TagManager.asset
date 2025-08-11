@@ -16,6 +16,7 @@ TagManager:
   - Stairs
   - stairsContinuePanel
   - stairsYesButton
+  - floorText
   layers:
   - Default
   - TransparentFX

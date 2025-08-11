@@ -39,6 +39,9 @@ public class PlayerCharacter : Character
         HeavyHitter,
     }
 
+    [Header("Dungeon Logic")]
+    public int currentFloor = 0;
+
     [Header("Player Config")]
     public Classes playerClass;
     public Races playerRace;
@@ -53,7 +56,10 @@ public class PlayerCharacter : Character
 
     private void Awake()
     {
+        DontDestroyOnLoad(gameObject);
+
         gameManager = FindFirstObjectByType<GameManager>();
+        movementController = GetComponent<PlayerMovementController>();
     }
 
     private void Start()
@@ -61,11 +67,7 @@ public class PlayerCharacter : Character
         // Test
         SetTestStatblock();
 
-        movementController = GetComponent<PlayerMovementController>();
-
         currentWeapon = weapons[0];
-
-        DontDestroyOnLoad(gameObject);
 
         CalculateMaxCurrentStats();
         SetMaxCurrentStats();

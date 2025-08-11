@@ -867,6 +867,7 @@ MonoBehaviour:
     m_SingletonActionBindings: []
     m_Flags: 0
   rb2D: {fileID: 0}
+  gameManager: {fileID: 0}
 --- !u!114 &8931276009066770027
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -930,6 +931,7 @@ MonoBehaviour:
   specialAbility: 0
   staminaRegainTimerReset: 1
   staminaRegainTimer: 1
+  gameManager: {fileID: 0}
 --- !u!114 &3760955254580178312
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -964,6 +966,7 @@ MonoBehaviour:
     m_SingletonActionBindings: []
     m_Flags: 0
   playerCharacter: {fileID: 0}
+  gameManager: {fileID: 0}
   isAttacking: 0
   isDefending: 0
 --- !u!1 &8733734498854750109

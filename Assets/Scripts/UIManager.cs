@@ -16,8 +16,8 @@ public class UIManager : MonoBehaviour
     private Slider manaSlider;
     [SerializeField]
     private PlayerCharacter playerCharacter;
-    public GameObject stairsContinuePanel;
-    public Button stairsYesButton;
+    public GameObject stairsContinuePanel; // added in gui
+    public Button stairsYesButton; // added in gui
     public TextMeshProUGUI floorText;
     public GameObject floorStartPanel; // added in gui
     public TextMeshProUGUI startFloorText; // added in gui
@@ -34,8 +34,6 @@ public class UIManager : MonoBehaviour
         healthSlider = GameObject.FindGameObjectWithTag("hSlider").GetComponent<Slider>();
         staminaSlider = GameObject.FindGameObjectWithTag("sSlider").GetComponent<Slider>();
         manaSlider = GameObject.FindGameObjectWithTag("mSlider").GetComponent<Slider>();
-        stairsContinuePanel = GameObject.FindGameObjectWithTag("stairsContinuePanel");
-        stairsYesButton = GameObject.FindGameObjectWithTag("stairsYesButton").GetComponent<Button>();
         floorText = GameObject.FindGameObjectWithTag("floorText").GetComponent<TextMeshProUGUI>();
 
         stairsContinuePanel.SetActive(false);
@@ -66,6 +64,7 @@ public class UIManager : MonoBehaviour
         if (panelImage.color.a <= 0) 
         { 
             CancelInvoke("DecreasePanelAlphaTransition");
+            floorStartPanel.SetActive(false);
         }
 
         panelImage.color = new Color(panelImage.color.r,
