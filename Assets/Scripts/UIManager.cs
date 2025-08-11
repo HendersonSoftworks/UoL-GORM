@@ -1,5 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
+using System.Collections;
 
 public class UIManager : MonoBehaviour
 {
@@ -16,6 +18,10 @@ public class UIManager : MonoBehaviour
     private PlayerCharacter playerCharacter;
     public GameObject stairsContinuePanel;
     public Button stairsYesButton;
+    public TextMeshProUGUI floorText;
+    public GameObject floorStartPanel; // added in gui
+    public TextMeshProUGUI startFloorText; // added in gui
+    public TextMeshProUGUI startFloorTipText; // added in gui
 
     private void Awake()
     {
@@ -30,8 +36,10 @@ public class UIManager : MonoBehaviour
         manaSlider = GameObject.FindGameObjectWithTag("mSlider").GetComponent<Slider>();
         stairsContinuePanel = GameObject.FindGameObjectWithTag("stairsContinuePanel");
         stairsYesButton = GameObject.FindGameObjectWithTag("stairsYesButton").GetComponent<Button>();
+        floorText = GameObject.FindGameObjectWithTag("floorText").GetComponent<TextMeshProUGUI>();
 
         stairsContinuePanel.SetActive(false);
+        floorStartPanel.SetActive(true);
     }
 
     void Update()
@@ -39,6 +47,31 @@ public class UIManager : MonoBehaviour
         SetHPValues();
         SetStaminaValues();
         SetManaValues();
+    }
+
+    public void SlowlyDecreasePanelAlpha()
+    {
+        InvokeRepeating("DecreasePanelAlphaTransition", 4, 0.01f);
+    }
+
+    public void DecreasePanelAlphaTransition()
+    {
+        Image panelImage = floorStartPanel.GetComponent<Image>();
+        var textObjs = panelImage.gameObject.GetComponentsInChildren<TextMeshProUGUI>();
+        foreach (var item in textObjs)
+        {
+            item.gameObject.SetActive(false);
+        }
+
+        if (panelImage.color.a <= 0) 
+        { 
+            CancelInvoke("DecreasePanelAlphaTransition");
+        }
+
+        panelImage.color = new Color(panelImage.color.r,
+            panelImage.color.g,
+            panelImage.color.b,
+            panelImage.color.a - 0.01f);
     }
 
     public void SetHPValues()

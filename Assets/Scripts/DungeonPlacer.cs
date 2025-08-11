@@ -28,14 +28,17 @@ public class DungeonPlacer : MonoBehaviour
         Instantiate(stairs, transform.position, Quaternion.identity);
     }
 
-    public void RandomlyPlaceEnemies()
+    public void RandomlyPlaceEnemies(List<GameObject> _rooms)
     {
-        foreach (var item in dungeonGenerator.rooms)
+        foreach (var item in _rooms)
         {
-            int randNumberOfEnemiesToSpawnInRoom = Random.Range(0, (int)maxNumberOfEnemiesInRooms+1);
-            for (int i = 0; i < randNumberOfEnemiesToSpawnInRoom; i++)
+            if (item != null)
             {
-                Instantiate(enemies[0], item.transform.position, Quaternion.identity);
+                int randNumberOfEnemiesToSpawnInRoom = Random.Range(0, (int)maxNumberOfEnemiesInRooms + 1);
+                for (int i = 0; i < randNumberOfEnemiesToSpawnInRoom; i++)
+                {
+                    Instantiate(enemies[0], item.transform.position, Quaternion.identity);
+                }
             }
         }
     }

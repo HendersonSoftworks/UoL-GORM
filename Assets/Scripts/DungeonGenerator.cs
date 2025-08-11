@@ -74,8 +74,8 @@ public class DungeonGenerator : MonoBehaviour
         InvokePlacement();
         CleanupExtraWalls();
         setBoundsAndScan.SetGraphBoundsAndRescan();
-        dungeonPlacer.RandomlyPlaceEnemies();
         dungeonPlacer.PlaceStairs();
+        dungeonPlacer.RandomlyPlaceEnemies(rooms);
     }
 
     private void Generate()
