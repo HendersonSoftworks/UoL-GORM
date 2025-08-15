@@ -39,9 +39,6 @@ public class PlayerCharacter : Character
         HeavyHitter,
     }
 
-    [Header("Dungeon Logic")]
-    public int currentFloor = 0;
-
     [Header("Player Config")]
     public Classes playerClass;
     public Races playerRace;
@@ -57,6 +54,7 @@ public class PlayerCharacter : Character
     private void Awake()
     {
         DontDestroyOnLoad(gameObject);
+        DestroyDuplicates();
 
         gameManager = FindFirstObjectByType<GameManager>();
         movementController = GetComponent<PlayerMovementController>();
@@ -79,6 +77,15 @@ public class PlayerCharacter : Character
     {
         ClampStats();
         RegainStamina();
+    }
+
+    private void DestroyDuplicates()
+    {
+        var playerChars = FindObjectsByType<PlayerCharacter>(FindObjectsSortMode.None);
+        if (playerChars.Length > 1) 
+        {
+            Destroy(gameObject);
+        }
     }
 
     private void ClampStats()

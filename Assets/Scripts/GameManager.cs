@@ -1,37 +1,76 @@
 using System;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
-    public PlayerCharacter playerCharacter;
+    [Header("Game Logic")]
+    public bool isGamePaused = false;
+    public int currentSessionFloor = 0;
 
+    [Header("References - Loaded on startup")]
+    public PlayerCharacter playerCharacter;
     [SerializeField]
     private UIManager uiManager;
 
-    public bool isGamePaused = false;
-    //public int currentFloor = 0;
-
     private void Awake()
     {
+        DontDestroyOnLoad(gameObject);
+        DestroyDuplicates();
         playerCharacter = FindFirstObjectByType<PlayerCharacter>();
         uiManager = GetComponent<UIManager>();
     }
 
     private void Start()
     {
+        //InitialiseGame();
+    }
+
+    private void OnEnable()
+    {
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+
+    private void OnDisable()
+    {
+        SceneManager.sceneLoaded -= OnSceneLoaded;
+    }
+
+    private void OnSceneLoaded(Scene arg0, LoadSceneMode arg1)
+    {
         InitialiseGame();
     }
-    
+
+    private void DestroyDuplicates()
+    {
+        var objs = FindObjectsByType<GameManager>(FindObjectsSortMode.None);
+        if (objs.Length > 1)
+        {
+            Destroy(gameObject);
+        }
+    }
+
     private void InitialiseGame()
     {
-        IncrementPlayerFloor(playerCharacter);
-        SetFloorText(playerCharacter.currentFloor);
+        SetDungeonFloor(Database.currentFloor);
+        SetFloorText(currentSessionFloor);
+        ResetPlayerPos();
         uiManager.SlowlyDecreasePanelAlpha();
     }
 
-    public void IncrementPlayerFloor(PlayerCharacter _playerCharacter)
+    private void ResetPlayerPos()
     {
-        _playerCharacter.currentFloor += 1;
+        playerCharacter.transform.position = Vector3.zero;
+    }
+
+    private void SetDungeonFloor(int _currentFloor)
+    {
+        currentSessionFloor = _currentFloor;
+    }
+
+    public void IncrementFloorDatabase()
+    {
+        Database.currentFloor += 1;
     }
 
     public void SetFloorText(int floorNumber)
@@ -58,7 +97,7 @@ public class GameManager : MonoBehaviour
 
     public void MoveToNextFloor()
     {
-        IncrementPlayerFloor(playerCharacter);
+        IncrementFloorDatabase();
         UnityEngine.SceneManagement.SceneManager.LoadScene("dungeon");
     }
 

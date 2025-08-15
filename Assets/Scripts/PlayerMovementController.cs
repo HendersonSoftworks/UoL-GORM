@@ -24,11 +24,12 @@ public class PlayerMovementController : MonoBehaviour
 
     private void Awake()
     {
-        gameManager = FindFirstObjectByType<GameManager>();
+        // gameManager = FindFirstObjectByType<GameManager>();
     }
 
     void Start()
     {
+        gameManager = FindFirstObjectByType<GameManager>();
         rb2D = GetComponent<Rigidbody2D>();
         playerInput = GetComponent<PlayerInput>();
 

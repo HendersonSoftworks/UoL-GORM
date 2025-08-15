@@ -68,6 +68,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d81945ba8db1ec4ba30aaac62e2cacc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerCharacter: {fileID: 0}
   uiManager: {fileID: 0}
   isGamePaused: 0
-  currentFloor: 0
