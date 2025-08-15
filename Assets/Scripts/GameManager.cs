@@ -55,6 +55,7 @@ public class GameManager : MonoBehaviour
         SetDungeonFloor(Database.currentFloor);
         SetFloorText(currentSessionFloor);
         ResetPlayerPos();
+        SetPauseGame(false);
         uiManager.SlowlyDecreasePanelAlpha();
     }
 
