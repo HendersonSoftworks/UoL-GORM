@@ -926,7 +926,6 @@ MonoBehaviour:
   spells: []
   items: []
   proficiencies: []
-  currentFloor: 0
   playerClass: 1
   playerRace: 1
   specialAbility: 0

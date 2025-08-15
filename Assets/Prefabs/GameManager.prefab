@@ -49,7 +49,7 @@ MonoBehaviour:
   healthSlider: {fileID: 0}
   staminaSlider: {fileID: 0}
   manaSlider: {fileID: 0}
-  playerCharacter: {fileID: 0}
+  gameManager: {fileID: 0}
   stairsContinuePanel: {fileID: 0}
   stairsYesButton: {fileID: 0}
   floorText: {fileID: 0}
@@ -68,6 +68,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d81945ba8db1ec4ba30aaac62e2cacc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isGamePaused: 0
+  currentSessionFloor: 0
   playerCharacter: {fileID: 0}
   uiManager: {fileID: 0}
-  isGamePaused: 0
