@@ -8,6 +8,8 @@ public class DungeonPlacer : MonoBehaviour
     [Header("Setup - Loaded on start")]
     [SerializeField]
     private DungeonGenerator dungeonGenerator;
+    [SerializeField]
+    private PlayerCharacter playerCharacter;
 
     [Header("Config")]
     [SerializeField]
@@ -21,6 +23,7 @@ public class DungeonPlacer : MonoBehaviour
     void Start()
     {
         dungeonGenerator = GetComponent<DungeonGenerator>();
+        playerCharacter = FindFirstObjectByType<PlayerCharacter>();
     }
 
     public void PlaceStairs()
@@ -37,7 +40,11 @@ public class DungeonPlacer : MonoBehaviour
                 int randNumberOfEnemiesToSpawnInRoom = Random.Range(0, (int)maxNumberOfEnemiesInRooms + 1);
                 for (int i = 0; i < randNumberOfEnemiesToSpawnInRoom; i++)
                 {
-                    Instantiate(enemies[0], item.transform.position, Quaternion.identity);
+                    float dist = Vector2.Distance(item.transform.position, playerCharacter.transform.position);
+                    if (dist >= 7) // check enemies not spawning in same room as player
+                    {
+                        Instantiate(enemies[0], item.transform.position, Quaternion.identity);
+                    }
                 }
             }
         }

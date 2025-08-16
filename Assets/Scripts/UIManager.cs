@@ -110,7 +110,7 @@ public class UIManager : MonoBehaviour
         if (panelImage.color.a < 1) { gameManager.isGamePaused = false; }
 
         if (panelImage.color.a <= 0) 
-        { 
+        {
             CancelInvoke("DecreasePanelAlphaTransitionAndUnpause");
             floorStartPanel.SetActive(false);
         }

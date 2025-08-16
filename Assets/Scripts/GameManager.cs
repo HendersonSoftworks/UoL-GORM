@@ -55,7 +55,7 @@ public class GameManager : MonoBehaviour
         SetDungeonFloor(Database.currentFloor);
         SetFloorText(currentSessionFloor);
         ResetPlayerPos();
-        SetPauseGame(false);
+        isGamePaused = true;
         uiManager.SlowlyDecreasePanelAlpha();
     }
 
@@ -99,7 +99,8 @@ public class GameManager : MonoBehaviour
     public void MoveToNextFloor()
     {
         IncrementFloorDatabase();
-        UnityEngine.SceneManagement.SceneManager.LoadScene("dungeon");
+        SetPauseGame(false);
+        SceneManager.LoadScene("dungeon");
     }
 
     public void SetPauseGame(bool value)
