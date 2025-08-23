@@ -243,6 +243,12 @@ public class PlayerCharacter : Character
             movementController.PushPlayerInDirection(gameObject, collision.gameObject);
             DamageCharacter(collision.GetComponentInParent<EnemyCharacter>(), this);
         }
+
+        // Activate item grab
+        if (collision.tag == "chest")
+        {
+            print("CHEST!");
+        }
     }
 
     private void OnCollisionEnter2D(Collision2D collision)

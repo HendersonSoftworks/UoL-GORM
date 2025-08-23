@@ -73,10 +73,13 @@ public class DungeonGenerator : MonoBehaviour
         
         InvokePlacement();
         CleanupExtraWalls();
+        
         setBoundsAndScan.SetGraphBoundsAndRescan();
+        
         dungeonPlacer.PlaceStairs();
         dungeonPlacer.RandomlyPlaceEnemies(rooms);
-        dungeonPlacer.RandomlyPlaceChests(rooms, corridors);
+        dungeonPlacer.RandomlyPlaceRoomChests(rooms);
+        dungeonPlacer.RandomlyPlaceCorridorChests(corridors, 2);
     }
 
     private void ProcessGenerationStep()
