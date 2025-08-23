@@ -45,6 +45,7 @@ public class PlayerCharacter : Character
     public SpecialAbilities specialAbility;
     public float staminaRegainTimerReset = 1f;
     public float staminaRegainTimer = 1f;
+    public bool inContactWithChest = false;
 
     [Header("Loaded on start")]
     private PlayerMovementController movementController;
