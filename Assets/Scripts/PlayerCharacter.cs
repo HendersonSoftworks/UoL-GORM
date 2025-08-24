@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerCharacter : Character
 {
@@ -52,6 +53,8 @@ public class PlayerCharacter : Character
     private PlayerMovementController movementController;
     [SerializeField]
     private GameManager gameManager;
+    [SerializeField]
+    private UIManager uiManager;
 
     private void Awake()
     {
@@ -59,6 +62,7 @@ public class PlayerCharacter : Character
         DestroyDuplicates();
 
         gameManager = FindFirstObjectByType<GameManager>();
+        uiManager = FindFirstObjectByType<UIManager>();
         movementController = GetComponent<PlayerMovementController>();
     }
 
@@ -250,6 +254,7 @@ public class PlayerCharacter : Character
         if (collision.tag == "chest")
         {
             currentChest = collision.gameObject;
+
         }
     }
 

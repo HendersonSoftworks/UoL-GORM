@@ -40,8 +40,9 @@ public class DungeonPlacer : MonoBehaviour
     {
         foreach (var _chest in _chests)
         {
-            print(_chest.gameObject.name);
-            _chest.GetComponent<Chest>().chestItem = dungeonItems.ringsArr[0].GetComponent<Item>();
+            int randRingInt = Random.Range(0, dungeonItems.ringsArr.Length);
+            _chest.GetComponent<Chest>().chestItem = 
+                dungeonItems.ringsArr[randRingInt].GetComponent<Item>();
         }
     }
 

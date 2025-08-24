@@ -248,7 +248,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db6cc85d7f814704c8c147ee89a10b4e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  chestItem: {fileID: 0}
+  chestItem: {fileID: 8400399621750346471, guid: 68218fa08ebc07c42bc9c5542ba07bb2, type: 3}
   dialogueIcon: {fileID: 7582586064547884567}
 --- !u!1001 &3853328675863972334
 PrefabInstance:

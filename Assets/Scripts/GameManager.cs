@@ -96,6 +96,26 @@ public class GameManager : MonoBehaviour
         SetPauseGame(false);
     }
 
+    public void ShowChestChoice()
+    {
+        uiManager.chestItemImage.sprite =
+            playerCharacter.currentChest.GetComponent<Chest>().chestItem.image;
+
+        uiManager.chestPanel.SetActive(true);
+        uiManager.chestTakeButton.Select();
+        //uiManager.chestItemImage = null;
+
+        SetPauseGame(true);
+    }
+
+    public void CloseChestChoice()
+    {
+        uiManager.chestPanel.SetActive(false);
+        uiManager.chestTakeButton.Select();
+
+        SetPauseGame(false);
+    }
+
     public void MoveToNextFloor()
     {
         IncrementFloorDatabase();

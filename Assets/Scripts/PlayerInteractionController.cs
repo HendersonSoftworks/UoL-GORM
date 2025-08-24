@@ -40,6 +40,7 @@ public class PlayerInteractionController : MonoBehaviour
         if (playerCharacter.inContactWithChest && _interactionValue == 1)
         {
             print("Opening chest...");
+            gameManager.ShowChestChoice();            
         }
     }
 }

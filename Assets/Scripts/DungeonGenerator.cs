@@ -479,7 +479,7 @@ public class DungeonGenerator : MonoBehaviour
                 newRoom.GetComponent<RoomData>().bounds,
                 room.GetComponent<RoomData>().bounds))
             {
-                print("Room clash - removing room");
+                //print("Room clash - removing room");
                 Destroy(newRoom);
                 return;
             }

@@ -25,6 +25,9 @@ public class UIManager : MonoBehaviour
     public GameObject floorStartPanel; // added in gui
     public TextMeshProUGUI startFloorText; // added in gui
     public TextMeshProUGUI startFloorTipText; // added in gui
+    public GameObject chestPanel;
+    public Button chestTakeButton;
+    public Image chestItemImage;
 
     private void Awake()
     {
@@ -36,8 +39,6 @@ public class UIManager : MonoBehaviour
         staminaSlider = GameObject.FindGameObjectWithTag("sSlider").GetComponent<Slider>();
         manaSlider = GameObject.FindGameObjectWithTag("mSlider").GetComponent<Slider>();
         floorText = GameObject.FindGameObjectWithTag("floorText").GetComponent<TextMeshProUGUI>();
-
-        
     }
 
     void Start()
