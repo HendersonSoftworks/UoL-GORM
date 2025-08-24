@@ -7,12 +7,17 @@ public class Chest : MonoBehaviour
     [SerializeField]
     private GameObject dialogueIcon;
 
+    public void SetDialogue(Collider2D collision, bool value)
+    {
+        dialogueIcon.SetActive(value);
+        collision.GetComponent<PlayerCharacter>().inContactWithChest = value;
+    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Player")
         {
-            dialogueIcon.SetActive(true);
-            collision.GetComponent<PlayerCharacter>().inContactWithChest = true;
+            SetDialogue(collision, true);
         }
     }
 
@@ -20,8 +25,7 @@ public class Chest : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
-            dialogueIcon.SetActive(false);
-            collision.GetComponent<PlayerCharacter>().inContactWithChest = false;
+            SetDialogue(collision, false);
         }
     }
 }

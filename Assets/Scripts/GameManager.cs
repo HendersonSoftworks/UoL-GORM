@@ -98,6 +98,8 @@ public class GameManager : MonoBehaviour
 
     public void ShowChestChoice()
     {
+        if (isGamePaused) { return; }
+
         // Populate item UI
         uiManager.chestItemImage.sprite =
             playerCharacter.currentChest.GetComponent<Chest>().chestItem.image;
@@ -115,7 +117,7 @@ public class GameManager : MonoBehaviour
     public void CloseChestChoice()
     {
         uiManager.chestPanel.SetActive(false);
-        uiManager.chestTakeButton.Select();
+        playerCharacter.currentChest.GetComponent<Chest>().SetDialogue(playerCharacter.GetComponent<Collider2D>(), false);
 
         SetPauseGame(false);
     }

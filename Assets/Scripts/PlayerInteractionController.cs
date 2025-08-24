@@ -37,10 +37,11 @@ public class PlayerInteractionController : MonoBehaviour
         }
 
         float _interactionValue = interactionAction.ReadValue<float>();
-        if (playerCharacter.inContactWithChest && _interactionValue == 1)
+        if (playerCharacter.inContactWithChest && _interactionValue == 1 &&
+            playerCharacter.inContactWithChest == true)
         {
-            print("Opening chest...");
-            gameManager.ShowChestChoice();            
+            gameManager.ShowChestChoice();
+            playerCharacter.inContactWithChest = false;
         }
     }
 }
