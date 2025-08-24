@@ -46,6 +46,7 @@ public class PlayerCharacter : Character
     public float staminaRegainTimerReset = 1f;
     public float staminaRegainTimer = 1f;
     public bool inContactWithChest = false;
+    public GameObject currentChest;
 
     [Header("Loaded on start")]
     private PlayerMovementController movementController;
@@ -245,10 +246,19 @@ public class PlayerCharacter : Character
             DamageCharacter(collision.GetComponentInParent<EnemyCharacter>(), this);
         }
 
-        // Activate item grab
+        // Assign chest to player
         if (collision.tag == "chest")
         {
-            print("CHEST!");
+            currentChest = collision.gameObject;
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        // Unassign player chest 
+        if (collision.tag == "chest")
+        {
+            currentChest = null;
         }
     }
 

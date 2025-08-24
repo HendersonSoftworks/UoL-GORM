@@ -6,5 +6,5 @@ public class Item : MonoBehaviour
 {
     public string itemName;
     public string description;
-    public bool isConsumable;
+    public Sprite image;
 }

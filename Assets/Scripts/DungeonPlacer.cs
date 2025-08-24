@@ -6,10 +6,12 @@ public class DungeonPlacer : MonoBehaviour
 {
 
     [Header("Setup - Loaded on start")]
-    //[SerializeField]
-    //private DungeonGenerator dungeonGenerator;
+    [SerializeField]
+    private DungeonGenerator dungeonGenerator;
     [SerializeField]
     private PlayerCharacter playerCharacter;
+    [SerializeField]
+    private DungeonItems dungeonItems;
 
     [Header("Config")]
     [SerializeField]
@@ -24,13 +26,23 @@ public class DungeonPlacer : MonoBehaviour
 
     void Start()
     {
-        //dungeonGenerator = GetComponent<DungeonGenerator>();
+        dungeonGenerator = GetComponent<DungeonGenerator>();
+        dungeonItems = GetComponent<DungeonItems>();
         playerCharacter = FindFirstObjectByType<PlayerCharacter>();
     }
 
     public void PlaceStairs()
     {
         Instantiate(stairsPrefab, transform.position, Quaternion.identity);
+    }
+
+    public void PopulateChestItems(List<GameObject> _chests)
+    {
+        foreach (var _chest in _chests)
+        {
+            print(_chest.gameObject.name);
+            _chest.GetComponent<Chest>().chestItem = dungeonItems.ringsArr[0].GetComponent<Item>();
+        }
     }
 
     public void RandomlyPlaceRoomChests(List<GameObject> _rooms, int _chance = 25)
@@ -43,7 +55,8 @@ public class DungeonPlacer : MonoBehaviour
                 float dist = Vector2.Distance(_room.transform.position, playerCharacter.transform.position);
                 if (dist >= 7 && (_randRoll <= _chance)) // check enemies not spawning in same room as player
                 {
-                    Instantiate(chestPrefab, _room.transform.position, Quaternion.identity);
+                    var _tempchest = Instantiate(chestPrefab, _room.transform.position, Quaternion.identity);
+                    dungeonGenerator.chests.Add(_tempchest);
                 }
             }
         }
@@ -59,7 +72,8 @@ public class DungeonPlacer : MonoBehaviour
                 float dist = Vector2.Distance(_cor.transform.position, playerCharacter.transform.position);
                 if (dist >= 7 && (_randRoll <= _chance)) // check enemies not spawning in same room as player
                 {
-                    Instantiate(chestPrefab, _cor.transform.position, Quaternion.identity);
+                    var _tempchest = Instantiate(chestPrefab, _cor.transform.position, Quaternion.identity);
+                    dungeonGenerator.chests.Add(_tempchest);
                 }
             }
         }

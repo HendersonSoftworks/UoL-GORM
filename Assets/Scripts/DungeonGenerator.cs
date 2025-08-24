@@ -48,7 +48,8 @@ public class DungeonGenerator : MonoBehaviour
     public List<GameObject> corridors;
     public List<GameObject> rooms;
     public List<GameObject> walls;
-    
+    public List<GameObject> chests;
+
     [Header("Prefabs")]
     [SerializeField]
     private GameObject roomPrefab;
@@ -80,6 +81,7 @@ public class DungeonGenerator : MonoBehaviour
         dungeonPlacer.RandomlyPlaceEnemies(rooms);
         dungeonPlacer.RandomlyPlaceRoomChests(rooms);
         dungeonPlacer.RandomlyPlaceCorridorChests(corridors, 2);
+        dungeonPlacer.PopulateChestItems(chests);
     }
 
     private void ProcessGenerationStep()
