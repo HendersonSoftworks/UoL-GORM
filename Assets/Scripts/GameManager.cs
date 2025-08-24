@@ -98,13 +98,17 @@ public class GameManager : MonoBehaviour
 
     public void ShowChestChoice()
     {
+        // Populate item UI
         uiManager.chestItemImage.sprite =
             playerCharacter.currentChest.GetComponent<Chest>().chestItem.image;
+        uiManager.chestItemName.text =
+            playerCharacter.currentChest.GetComponent<Chest>().chestItem.name;
+        uiManager.chestItemDescription.text =
+            playerCharacter.currentChest.GetComponent<Chest>().chestItem.description;
 
         uiManager.chestPanel.SetActive(true);
         uiManager.chestTakeButton.Select();
-        //uiManager.chestItemImage = null;
-
+        
         SetPauseGame(true);
     }
 

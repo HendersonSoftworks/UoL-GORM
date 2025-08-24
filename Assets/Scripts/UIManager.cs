@@ -28,6 +28,8 @@ public class UIManager : MonoBehaviour
     public GameObject chestPanel;
     public Button chestTakeButton;
     public Image chestItemImage;
+    public TextMeshProUGUI chestItemName;
+    public TextMeshProUGUI chestItemDescription;
 
     private void Awake()
     {
