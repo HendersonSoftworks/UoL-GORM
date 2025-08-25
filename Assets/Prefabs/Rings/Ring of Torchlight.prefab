@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8949098179471062158}
   - component: {fileID: 8400399621750346471}
   m_Layer: 0
-  m_Name: Ring of Extreme Speed
+  m_Name: Ring of Torchlight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -44,8 +44,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8369561e7d4bd2e458475f42276484fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemName: Ring of Speed
-  description: +2 movement speed.
+  itemName: Ring of Torchlight
+  description: +1 torch distance.
   image: {fileID: -1004292241715702395, guid: 6e5c44a7f07d9e949b8f119d6dc921ce, type: 3}
-  ringEffect: 3
-  bonus: 2
+  ringEffect: 6
+  bonus: 1

@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering.Universal;
 using UnityEngine.UI;
 
 public class PlayerCharacter : Character
@@ -97,26 +98,38 @@ public class PlayerCharacter : Character
             switch (item.ringEffect)
             {
                 case Ring.ringEffects.none:
+                    
                     break;
                 case Ring.ringEffects.ac:
                     armourClass += (uint)item.bonus;
+                    
                     break;
                 case Ring.ringEffects.damage:
                     miscDamageBonus += (uint)item.bonus;
+                    
                     break;
                 case Ring.ringEffects.moveSpeed:
                     movementController.moveSpeed += (uint)item.bonus;
+                    
                     break;
                 case Ring.ringEffects.attackSpeed:
                     float _attackSpeedMult = animationController.playerAnimator.GetFloat("attackSpeedMult");
                     _attackSpeedMult += item.bonus;
                     animationController.playerAnimator.SetFloat("attackSpeedMult", _attackSpeedMult);
+                    
                     break;
                 case Ring.ringEffects.castSpeed:
                     float _castSpeedMult = animationController.playerAnimator.GetFloat("castSpeedMult");
                     _castSpeedMult += item.bonus;
                     animationController.playerAnimator.SetFloat("attackSpeedMult", _castSpeedMult);
+                    
                     break;
+                case Ring.ringEffects.torchLight:
+                    Light2D _light = GetComponentInChildren<Light2D>();
+                    _light.pointLightOuterRadius += item.bonus;
+
+                    break;
+
                 default:
                     break;
             }
