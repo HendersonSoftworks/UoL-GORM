@@ -38,10 +38,10 @@ public class Character : MonoBehaviour
 
     [Header("Gear")]
     public Weapon currentWeapon;
-    public Weapon[] weapons = new Weapon[3];
+    public List<Weapon> weapons = new List<Weapon>();
     public Armour headArmour;
     public Armour bodyArmour;
-    public Ring[] rings = new Ring[2];
+    public List<Ring> rings = new List<Ring>();
 
     [Header("Spellcasting")]
     public List<Spell> spells;

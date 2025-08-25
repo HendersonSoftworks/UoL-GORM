@@ -86,7 +86,6 @@ public class GameManager : MonoBehaviour
     {
         uiManager.stairsContinuePanel.SetActive(value);
         uiManager.stairsYesButton.Select();
-
         SetPauseGame(value);
     }
 
@@ -112,6 +111,24 @@ public class GameManager : MonoBehaviour
         uiManager.chestTakeButton.Select();
         
         SetPauseGame(true);
+    }
+
+    public void TakeItem()
+    {
+        if (playerCharacter == null) { return; }
+        Item _chestitem = playerCharacter.currentChest.GetComponent<Chest>().chestItem;
+        if (_chestitem == null) { return; }
+
+        if (_chestitem is Ring)
+        {
+            playerCharacter.rings.Add((Ring)_chestitem);
+        }
+
+        uiManager.chestPanel.SetActive(false);
+        SetPauseGame(false);
+        playerCharacter.currentChest.GetComponent<Chest>().MarkChestAsEmpty();
+        playerCharacter.currentChest = null;
+        playerCharacter.inContactWithChest = false;
     }
 
     public void CloseChestChoice()

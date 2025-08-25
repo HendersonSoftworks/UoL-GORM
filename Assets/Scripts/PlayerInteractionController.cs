@@ -26,15 +26,14 @@ public class PlayerInteractionController : MonoBehaviour
     {
         if (gameManager.isGamePaused) { return; }
 
-        ManageInteraction();
+        ChestManageInteraction();
     }
 
-    private void ManageInteraction()
+    private void ChestManageInteraction()
     {
-        if (!playerCharacter.inContactWithChest)
-        {
-            return;
-        }
+        if (!playerCharacter.inContactWithChest){ return; }
+        if (playerCharacter.currentChest == null) { return; }
+        if (playerCharacter.currentChest.GetComponent<Chest>().empty) { return; }
 
         float _interactionValue = interactionAction.ReadValue<float>();
         if (playerCharacter.inContactWithChest && _interactionValue == 1 &&
