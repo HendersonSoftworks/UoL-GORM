@@ -50,6 +50,9 @@ public class PlayerCharacter : Character
     public GameObject currentChest;
 
     [Header("Loaded on start")]
+    [SerializeField]
+    private PlayerAnimationController animationController;
+    [SerializeField]
     private PlayerMovementController movementController;
     [SerializeField]
     private GameManager gameManager;
@@ -83,6 +86,41 @@ public class PlayerCharacter : Character
     {
         ClampStats();
         RegainStamina();
+        ProcessRingEffects();
+    }
+
+    private void ProcessRingEffects()
+    {
+        // Rings
+        foreach (var item in rings)
+        {
+            switch (item.ringEffect)
+            {
+                case Ring.ringEffects.none:
+                    break;
+                case Ring.ringEffects.ac:
+                    armourClass += (uint)item.bonus;
+                    break;
+                case Ring.ringEffects.damage:
+                    miscDamageBonus += (uint)item.bonus;
+                    break;
+                case Ring.ringEffects.moveSpeed:
+                    movementController.moveSpeed += (uint)item.bonus;
+                    break;
+                case Ring.ringEffects.attackSpeed:
+                    float _attackSpeedMult = animationController.playerAnimator.GetFloat("attackSpeedMult");
+                    _attackSpeedMult += item.bonus;
+                    animationController.playerAnimator.SetFloat("attackSpeedMult", _attackSpeedMult);
+                    break;
+                case Ring.ringEffects.castSpeed:
+                    float _castSpeedMult = animationController.playerAnimator.GetFloat("castSpeedMult");
+                    _castSpeedMult += item.bonus;
+                    animationController.playerAnimator.SetFloat("attackSpeedMult", _castSpeedMult);
+                    break;
+                default:
+                    break;
+            }
+        }
     }
 
     private void DestroyDuplicates()
