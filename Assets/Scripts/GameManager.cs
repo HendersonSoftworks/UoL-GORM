@@ -119,10 +119,7 @@ public class GameManager : MonoBehaviour
         Item _chestitem = playerCharacter.currentChest.GetComponent<Chest>().chestItem;
         if (_chestitem == null) { return; }
 
-        if (_chestitem is Ring)
-        {
-            playerCharacter.rings.Add((Ring)_chestitem);
-        }
+        playerCharacter.AddItem(_chestitem);
 
         uiManager.chestPanel.SetActive(false);
         SetPauseGame(false);

@@ -87,52 +87,58 @@ public class PlayerCharacter : Character
     {
         ClampStats();
         RegainStamina();
-        ProcessRingEffects();
     }
 
-    private void ProcessRingEffects()
+    public void AddItem(Item _item)
     {
-        // Rings
-        foreach (var item in rings)
+        if (_item is Ring)
         {
-            switch (item.ringEffect)
-            {
-                case Ring.ringEffects.none:
-                    
-                    break;
-                case Ring.ringEffects.ac:
-                    armourClass += (uint)item.bonus;
-                    
-                    break;
-                case Ring.ringEffects.damage:
-                    miscDamageBonus += (uint)item.bonus;
-                    
-                    break;
-                case Ring.ringEffects.moveSpeed:
-                    movementController.moveSpeed += (uint)item.bonus;
-                    
-                    break;
-                case Ring.ringEffects.attackSpeed:
-                    float _attackSpeedMult = animationController.playerAnimator.GetFloat("attackSpeedMult");
-                    _attackSpeedMult += item.bonus;
-                    animationController.playerAnimator.SetFloat("attackSpeedMult", _attackSpeedMult);
-                    
-                    break;
-                case Ring.ringEffects.castSpeed:
-                    float _castSpeedMult = animationController.playerAnimator.GetFloat("castSpeedMult");
-                    _castSpeedMult += item.bonus;
-                    animationController.playerAnimator.SetFloat("attackSpeedMult", _castSpeedMult);
-                    
-                    break;
-                case Ring.ringEffects.torchLight:
-                    Light2D _light = GetComponentInChildren<Light2D>();
-                    _light.pointLightOuterRadius += item.bonus;
+            Ring _ring = (Ring)_item;
+            rings.Add(_ring);
+            AddRingEffect(_ring.ringEffect, _ring);
+        }
+    }
 
-                    break;
+    public  void AddRingEffect(Ring.ringEffects _ringEffect, Ring _ring)
+    {
+        switch (_ringEffect)
+        {
+            case Ring.ringEffects.none:
 
-                default:
-                    break;
-            }
+                break;
+            case Ring.ringEffects.ac:
+                armourClass += (uint)_ring.bonus;
+
+                break;
+            case Ring.ringEffects.damage:
+                miscDamageBonus += (uint)_ring.bonus;
+
+                break;
+            case Ring.ringEffects.moveSpeed:
+                movementController.moveSpeed += (uint)_ring.bonus * 10;
+                movementController.baseSpeed += (uint)_ring.bonus * 10;
+
+                break;
+            case Ring.ringEffects.attackSpeed:
+                float _attackSpeedMult = animationController.playerAnimator.GetFloat("attackSpeedMult");
+                _attackSpeedMult += _ring.bonus;
+                animationController.playerAnimator.SetFloat("attackSpeedMult", _attackSpeedMult);
+
+                break;
+            case Ring.ringEffects.castSpeed:
+                float _castSpeedMult = animationController.playerAnimator.GetFloat("castSpeedMult");
+                _castSpeedMult += _ring.bonus;
+                animationController.playerAnimator.SetFloat("attackSpeedMult", _castSpeedMult);
+
+                break;
+            case Ring.ringEffects.torchLight:
+                Light2D _light = GetComponentInChildren<Light2D>();
+                _light.pointLightOuterRadius += _ring.bonus;
+
+                break;
+
+            default:
+                break;
         }
     }
 

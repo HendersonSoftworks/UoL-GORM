@@ -8,7 +8,6 @@ public class PlayerMovementController : MonoBehaviour
     public float moveSpeed = 10;
     public float baseSpeed = 10;
     public float attackMoveSpeed;
-
     public bool canMove = true;
     public float pushTime;
     public Vector2 moveInput;
@@ -19,15 +18,14 @@ public class PlayerMovementController : MonoBehaviour
     private Rigidbody2D rb2D;
     [SerializeField]
     private GameManager gameManager;
-
-    private void Awake()
-    {
-        // gameManager = FindFirstObjectByType<GameManager>();
-    }
-
+    [SerializeField]
+    private PlayerCharacter playerCharacter;
+    
     void Start()
     {
         gameManager = FindFirstObjectByType<GameManager>();
+        playerCharacter = GetComponent<PlayerCharacter>();
+
         rb2D = GetComponent<Rigidbody2D>();
         playerInput = GetComponent<PlayerInput>();
 

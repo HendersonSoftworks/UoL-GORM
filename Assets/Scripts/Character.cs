@@ -20,14 +20,15 @@ public class Character : MonoBehaviour
     public float currentStamina;
     public uint maxMana;
     public uint currentMana;
-
+    
     [Header("Modifiers")]
+    public int moveSpeedBonus;
     public uint statDamageBonus;
     public uint miscDamageBonus;
     public uint armourClass;
     public uint miscarmourBonus;
     public bool isInvulnerable;
-
+    
     [Header("Statblock")]
     public uint strength;
     public uint dexterity;
