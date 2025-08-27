@@ -52,13 +52,11 @@ public class PlayerCharacter : Character
 
     [Header("Loaded on start")]
     [SerializeField]
-    private PlayerAnimationController animationController;
-    [SerializeField]
     private PlayerMovementController movementController;
     [SerializeField]
     private GameManager gameManager;
     [SerializeField]
-    private UIManager uiManager;
+    private Animator animator;
 
     private void Awake()
     {
@@ -66,8 +64,8 @@ public class PlayerCharacter : Character
         DestroyDuplicates();
 
         gameManager = FindFirstObjectByType<GameManager>();
-        uiManager = FindFirstObjectByType<UIManager>();
         movementController = GetComponent<PlayerMovementController>();
+        animator = GetComponentInChildren<Animator>();
     }
 
     private void Start()
@@ -120,15 +118,15 @@ public class PlayerCharacter : Character
 
                 break;
             case Ring.ringEffects.attackSpeed:
-                float _attackSpeedMult = animationController.playerAnimator.GetFloat("attackSpeedMult");
+                float _attackSpeedMult = animator.GetFloat("attackSpeedMult");
                 _attackSpeedMult += _ring.bonus;
-                animationController.playerAnimator.SetFloat("attackSpeedMult", _attackSpeedMult);
+                animator.SetFloat("attackSpeedMult", _attackSpeedMult);
 
                 break;
             case Ring.ringEffects.castSpeed:
-                float _castSpeedMult = animationController.playerAnimator.GetFloat("castSpeedMult");
+                float _castSpeedMult = animator.GetFloat("castSpeedMult");
                 _castSpeedMult += _ring.bonus;
-                animationController.playerAnimator.SetFloat("attackSpeedMult", _castSpeedMult);
+                animator.SetFloat("attackSpeedMult", _castSpeedMult);
 
                 break;
             case Ring.ringEffects.torchLight:

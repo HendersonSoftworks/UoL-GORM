@@ -48,4 +48,4 @@ MonoBehaviour:
   description: +1 attack speed.
   image: {fileID: -1004292241715702395, guid: 6e5c44a7f07d9e949b8f119d6dc921ce, type: 3}
   ringEffect: 4
-  bonus: 0.1
+  bonus: 0.2
