@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 7153873509790576395}
   - component: {fileID: 6898707864579352175}
   - component: {fileID: 1794554368927992791}
+  - component: {fileID: 4887046010796822830}
   m_Layer: 0
   m_Name: DungeonAgent
   m_TagString: Agent
@@ -91,6 +92,7 @@ MonoBehaviour:
   corridors: []
   rooms: []
   walls: []
+  chests: []
   roomPrefab: {fileID: 1412325085217939537, guid: 13c185ff0d02fcb4ca4e65da754bae26, type: 3}
   corridorPrefab: {fileID: 2229778524449285034, guid: 03312dbe6c62f8744ad3580f99521397, type: 3}
   wallTopPrefab: {fileID: 7560836600224425988, guid: 0e4eb8248e0cd874fa9b350e36154d6c, type: 3}
@@ -111,7 +113,31 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dungeonGenerator: {fileID: 0}
+  playerCharacter: {fileID: 0}
+  dungeonItems: {fileID: 0}
   enemies:
   - {fileID: 4974876322840412966, guid: 0a8f4adcfdeeb6748a4cc6e86719a9ed, type: 3}
-  stairs: {fileID: 2690485073099773176, guid: 157a53c05c173274c9cef9fcf5b03240, type: 3}
+  stairsPrefab: {fileID: 2690485073099773176, guid: 157a53c05c173274c9cef9fcf5b03240, type: 3}
+  chestPrefab: {fileID: 2485807066254277334, guid: 2092074819242cd4d8d526a12835a920, type: 3}
   maxNumberOfEnemiesInRooms: 1
+--- !u!114 &4887046010796822830
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3342194431762379322}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 54bd78521e243a946a5504be26299dd9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spellsArr: []
+  itemsArr: []
+  weaponsArr: []
+  armourArr: []
+  ringsArr:
+  - {fileID: 7279459389496476205, guid: f0a11b0547ea04741ac0756a0836a0d3, type: 3}
+  - {fileID: 7279459389496476205, guid: 35962c6a66841e94db88b09dc3df0c09, type: 3}
+  - {fileID: 7279459389496476205, guid: fc29e121845577b45bd7834d2009f819, type: 3}
+  - {fileID: 7279459389496476205, guid: 68218fa08ebc07c42bc9c5542ba07bb2, type: 3}

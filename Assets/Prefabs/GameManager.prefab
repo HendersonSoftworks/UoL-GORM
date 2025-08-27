@@ -56,6 +56,11 @@ MonoBehaviour:
   floorStartPanel: {fileID: 0}
   startFloorText: {fileID: 0}
   startFloorTipText: {fileID: 0}
+  chestPanel: {fileID: 0}
+  chestTakeButton: {fileID: 0}
+  chestItemImage: {fileID: 0}
+  chestItemName: {fileID: 0}
+  chestItemDescription: {fileID: 0}
 --- !u!114 &6979377235454885412
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -162,7 +162,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1945413725226512483
 Transform:
   m_ObjectHideFlags: 0
@@ -407,6 +407,7 @@ MonoBehaviour:
   currentStamina: 0
   maxMana: 0
   currentMana: 0
+  moveSpeedBonus: 0
   statDamageBonus: 0
   miscDamageBonus: 0
   armourClass: 0

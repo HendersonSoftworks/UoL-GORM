@@ -134,8 +134,8 @@ public class PlayerCharacter : Character
                 _light.pointLightOuterRadius += _ring.bonus;
 
                 break;
-
             default:
+
                 break;
         }
     }
