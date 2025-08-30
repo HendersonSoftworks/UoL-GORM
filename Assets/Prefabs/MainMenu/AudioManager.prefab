@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7935879241924887571}
   - component: {fileID: 5854092499629739819}
+  - component: {fileID: 8180335385854993945}
   m_Layer: 0
   m_Name: AudioManager
   m_TagString: Untagged
@@ -129,3 +130,18 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &8180335385854993945
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2058934701293020180}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d7847b45c1ca584c99184fc90565942, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioSource: {fileID: 5854092499629739819}
+  menuConfirmClip: {fileID: 8300000, guid: ef4d8b8b2424885459175d2d053379fa, type: 3}
+  scaryLaughClip: {fileID: 8300000, guid: 5b8b81ca40c262646bf7449f09fc593c, type: 3}
