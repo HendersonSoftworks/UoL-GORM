@@ -3,6 +3,8 @@ using UnityEngine;
 public class PlayerCameraController : MonoBehaviour
 {
     [SerializeField]
+    private Canvas canvas;
+    [SerializeField]
     private GameObject player;
     [SerializeField]
     private float xOffset;
@@ -13,9 +15,25 @@ public class PlayerCameraController : MonoBehaviour
     [SerializeField]
     private float xRot;
 
+    public static PlayerCameraController playerCameraInstance { get; private set; }
+
+    private void Awake()
+    {
+        if (playerCameraInstance != null && playerCameraInstance != this)
+        {
+            Destroy(this);
+        }
+        else
+        {
+            playerCameraInstance = this;
+        }
+    }
+
     private void Start()
     {
         player = FindFirstObjectByType<PlayerMovementController>().gameObject;
+        canvas = FindFirstObjectByType<Canvas>();
+        canvas.worldCamera = GetComponent<Camera>();
     }
 
     void Update()
