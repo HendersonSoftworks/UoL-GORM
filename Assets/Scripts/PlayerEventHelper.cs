@@ -9,6 +9,12 @@ public class PlayerEventHelper : MonoBehaviour
     private PlayerAttackController attackController;
     [SerializeField]
     private PlayerAnimationController animationController;
+    [SerializeField]
+    private AudioClip walkClip;
+    [SerializeField]
+    private AudioClip swingClip;
+    [SerializeField]
+    private AudioClip hurtClip;
 
     private void Start()
     {
@@ -44,5 +50,20 @@ public class PlayerEventHelper : MonoBehaviour
         //attackController.attackState = EnemyAttackController.AttackStates.cooldown;
         //movementController.moveSpeed = movementController.normalSpeed;
         attackController.FinishAttack();
+    }
+
+    public void EventPlayWalkClip()
+    {
+        GetComponentInParent<AudioSource>().PlayOneShot(walkClip, 2);
+    }
+
+    public void EventPlaySwingClip()
+    {
+        GetComponentInParent<AudioSource>().PlayOneShot(swingClip, 3);
+    }
+
+    public void EventPlayHurtClip()
+    {
+        GetComponentInParent<AudioSource>().PlayOneShot(hurtClip, 3);
     }
 }

@@ -151,6 +151,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 577cc4ebeebf0f748b050e340acdefd4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  canvas: {fileID: 0}
   player: {fileID: 0}
   xOffset: 0
   yOffset: 0

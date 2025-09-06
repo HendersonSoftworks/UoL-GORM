@@ -1,0 +1,553 @@
+commit 450e3a0fb42d56cc84515f545d932628e62e6fa6
+Author: HendersonSoftworks <thomas.henderson@hendersonsoftworks.com>
+Date:   Sat Aug 30 22:14:11 2025 +0100
+
+    Fixed bug with camera and render pipeline transition between dungeon levels
+
+commit 18b97a8539d6941e93e8b8fc72c32ec77b20b29c
+Author: HendersonSoftworks <thomas.henderson@hendersonsoftworks.com>
+Date:   Sat Aug 30 17:59:58 2025 +0100
+
+    Font changes
+
+commit 530a414b36a2bc04bdb19bdca5c698cc9650921a
+Author: HendersonSoftworks <thomas.henderson@hendersonsoftworks.com>
+Date:   Sat Aug 30 15:55:47 2025 +0100
+
+    Added main menu transitions, using animations and creepy audio
+
+commit 223b9bb52f1f1d8cdf01c59fe8327386a2a2344b
+Author: HendersonSoftworks <thomas.henderson@hendersonsoftworks.com>
+Date:   Sat Aug 30 11:32:35 2025 +0100
+
+    Added intro with music, fade in and flashing text
+
+commit c082a387f620f18002a93cc4911ea5d4c000cd46
+Author: HendersonSoftworks <thomas.henderson@hendersonsoftworks.com>
+Date:   Wed Aug 27 22:43:44 2025 +0100
+
+    Prefab updates
+
+commit 657f2458a9b0484c270e51e1dc403c4d5c7b9732
+Author: HendersonSoftworks <thomas.henderson@hendersonsoftworks.com>
+Date:   Wed Aug 27 22:33:58 2025 +0100
+
+    Attack speed ring works
+
+commit 20c2f44d7bd408d1a79bf3fe760f377cd8aef7ab
+Author: HendersonSoftworks <thomas.henderson@hendersonsoftworks.com>
+Date:   Wed Aug 27 22:07:47 2025 +0100
+
+    Changed add ring effects system, move speed bonus works
+
+commit 4713b6f05149a8a6252d658b486605b114a8d5cb
+Author: HendersonSoftworks <thomas.henderson@hendersonsoftworks.com>
+Date:   Mon Aug 25 19:51:44 2025 +0100
+
+    Bug with getting animtion params
+
+commit 0807ac081bb269baeb96510d6499a817cb683df6
+Author: HendersonSoftworks <thomas.henderson@hendersonsoftworks.com>
+Date:   Mon Aug 25 15:33:37 2025 +0100
+
+    Added basic ring effects
+
+commit 40dab97c9f23bb89ec58284211d6e7a04b076599
+Author: HendersonSoftworks <thomas.henderson@hendersonsoftworks.com>
+Date:   Mon Aug 25 15:03:42 2025 +0100
+
+    Chest gives items and deactivates
+
+commit 352e7d25cbf952d46203f42075ffa49c3583fe82
+Author: HendersonSoftworks <thomas.henderson@hendersonsoftworks.com>
+Date:   Sun Aug 24 20:51:12 2025 +0100
+
+    Fixed bug with closing chest on controller
+
+commit c3cc95fe9930b9bd913e9e33cbde8148e887b123
+Author: HendersonSoftworks <thomas.henderson@hendersonsoftworks.com>
+Date:   Sun Aug 24 19:59:36 2025 +0100
+
+    Chest UI populates all item fields
+
+commit 3b658812fe058255300a6404f75b82d9001b42b5
+Author: HendersonSoftworks <thomas.henderson@hendersonsoftworks.com>
+Date:   Sun Aug 24 16:56:45 2025 +0100
+
+    Chest UI, random rings
+
+commit 54f96d8f277ca3a436cfb78053fc352f027883cc
+Author: HendersonSoftworks <thomas.henderson@hendersonsoftworks.com>
+Date:   Sun Aug 24 14:51:31 2025 +0100
+
+    Chest item population and UI basics
+
+commit 3045ef8abe14d76ffb3b0ec6cd13fd213cf47d4e
+Author: HendersonSoftworks <thomas.henderson@hendersonsoftworks.com>
+Date:   Sat Aug 23 22:08:03 2025 +0100
+
+    Chest interaction
+
+commit 91f625bed49e010bddeb7d4f7756aa9d7ecb19f4
+Author: HendersonSoftworks <thomas.henderson@hendersonsoftworks.com>
+Date:   Sat Aug 23 18:44:36 2025 +0100
+
+    Chests spawning
+
+commit 87fe1a0b9552e7795953fac880b0c8394cd47843
+Author: HendersonSoftworks <thomas.henderson@hendersonsoftworks.com>
+Date:   Sat Aug 23 18:26:20 2025 +0100
+
+    Chest generation basics
+
+commit 618739d9149243accb355081203997fb95defd87
+Author: HendersonSoftworks <thomas.henderson@hendersonsoftworks.com>
+Date:   Sat Aug 23 15:08:26 2025 +0100
+
+    Added darkness to dungeon, changed skeleton material to sprite-lit-default
+
+commit 195ac0d0ed3f19bec82bf136ea02a4254f57f2bb
+Author: HendersonSoftworks <thomas.henderson@hendersonsoftworks.com>
+Date:   Sat Aug 16 13:22:25 2025 +0100
+
+    fixed bugs with enemies spawning near player and transitioning between floors
+
+commit 71d3daf26e5012b93189e6fea7cbf88986f846c5
+Author: HendersonSoftworks <thomas.henderson@hendersonsoftworks.com>
+Date:   Fri Aug 15 19:58:58 2025 +0100
+
+    Scene and prefab changes
+
+commit 505bfbae32984f4ce399bb17d87ceeef1b708d77
+Author: HendersonSoftworks <thomas.henderson@hendersonsoftworks.com>
+Date:   Fri Aug 15 19:57:58 2025 +0100
+
+    Fixed bug with game pausing on load
+
+commit caeb003e1bac2dd4208f38bbd259a2583daafcf5
+Author: HendersonSoftworks <thomas.henderson@hendersonsoftworks.com>
+Date:   Fri Aug 15 17:57:26 2025 +0100
+
+    Added smooth transitioning between floors
+
+commit 8442e3f02e7ae0fc1b9041293920099acafa444e
+Author: HendersonSoftworks <thomas.henderson@hendersonsoftworks.com>
+Date:   Tue Aug 12 00:36:33 2025 +0100
+
+    Moving between floors basics done
+    
+    Bugs
+
+commit 3baf00acc3416afff10da8cb35c474753abcfdcc
+Author: HendersonSoftworks <thomas.henderson@hendersonsoftworks.com>
+Date:   Mon Aug 11 15:58:32 2025 +0100
+
+    Added floor start transition, fixed enemy spawn bug
+
+commit 486959bc247abe27a1663f12523e06b6e057697d
+Author: HendersonSoftworks <thomas.henderson@hendersonsoftworks.com>
+Date:   Mon Aug 11 00:24:38 2025 +0100
+
+    scene updates
+
+commit ac2b60bd5e5f4ff911cc39060b1b4feeb1bd6f70
+Author: HendersonSoftworks <thomas.henderson@hendersonsoftworks.com>
+Date:   Mon Aug 11 00:23:25 2025 +0100
+
+    Added stairs and UI, enemy proc generation, pausing
+
+commit 9549e521cb020fb447f8d1a017c74fb89356c3cd
+Author: HendersonSoftworks <thomas.henderson@hendersonsoftworks.com>
+Date:   Sun Aug 10 21:47:14 2025 +0100
+
+    Added basic stamina system
+
+commit c553623a8b2feaab74ff89f9e6ca4bbf9d0559f3
+Author: HendersonSoftworks <thomas.henderson@hendersonsoftworks.com>
+Date:   Sun Aug 10 18:52:33 2025 +0100
+
+    Simple blocking mechanics now working
+
+commit 19d136b36d5fba576f7df291fc39f433c8fae4b3
+Author: HendersonSoftworks <thomas.henderson@hendersonsoftworks.com>
+Date:   Sun Aug 10 18:17:42 2025 +0100
+
+    Basic blocking mechanics done
+    
+    Needs bug fixes
+
+commit d54f52ec61786e747c13d13a028c12c1200b4c6e
+Author: HendersonSoftworks <thomas.henderson@hendersonsoftworks.com>
+Date:   Sun Aug 10 14:31:46 2025 +0100
+
+    Blocking basics done
+
+commit 161ade08780c6c7d7d3c2328d280f83c6fd625fa
+Author: HendersonSoftworks <thomas.henderson@hendersonsoftworks.com>
+Date:   Sun Aug 10 00:25:24 2025 +0100
+
+    Main character attack damage logic done
+
+commit 00714948c040b54e837ec3c131029c4d20ec0283
+Author: HendersonSoftworks <thomas.henderson@hendersonsoftworks.com>
+Date:   Sat Aug 9 22:54:46 2025 +0100
+
+    damage logic basics
+
+commit 3e52d765c5b2f1cd7cb70237ee093b9205aa3299
+Author: HendersonSoftworks <thomas.henderson@hendersonsoftworks.com>
+Date:   Sat Aug 9 15:49:58 2025 +0100
+
+    enemies get hit and pushed
+
+commit f908238203b78f493cc265bcd40693785d5b44d3
+Author: HendersonSoftworks <thomas.henderson@hendersonsoftworks.com>
+Date:   Sat Aug 9 12:50:38 2025 +0100
+
+    adjusted attack anim speed
+
+commit 90622937cbb03aa25deedc0ca067a4da45431989
+Author: HendersonSoftworks <thomas.henderson@hendersonsoftworks.com>
+Date:   Sat Aug 9 12:48:46 2025 +0100
+
+    attack anim events
+
+commit f09d28ecded64f0cd4b03adf3ceb6f9f44c95be9
+Author: HendersonSoftworks <thomas.henderson@hendersonsoftworks.com>
+Date:   Fri Aug 8 19:31:36 2025 +0100
+
+    Basic attack anim logic
+
+commit 67253d8a83836b7531812d1d91ab01986419665d
+Author: HendersonSoftworks <thomas.henderson@hendersonsoftworks.com>
+Date:   Fri Aug 8 14:37:21 2025 +0100
+
+    switched to arissa model which works better
+
+commit 275947c415491c4fb96fa8826f6a2bde78e34543
+Author: HendersonSoftworks <thomas.henderson@hendersonsoftworks.com>
+Date:   Fri Aug 8 14:14:48 2025 +0100
+
+    Imported animations
+
+commit f44750368f2e3431dce12241e2862e7f99c69b07
+Author: HendersonSoftworks <thomas.henderson@hendersonsoftworks.com>
+Date:   Fri Aug 8 12:56:33 2025 +0100
+
+    Imported new rio character
+
+commit d9cf69c26c034746e7d583f8aa517716fec057af
+Author: HendersonSoftworks <thomas.henderson@hendersonsoftworks.com>
+Date:   Sun Jul 27 11:30:44 2025 +0100
+
+    Updated prefabs
+
+commit 7fb3bf679de60a7b8689e7924aabb218ccf7c75b
+Author: HendersonSoftworks <thomas.henderson@hendersonsoftworks.com>
+Date:   Sun Jul 27 11:30:09 2025 +0100
+
+    player sent flying when hit
+
+commit c92e6cea54b8bdc51fd9baec5a351432964f73aa
+Author: HendersonSoftworks <thomas.henderson@hendersonsoftworks.com>
+Date:   Sun Jul 27 10:11:28 2025 +0100
+
+    Adjusted trail
+
+commit a14cb2bb9a22a774596be772659282493ad9c542
+Author: HendersonSoftworks <thomas.henderson@hendersonsoftworks.com>
+Date:   Sun Jul 27 10:04:10 2025 +0100
+
+    Added skeleton animated hitbox and attack trail
+
+commit a3b2db2ae49eeedbe5f8e66061f5804c9f3e6027
+Author: HendersonSoftworks <thomas.henderson@hendersonsoftworks.com>
+Date:   Fri Jul 25 23:16:09 2025 +0100
+
+    Scene changes
+
+commit 6f179b5df33e6513ba588d24784955e62f67362b
+Author: HendersonSoftworks <thomas.henderson@hendersonsoftworks.com>
+Date:   Fri Jul 25 23:11:45 2025 +0100
+
+    Added sword to skeleton enemy
+
+commit d16e68bd0df7934c504dc7d6e0f11dc19b1496e3
+Author: HendersonSoftworks <thomas.henderson@hendersonsoftworks.com>
+Date:   Fri Jul 25 22:38:26 2025 +0100
+
+    Hooked UI into core game stats
+
+commit 5518fe275581e9cb4a346496d310701c422a614e
+Author: HendersonSoftworks <thomas.henderson@hendersonsoftworks.com>
+Date:   Fri Jul 25 16:37:04 2025 +0100
+
+    Added: Gear system
+
+commit c81c6992f1c3d2072f90ec77e7879377292a350e
+Author: HendersonSoftworks <thomas.henderson@hendersonsoftworks.com>
+Date:   Fri Jul 25 15:57:39 2025 +0100
+
+    Basic UI
+
+commit f24fea7bf2750250e02c5cd17eae88208011b8ec
+Author: HendersonSoftworks <thomas.henderson@hendersonsoftworks.com>
+Date:   Sun Jul 20 23:41:34 2025 +0100
+
+    scene updates
+
+commit 5ec6c6e284faf4b863063e9aece4d24dd6c4f727
+Author: HendersonSoftworks <thomas.henderson@hendersonsoftworks.com>
+Date:   Sun Jul 20 23:40:40 2025 +0100
+
+    Changed name of CRT shader preset
+
+commit 0db20c42aa6a16a0020e1b7c2a689c280bcbfb84
+Author: HendersonSoftworks <thomas.henderson@hendersonsoftworks.com>
+Date:   Sun Jul 20 23:20:08 2025 +0100
+
+    Fix: Added player movement logic to FixedUpated for smoother movement
+
+commit d757ca892eaf55aa0d756825301bd310d71a1ae8
+Author: HendersonSoftworks <thomas.henderson@hendersonsoftworks.com>
+Date:   Sun Jul 20 23:15:25 2025 +0100
+
+    Fix: Changed enemy contact logic so it no longer interrupts attack
+
+commit c9e098d641cd51db6f2646ce6cdaef89c19bdb88
+Author: HendersonSoftworks <thomas.henderson@hendersonsoftworks.com>
+Date:   Sun Jul 20 22:49:30 2025 +0100
+
+    Added retro CRT shader effect
+
+commit d71f1f986b4d6dc2234dd8f82a3e02505b2babd0
+Author: HendersonSoftworks <thomas.henderson@hendersonsoftworks.com>
+Date:   Sun Jul 20 22:03:16 2025 +0100
+
+    Updated prefabs
+
+commit 8f1602d2acc166d14ac5d974cc02310c691cd247
+Author: HendersonSoftworks <thomas.henderson@hendersonsoftworks.com>
+Date:   Sun Jul 20 13:05:25 2025 +0100
+
+    stop enemy rotation when attacking
+
+commit c421a37cc42163df418d42b5da2bb32ea776c980
+Author: HendersonSoftworks <thomas.henderson@hendersonsoftworks.com>
+Date:   Sun Jul 20 12:59:59 2025 +0100
+
+    enemy movement and attacking transition logic working
+
+commit 1ae1b8069cc4081ee988ce0eef1665ce99e7a677
+Author: HendersonSoftworks <thomas.henderson@hendersonsoftworks.com>
+Date:   Sun Jul 20 11:53:29 2025 +0100
+
+    animation event transition logic is not working
+
+commit 29993350af38bd2a4d29a3fe04ff2e5dbb475974
+Author: HendersonSoftworks <thomas.henderson@hendersonsoftworks.com>
+Date:   Sun Jul 20 00:11:00 2025 +0100
+
+    Added Attack states
+
+commit 2cee6bf917db63de29a6116d72bcf0d27544caec
+Author: HendersonSoftworks <thomas.henderson@hendersonsoftworks.com>
+Date:   Sat Jul 19 22:30:04 2025 +0100
+
+    Skele animations and attack logic basics
+
+commit 0bea958c87e640bd0d63b6dcfa7665fa8481d27c
+Author: HendersonSoftworks <thomas.henderson@hendersonsoftworks.com>
+Date:   Fri Jul 18 22:15:21 2025 +0100
+
+    Skele anims
+
+commit 95cb0be06526bc42850c280ce81320d60d830126
+Author: HendersonSoftworks <thomas.henderson@hendersonsoftworks.com>
+Date:   Fri Jul 18 17:21:45 2025 +0100
+
+    Scanning grid graph at the end of dungeon generation
+
+commit db82d280ae470b1b9a61bd89cbae224c530dc682
+Author: HendersonSoftworks <thomas.henderson@hendersonsoftworks.com>
+Date:   Fri Jul 18 16:36:33 2025 +0100
+
+    Scanning grid graph proving challenges
+
+commit 1298dfb0390f98f195daf20a813047321b3d5769
+Author: HendersonSoftworks <thomas.henderson@hendersonsoftworks.com>
+Date:   Fri Jul 18 15:09:08 2025 +0100
+
+    basics of A* implemented
+
+commit 8dbabb1e82dbaceeafb0932ee25b16f4db3211f9
+Author: HendersonSoftworks <thomas.henderson@hendersonsoftworks.com>
+Date:   Fri Jul 18 10:57:38 2025 +0100
+
+    Imported low poly armour and weapons
+
+commit 6731f3af7b4bc52a96f90b91c80c520c01e0a178
+Author: HendersonSoftworks <thomas.henderson@hendersonsoftworks.com>
+Date:   Fri Jul 18 10:48:12 2025 +0100
+
+    imported test skeleton and set to enemy
+
+commit 7dfced62f595f6a8d19ad0f850fb04b7855379b2
+Author: HendersonSoftworks <thomas.henderson@hendersonsoftworks.com>
+Date:   Fri Jul 18 10:29:26 2025 +0100
+
+    reorganised files
+
+commit 4cbba1488a44e859e2ea851529fdd2677e455357
+Author: HendersonSoftworks <thomas.henderson@hendersonsoftworks.com>
+Date:   Wed Jul 16 22:03:14 2025 +0100
+
+    Enemies follow player when in range
+
+commit da150275fbb8a72dd19834898b8c38240f2cd3aa
+Author: HendersonSoftworks <thomas.henderson@hendersonsoftworks.com>
+Date:   Sun Jul 13 18:28:35 2025 +0100
+
+    Started enemy AI
+
+commit ccfb21d33ce55d4f0c9fc786c056213f7e57eea3
+Author: HendersonSoftworks <thomas.henderson@hendersonsoftworks.com>
+Date:   Fri Jul 11 16:24:28 2025 +0100
+
+    DungeonGen removing walls from inside rooms
+
+commit 01c8e1fbf8e6c220482f7fcf123b604c0f563dd4
+Author: HendersonSoftworks <thomas.henderson@hendersonsoftworks.com>
+Date:   Fri Jul 11 15:02:58 2025 +0100
+
+    raycast is thicker, catching stray walls in corridors
+
+commit c25bce45fb248cd8f329bb3ea9139cd8b1b80d11
+Author: HendersonSoftworks <thomas.henderson@hendersonsoftworks.com>
+Date:   Fri Jul 11 14:52:08 2025 +0100
+
+    agent back-tracks and carves through walls now
+
+commit f8f4903d60d6ce39b9d257d042681b69347d07e9
+Author: HendersonSoftworks <thomas.henderson@hendersonsoftworks.com>
+Date:   Fri Jul 11 14:06:45 2025 +0100
+
+    walls created around rooms but blocking exits
+
+commit f6b5cd3f04c9524faf7e6171ee1fccd1c40784ab
+Author: HendersonSoftworks <thomas.henderson@hendersonsoftworks.com>
+Date:   Fri Jul 11 13:49:13 2025 +0100
+
+    testing creating walls around rooms
+
+commit 59b7a62f091c83866b00ebf04661219f4898aefc
+Author: HendersonSoftworks <thomas.henderson@hendersonsoftworks.com>
+Date:   Wed Jul 9 00:07:38 2025 +0100
+
+    walls now being placed properly with corridors
+
+commit 0786a1460a7e4290ee61576445615613a9f0065b
+Author: HendersonSoftworks <thomas.henderson@hendersonsoftworks.com>
+Date:   Tue Jul 8 23:28:35 2025 +0100
+
+    made progress on wall placement
+
+commit f8d348b897d1e12a0217f806cfd0d97b81e707a0
+Author: HendersonSoftworks <thomas.henderson@hendersonsoftworks.com>
+Date:   Tue Jul 8 21:54:06 2025 +0100
+
+    testing out different ways of generating walls
+
+commit be3a9b21a42f2622d648797baa0826c21ebdef09
+Author: HendersonSoftworks <thomas.henderson@hendersonsoftworks.com>
+Date:   Mon May 19 23:09:49 2025 +0100
+
+    scene updates
+
+commit 2d59366c8c307c79bfaa56684e3e255393069604
+Author: HendersonSoftworks <thomas.henderson@hendersonsoftworks.com>
+Date:   Fri May 16 17:26:56 2025 +0100
+
+    Fixed bug with room overlap
+
+commit 37e4307753832e3aa36b36021fc0cbab75c5ef00
+Author: HendersonSoftworks <thomas.henderson@hendersonsoftworks.com>
+Date:   Fri May 16 17:04:12 2025 +0100
+
+    Removed BSP learning scripts and wrote agent-based solution
+    
+    room checking seems buggy
+
+commit b8618acc2546a340893e352bf8ea8225816696ef
+Author: HendersonSoftworks <thomas.henderson@hendersonsoftworks.com>
+Date:   Fri May 16 12:25:50 2025 +0100
+
+    8 directional movement
+
+commit e4da9ad16bb22ffe7819b8cd51bd423dad9a088b
+Author: HendersonSoftworks <thomas.henderson@hendersonsoftworks.com>
+Date:   Sun May 11 11:47:28 2025 +0100
+
+    Testing out 3D models in 2D space
+
+commit d507ac0cff758ec8c9dd101fd0e08f066e4ea7ab
+Author: HendersonSoftworks <thomas.henderson@hendersonsoftworks.com>
+Date:   Sat May 10 11:44:57 2025 +0100
+
+    folder rename
+
+commit b5a1f86f7712636734eb7c8b92ddad64ae888987
+Author: HendersonSoftworks <thomas.henderson@hendersonsoftworks.com>
+Date:   Sat May 10 11:12:18 2025 +0100
+
+    Imported BSP package
+
+commit 20d80e3dfc1cf17a2eb43133fc83d97a538c5880
+Author: HendersonSoftworks <thomas.henderson@hendersonsoftworks.com>
+Date:   Thu May 8 23:34:48 2025 +0100
+
+    Progressed BSP implementation
+
+commit a9cd2791ca993c9703992cc220e9848ce0f68797
+Author: HendersonSoftworks <thomas.henderson@hendersonsoftworks.com>
+Date:   Tue May 6 19:14:36 2025 +0100
+
+    starting dungeon generation
+
+commit f3963a2d7e62c57f5275e0d04eaa3c7e93fb673f
+Author: Tom H <thomash@eproductive.com>
+Date:   Mon May 5 15:47:33 2025 +0100
+
+    testing movement
+
+commit ff2a79f07359bc62a80114fbfc7eb3bae0eb6408
+Author: Tom H <thomash@eproductive.com>
+Date:   Sun May 4 11:55:06 2025 +0100
+
+    added basic input
+
+commit 5fcf2c15012989954dabc5b5476ccf0002542e8c
+Author: HendersonSoftworks <thomas.henderson@hendersonsoftworks.com>
+Date:   Sat Apr 26 14:16:26 2025 +0100
+
+    Tested iso art
+
+commit a3b707e38794462e19707b544acba929fff195e6
+Author: HendersonSoftworks <thomas.henderson@hendersonsoftworks.com>
+Date:   Tue Apr 22 23:53:14 2025 +0100
+
+    Added dialogue designs
+
+commit 7990f8ff49eda94053146c118772fbccf196e53e
+Author: HendersonSoftworks <thomas.henderson@hendersonsoftworks.com>
+Date:   Tue Apr 22 21:26:03 2025 +0100
+
+    Unity project base
+    
+    2D URP
+
+commit 1ee8f57580f404f50a99d5b8f0b93086eb0a3969
+Author: Tom <62566417+HendersonSoftworks@users.noreply.github.com>
+Date:   Sun Apr 20 18:03:32 2025 +0100
+
+    Initial commit
