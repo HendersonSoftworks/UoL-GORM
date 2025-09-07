@@ -2,13 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Spell : MonoBehaviour
+public class Spell : Item
 {
-    public string spellName;
-    public string description;
+    public enum SpellEffects { damage, buff }
+    public SpellEffects effect;
+    public float effectValue;
     
-    virtual public void Cast(Character character)
+    virtual public void Cast(Character originCharacter)
     {
-        print("Base behaviour");
+        print("Cast by " + originCharacter.name);
     }
 }

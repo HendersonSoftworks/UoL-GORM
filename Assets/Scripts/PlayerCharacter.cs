@@ -95,9 +95,21 @@ public class PlayerCharacter : Character
             rings.Add(_ring);
             AddRingEffect(_ring.ringEffect, _ring);
         }
+        else if (_item is Spell)
+        {
+            if (spells.Count > 3)
+            {
+                print("Cannot have more than 3 spells");
+                return;
+            }
+            
+            Spell _spell = (Spell)_item;
+            spells.Add(_spell);
+            gameManager.UpdateSpellsHotBar(spells);
+        }
     }
 
-    public  void AddRingEffect(Ring.ringEffects _ringEffect, Ring _ring)
+    public void AddRingEffect(Ring.ringEffects _ringEffect, Ring _ring)
     {
         switch (_ringEffect)
         {

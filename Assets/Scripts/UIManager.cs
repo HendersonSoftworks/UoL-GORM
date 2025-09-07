@@ -11,12 +11,6 @@ public class UIManager : MonoBehaviour
     [SerializeField]
     private GameObject canvas; // added in gui
     [SerializeField]
-    private Slider healthSlider;
-    [SerializeField]
-    private Slider staminaSlider;
-    [SerializeField]
-    private Slider manaSlider;
-    [SerializeField]
     private GameManager gameManager;
     private PlayerCharacter playerCharacter;
     public GameObject stairsContinuePanel; // added in gui
@@ -30,6 +24,19 @@ public class UIManager : MonoBehaviour
     public Image chestItemImage;
     public TextMeshProUGUI chestItemName;
     public TextMeshProUGUI chestItemDescription;
+
+    [Header("Setup - Player")]
+    [SerializeField]
+    private Slider healthSlider;
+    [SerializeField]
+    private Slider staminaSlider;
+    [SerializeField]
+    private Slider manaSlider;
+    
+    public Image primarySpellImage;
+    public Image secorndarySpellImage;
+    public Image tertiarySpellImage;
+    public Image[] spellImages;
 
     private void Awake()
     {
@@ -45,8 +52,9 @@ public class UIManager : MonoBehaviour
 
     void Start()
     {
-
-        
+        spellImages[0] = primarySpellImage;
+        spellImages[1] = secorndarySpellImage;
+        spellImages[2] = tertiarySpellImage;
     }
 
     void Update()

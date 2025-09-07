@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -93,6 +94,14 @@ public class GameManager : MonoBehaviour
     {
         uiManager.stairsContinuePanel.SetActive(false);
         SetPauseGame(false);
+    }
+
+    internal void UpdateSpellsHotBar(List<Spell> _spells)
+    {
+        for (int i = 0; i < _spells.Count; i++)
+        {
+            uiManager.spellImages[i].sprite = _spells[i].image;
+        }
     }
 
     public void ShowChestChoice()
