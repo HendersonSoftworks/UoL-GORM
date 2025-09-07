@@ -12,6 +12,12 @@ public class PlayerAttackController : MonoBehaviour
     public PlayerInput playerInput;
     public InputAction attackAction;
     public InputAction blockAction;
+    public InputAction castAction;
+    public InputAction selectSpell1;
+    public InputAction selectSpell2;
+    public InputAction selectSpell3;
+    public int currentSpellSelected = 0;
+
     [SerializeField]
     private PlayerCharacter playerCharacter;
     [SerializeField]
@@ -20,6 +26,7 @@ public class PlayerAttackController : MonoBehaviour
     [Header("Logic - Do not change")]
     public bool isAttacking = false;
     public bool isDefending = false;
+    public bool isCasting = false;
 
     private void Awake()
     {
@@ -34,6 +41,10 @@ public class PlayerAttackController : MonoBehaviour
 
         attackAction = playerInput.actions["Attack"];
         blockAction = playerInput.actions["Block"];
+        castAction = playerInput.actions["Cast"];
+        selectSpell1 = playerInput.actions["SelectSpell1"];
+        selectSpell2 = playerInput.actions["SelectSpell2"];
+        selectSpell3 = playerInput.actions["SelectSpell3"];
     }
 
     void Update()
@@ -42,6 +53,37 @@ public class PlayerAttackController : MonoBehaviour
 
         ManageDefending();
         ManageAttacking();
+        ManageCasting();
+    }
+
+    private void ManageCasting()
+    {
+        // Spell slot 1
+        float selectSpell1Value = selectSpell1.ReadValue<float>();
+        if (selectSpell1Value == 0) { return; }
+        if (selectSpell1Value == 1)
+        {
+            currentSpellSelected = 0;
+        }
+
+        // Spell slot 2
+        float selectSpell2Value = selectSpell2.ReadValue<float>();
+        if (selectSpell2Value == 0) { return; }
+        if (selectSpell2Value == 1)
+        {
+            currentSpellSelected = 1;
+        }
+
+        // Spell slot 3
+        float selectSpell3Value = selectSpell3.ReadValue<float>();
+        if (selectSpell3Value == 0) { return; }
+        if (selectSpell3Value == 1)
+        {
+            currentSpellSelected = 2;
+        }
+
+        // Set Spell slot
+        gameManager.uiManager.SetCurrentSpellSlotSelected(currentSpellSelected);
     }
 
     private void ManageDefending()

@@ -1353,6 +1353,10 @@ PrefabInstance:
       propertyPath: secorndarySpellImage
       value: 
       objectReference: {fileID: 1444522527}
+    - target: {fileID: 7243119882521626121, guid: af70d3e1f51fddb43813afde791352ff, type: 3}
+      propertyPath: spellImages.Array.size
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

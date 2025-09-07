@@ -11,8 +11,7 @@ public class GameManager : MonoBehaviour
 
     [Header("References - Loaded on startup")]
     public PlayerCharacter playerCharacter;
-    [SerializeField]
-    private UIManager uiManager;
+    public UIManager uiManager;
 
     private void Awake()
     {

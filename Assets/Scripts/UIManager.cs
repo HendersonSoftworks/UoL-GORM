@@ -149,4 +149,16 @@ public class UIManager : MonoBehaviour
         manaSlider.maxValue = playerCharacter.maxMana;
         manaSlider.value = playerCharacter.currentMana;
     }
+
+    public void SetCurrentSpellSlotSelected(int _spellSlotNum)
+    {
+        for (int i = 0; i < spellImages.Length; i++)
+        {
+            spellImages[i].color = new Color(0.5f, 0.5f, 0.5f);
+            if (i == _spellSlotNum)
+            {
+                spellImages[i].color = new Color(1, 1, 1);
+            }
+        }
+    }
 }
