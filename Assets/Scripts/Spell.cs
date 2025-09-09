@@ -8,8 +8,10 @@ public class Spell : Item
     public SpellEffects effect;
     public enum DamageTypes { none, force, fire, radiant, cold }
     public DamageTypes damageType;
+    public enum buffTypes { none, health, stamina, resistance}
+    public buffTypes buffType;
+
     public float effectValue;
-    public Character originCharacter;
 
     private Rigidbody2D rb;
     
@@ -18,40 +20,47 @@ public class Spell : Item
         rb = GetComponent<Rigidbody2D>();
     }
 
-    public void Cast(Character originCharacter)
+    public void Cast(Character originCharacter, Character targetCharacter = null)
     {
-        //print("Cast by " + originCharacter.name);
-        //switch (damageType)
-        //{
-        //    case DamageTypes.none:
-        //        break;
-        //    case DamageTypes.force:
-        //        break;
-        //    case DamageTypes.fire:
-        //        break;
-        //    case DamageTypes.radiant:
-        //        break;
-        //    case DamageTypes.cold:
-        //        break;
-        //    default:
-        //        break;
-        //}
+        Instantiate(gameObject, originCharacter.transform.position, Quaternion.identity);
     }
 
     private void Update()
     {
-        switch (damageType)
+        switch (effect)
         {
-            case DamageTypes.none:
+            case SpellEffects.damage:
+                switch (damageType)
+                {
+                    case DamageTypes.none:
+                        break;
+                    case DamageTypes.force:
+                        break;
+                    case DamageTypes.fire:
+                        rb.linearVelocity = Vector2.up * Time.deltaTime * 50;
+                        break;
+                    case DamageTypes.radiant:
+                        break;
+                    case DamageTypes.cold:
+                        break;
+                    default:
+                        break;
+                }
                 break;
-            case DamageTypes.force:
-                break;
-            case DamageTypes.fire:
-                rb.linearVelocity = Vector2.up * Time.deltaTime * 50;
-                break;
-            case DamageTypes.radiant:
-                break;
-            case DamageTypes.cold:
+            case SpellEffects.buff:
+                switch (buffType)
+                {
+                    case buffTypes.none:
+                        break;
+                    case buffTypes.health:
+                        break;
+                    case buffTypes.stamina:
+                        break;
+                    case buffTypes.resistance:
+                        break;
+                    default:
+                        break;
+                }
                 break;
             default:
                 break;

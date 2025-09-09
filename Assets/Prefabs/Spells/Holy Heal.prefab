@@ -48,4 +48,7 @@ MonoBehaviour:
   description: Heals a small amount of health.
   image: {fileID: 7679385156476096713, guid: 527d03211ad7f6b4cbcf745bd24d5e32, type: 3}
   effect: 1
+  damageType: 0
+  buffType: 1
   effectValue: 2
+  originCharacter: {fileID: 0}

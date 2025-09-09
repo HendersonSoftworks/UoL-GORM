@@ -45,6 +45,9 @@ public class PlayerAttackController : MonoBehaviour
         selectSpell1 = playerInput.actions["SelectSpell1"];
         selectSpell2 = playerInput.actions["SelectSpell2"];
         selectSpell3 = playerInput.actions["SelectSpell3"];
+
+        // Set currently selected to first spell slot
+        gameManager.uiManager.SetCurrentSpellSlotSelected(currentSpellSelected);
     }
 
     void Update()
@@ -60,30 +63,39 @@ public class PlayerAttackController : MonoBehaviour
     {
         // Spell slot 1
         float selectSpell1Value = selectSpell1.ReadValue<float>();
-        if (selectSpell1Value == 0) { return; }
+        //if (selectSpell1Value == 0) { return; }
         if (selectSpell1Value == 1)
         {
+            print("selected 1");
             currentSpellSelected = 0;
         }
 
         // Spell slot 2
         float selectSpell2Value = selectSpell2.ReadValue<float>();
-        if (selectSpell2Value == 0) { return; }
+        //if (selectSpell2Value == 0) { return; }
         if (selectSpell2Value == 1)
         {
+            print("selected 2");
             currentSpellSelected = 1;
         }
 
         // Spell slot 3
         float selectSpell3Value = selectSpell3.ReadValue<float>();
-        if (selectSpell3Value == 0) { return; }
+        //if (selectSpell3Value == 0) { return; }
         if (selectSpell3Value == 1)
         {
+            print("selected 3");
             currentSpellSelected = 2;
         }
 
         // Set Spell slot
         gameManager.uiManager.SetCurrentSpellSlotSelected(currentSpellSelected);
+
+        float castValue = castAction.ReadValue<float>();
+        if (castAction.WasPressedThisFrame())
+        {
+            playerCharacter.spells[currentSpellSelected].Cast(playerCharacter);
+        }
     }
 
     private void ManageDefending()

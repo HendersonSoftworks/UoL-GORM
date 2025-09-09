@@ -51,9 +51,6 @@ public class DungeonPlacer : MonoBehaviour
                     
                     break;
                 case 1: // Place spell
-
-                    print("SPELL GEN'D");
-
                     int randSpellInt = Random.Range(0, dungeonItems.spellsArr.Length);
                     _chest.GetComponent<Chest>().chestItem =
                         dungeonItems.spellsArr[randSpellInt].GetComponent<Item>();
