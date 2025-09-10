@@ -170,7 +170,8 @@ MonoBehaviour:
   description: A bolt of flame is hurled at the enemy.
   image: {fileID: 7679385156476096713, guid: 527d03211ad7f6b4cbcf745bd24d5e32, type: 3}
   effect: 0
-  damageType: 0
+  damageType: 2
+  buffType: 0
   effectValue: 4
 --- !u!114 &2270752380057706652
 MonoBehaviour:

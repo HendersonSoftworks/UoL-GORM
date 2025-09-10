@@ -94,8 +94,15 @@ public class PlayerAttackController : MonoBehaviour
         float castValue = castAction.ReadValue<float>();
         if (castAction.WasPressedThisFrame())
         {
-            playerCharacter.spells[currentSpellSelected].Cast(playerCharacter);
+            playerCharacter.spells[currentSpellSelected].Cast(GetPlayerCharacter());
         }
+    }
+
+    private Character GetPlayerCharacter()
+    {
+        playerCharacter = GetComponent<PlayerCharacter>();
+
+        return playerCharacter;
     }
 
     private void ManageDefending()
