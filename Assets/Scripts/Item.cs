@@ -4,7 +4,8 @@ using UnityEngine;
 using UnityEngine.UI;
 public class Item : MonoBehaviour
 {
+    [Header("Item Config")]
     public string itemName;
     public string description;
-    public Sprite image;
+    public Sprite sprite;
 }

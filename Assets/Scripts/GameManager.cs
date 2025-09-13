@@ -54,7 +54,10 @@ public class GameManager : MonoBehaviour
     {
         SetDungeonFloor(Database.currentFloor);
         SetFloorText(currentSessionFloor);
+        
         ResetPlayerPos();
+        //UpdateSpellsHotBar(playerCharacter.spells);
+
         isGamePaused = true;
         uiManager.SlowlyDecreasePanelAlpha();
     }
@@ -95,11 +98,14 @@ public class GameManager : MonoBehaviour
         SetPauseGame(false);
     }
 
-    internal void UpdateSpellsHotBar(List<Spell> _spells)
+    public void UpdateSpellsHotBar(List<Spell> _spells)
     {
         for (int i = 0; i < _spells.Count; i++)
         {
-            uiManager.spellImages[i].sprite = _spells[i].image;
+            if (_spells[i].sprite != null)
+            {
+                uiManager.spellImages[i].sprite = _spells[i].sprite;
+            }
         }
     }
 
@@ -109,7 +115,7 @@ public class GameManager : MonoBehaviour
 
         // Populate item UI
         uiManager.chestItemImage.sprite =
-            playerCharacter.currentChest.GetComponent<Chest>().chestItem.image;
+            playerCharacter.currentChest.GetComponent<Chest>().chestItem.sprite;
         uiManager.chestItemName.text =
             playerCharacter.currentChest.GetComponent<Chest>().chestItem.name;
         uiManager.chestItemDescription.text =

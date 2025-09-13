@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 8950703509329211219}
   m_Layer: 6
   m_Name: wall_side_test
-  m_TagString: Untagged
+  m_TagString: walls
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

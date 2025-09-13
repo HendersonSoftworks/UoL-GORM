@@ -16,7 +16,8 @@ public class PlayerAttackController : MonoBehaviour
     public InputAction selectSpell1;
     public InputAction selectSpell2;
     public InputAction selectSpell3;
-    public int currentSpellSelected = 0;
+    public int currentSpellSlotSelected = 0;
+    public Spell currentSpellSelected;
 
     [SerializeField]
     private PlayerCharacter playerCharacter;
@@ -47,7 +48,8 @@ public class PlayerAttackController : MonoBehaviour
         selectSpell3 = playerInput.actions["SelectSpell3"];
 
         // Set currently selected to first spell slot
-        gameManager.uiManager.SetCurrentSpellSlotSelected(currentSpellSelected);
+        gameManager.uiManager.SetCurrentSpellSlotSelected(currentSpellSlotSelected);
+        currentSpellSelected = playerCharacter.spells[currentSpellSlotSelected];
     }
 
     void Update()
@@ -66,8 +68,7 @@ public class PlayerAttackController : MonoBehaviour
         //if (selectSpell1Value == 0) { return; }
         if (selectSpell1Value == 1)
         {
-            print("selected 1");
-            currentSpellSelected = 0;
+            currentSpellSlotSelected = 0;
         }
 
         // Spell slot 2
@@ -75,8 +76,7 @@ public class PlayerAttackController : MonoBehaviour
         //if (selectSpell2Value == 0) { return; }
         if (selectSpell2Value == 1)
         {
-            print("selected 2");
-            currentSpellSelected = 1;
+            currentSpellSlotSelected = 1;
         }
 
         // Spell slot 3
@@ -84,17 +84,19 @@ public class PlayerAttackController : MonoBehaviour
         //if (selectSpell3Value == 0) { return; }
         if (selectSpell3Value == 1)
         {
-            print("selected 3");
-            currentSpellSelected = 2;
+            currentSpellSlotSelected = 2;
         }
 
         // Set Spell slot
-        gameManager.uiManager.SetCurrentSpellSlotSelected(currentSpellSelected);
+        gameManager.uiManager.SetCurrentSpellSlotSelected(currentSpellSlotSelected);
 
-        float castValue = castAction.ReadValue<float>();
+        //float castValue = castAction.ReadValue<float>();
         if (castAction.WasPressedThisFrame())
         {
-            playerCharacter.spells[currentSpellSelected].Cast(GetPlayerCharacter());
+            if (playerCharacter.spells[currentSpellSlotSelected] == null) { return; }
+
+            playerCharacter.spells[currentSpellSlotSelected].Cast(GetPlayerCharacter(), transform.up);
+            currentSpellSelected = playerCharacter.spells[currentSpellSlotSelected];
         }
     }
 

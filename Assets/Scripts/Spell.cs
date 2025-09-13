@@ -1,40 +1,68 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering.Universal;
 
 public class Spell : Item
 {
     public enum SpellEffects { damage, buff }
-    public SpellEffects effect;
-    public enum DamageTypes { none, force, fire, radiant, cold }
-    public DamageTypes damageType;
-    public enum buffTypes { none, health, stamina, resistance}
-    public buffTypes buffType;
+    public enum buffTypes { none, health, stamina, resistance }
 
+    [Header("Spell Config")]
+    public GameObject explosionPrefab;
+    public SpellEffects effect;
+    public DamageTypes damageType;
+    public buffTypes buffType;
     public float effectValue;
+    public float castValue;
+    public Character casterCharacter;
 
     private Rigidbody2D rb;
-    private PlayerCharacter playerCharacter;
-    [SerializeField]
-    private Vector2 moveAngle;
+
+    [Header("Debug")]
+    public Vector2 moveAngle;
 
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
     }
 
-    public void Cast(Character originCharacter, Character targetCharacter = null)
+    public void Cast(Character originCharacter, Vector2 direction, Character targetCharacter = null)
     {
+        casterCharacter = originCharacter;
+
+        originCharacter.SetMagicDamageMod();
+
+        if (casterCharacter.currentMana < castValue)
+        {
+            print(casterCharacter.name + ": Not enough mana");
+            return;
+        }
+        
+        casterCharacter.currentMana -= (uint)castValue;
+
         var tempSpell = Instantiate(gameObject, originCharacter.transform.position, Quaternion.identity);
-        tempSpell.transform.SetLocalPositionAndRotation(
-            originCharacter.gameObject.transform.position,
-            originCharacter.gameObject.transform.localRotation);
+        
+        tempSpell.GetComponent<Spell>().moveAngle = direction;
+    }
 
-        // Convert degrees to quaternion
-        Quaternion rotation = Quaternion.Euler(0, 0, originCharacter.gameObject.transform.localRotation.z);
+    private void SpellHitEffects(Collider2D collision)
+    {
+        if (collision.tag == "Enemy" || collision.tag == "walls")
+        {
+            // instantiate explosion
+            InstantiateSpellExplosion();
 
-        // Apply to transform
-        transform.localRotation = rotation; 
+            Destroy(gameObject);
+        }
+    }
+
+    private void InstantiateSpellExplosion()
+    {
+        var tempExp = Instantiate(explosionPrefab, transform.position, Quaternion.identity);
+        tempExp.GetComponent<SpriteRenderer>().color = this.GetComponent<SpriteRenderer>().color;
+        tempExp.GetComponent<Light2D>().color = this.GetComponent<SpriteRenderer>().color;
     }
 
     private void FixedUpdate()
@@ -42,22 +70,8 @@ public class Spell : Item
         switch (effect)
         {
             case SpellEffects.damage:
-                switch (damageType)
-                {
-                    case DamageTypes.none:
-                        break;
-                    case DamageTypes.force:
-                        break;
-                    case DamageTypes.fire:
-                        rb.linearVelocity = Vector2.up * Time.deltaTime * 500;
-                        break;
-                    case DamageTypes.radiant:
-                        break;
-                    case DamageTypes.cold:
-                        break;
-                    default:
-                        break;
-                }
+                rb.linearVelocity = moveAngle * Time.deltaTime * 500;
+
                 break;
             case SpellEffects.buff:
                 switch (buffType)
@@ -77,48 +91,10 @@ public class Spell : Item
             default:
                 break;
         }
-
     }
 
-    //private void Update()
-    //{
-    //    switch (effect)
-    //    {
-    //        case SpellEffects.damage:
-    //            switch (damageType)
-    //            {
-    //                case DamageTypes.none:
-    //                    break;
-    //                case DamageTypes.force:
-    //                    break;
-    //                case DamageTypes.fire:
-    //                    rb.linearVelocity = moveAngle * Time.deltaTime * 500;
-    //                    break;
-    //                case DamageTypes.radiant:
-    //                    break;
-    //                case DamageTypes.cold:
-    //                    break;
-    //                default:
-    //                    break;
-    //            }
-    //            break;
-    //        case SpellEffects.buff:
-    //            switch (buffType)
-    //            {
-    //                case buffTypes.none:
-    //                    break;
-    //                case buffTypes.health:
-    //                    break;
-    //                case buffTypes.stamina:
-    //                    break;
-    //                case buffTypes.resistance:
-    //                    break;
-    //                default:
-    //                    break;
-    //            }
-    //            break;
-    //        default:
-    //            break;
-    //    }
-    //}
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        SpellHitEffects(collision);
+    }
 }

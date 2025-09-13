@@ -18,6 +18,7 @@ TagManager:
   - stairsYesButton
   - floorText
   - chest
+  - spell
   layers:
   - Default
   - TransparentFX

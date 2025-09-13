@@ -17,7 +17,7 @@ public class EnemyCharacter : Character
         currentWeapon = weapons[0];
     }
 
-    private void PushEnemyAway(Collider2D collider, float force = 200f, float pushDuration = 0.5f)
+    public void PushEnemyAway(Collider2D collider, float force = 200f, float pushDuration = 0.5f)
     {
         Vector2 forceAngle = (transform.position - collider.GetComponentInParent<Transform>().position).normalized;
 
@@ -39,6 +39,16 @@ public class EnemyCharacter : Character
         {
             PushEnemyAway(collision);
             DamageCharacter(collision.GetComponentInParent<PlayerCharacter>(), this);
+        }
+
+        // Damage enemy if hit by spell
+        if (collision.tag == "spell")
+        {
+            PushEnemyAway(collision);
+            DamageCharacter(
+                collision.GetComponent<Spell>().casterCharacter, 
+                this, 
+                collision.GetComponent<Spell>());
         }
     }
 }

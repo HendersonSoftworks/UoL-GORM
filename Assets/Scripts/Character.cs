@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+public enum spellMod { intelligence, wisdom, charisma }
+
 public class Character : MonoBehaviour
 {
     #region Character Sheet
@@ -23,8 +25,9 @@ public class Character : MonoBehaviour
     
     [Header("Modifiers")]
     public int moveSpeedBonus;
-    public uint statDamageBonus;
+    public uint meleeDamageBonus;
     public uint miscDamageBonus;
+    public uint magicDamageBonus;
     public uint armourClass;
     public uint miscarmourBonus;
     public bool isInvulnerable;
@@ -57,8 +60,7 @@ public class Character : MonoBehaviour
 
     private void Start()
     {                
-        SetDamageMod();
-        SetArmourClass();
+        SetCharacterMods();
     }
 
     private void Update()
@@ -68,13 +70,40 @@ public class Character : MonoBehaviour
 
     #region Public Methods
 
+    public void SetCharacterMods()
+    {
+        SetMeleeDamageMod();
+        SetMagicDamageMod();
+        SetArmourClass();
+    }
+
+    public void DamageCharacter(Character attacker, Character defender, Spell spell)
+    {
+        if (attacker == null) { return; }
+        if (defender == null) { return; }
+        if (isInvulnerable) { return; }
+
+        uint incomingDamage = (uint)spell.effectValue
+            + attacker.magicDamageBonus;
+        uint damageReduction = defender.armourClass;
+        uint baseResult = incomingDamage - damageReduction;
+
+        uint damageResult = (uint)Mathf.Clamp(baseResult, 1, 999);
+
+        defender.currentHP -= (int)damageResult;
+        
+        print(attacker.name + " attacked " + defender.name + " dealing "
+            + damageResult + " damage! ");
+        
+    }
+
     public void DamageCharacter(Character attacker, Character defender)
     {
         if (attacker == null) { return; }
         if (defender == null) { return; }
         if (isInvulnerable) { return; }
 
-        uint incomingDamage = attacker.statDamageBonus
+        uint incomingDamage = attacker.meleeDamageBonus
             + attacker.currentWeapon.damage;
         uint damageReduction = defender.armourClass;
         uint baseResult = incomingDamage - damageReduction;
@@ -156,8 +185,14 @@ public class Character : MonoBehaviour
 
     private void SetArmourClass()
     {
-        armourClass = bodyArmour.armourClassBonus
-            + headArmour.armourClassBonus
+        uint bodyArmourBonus = 0;
+        uint headArmourBonus = 0;
+
+        if (bodyArmour != null) { bodyArmourBonus = bodyArmour.armourClassBonus; }
+        if (headArmour != null) { headArmourBonus = headArmour.armourClassBonus; }
+
+        armourClass = bodyArmourBonus
+            + headArmourBonus
             + miscarmourBonus;
     }
 
@@ -177,44 +212,59 @@ public class Character : MonoBehaviour
         return value;
     }
 
-    private void SetDamageMod()
+    public void SetMagicDamageMod() // getcomponent every frame causes unnecessary overhead - change!
+    {
+        var currentSpell = GetComponent<PlayerAttackController>().currentSpellSelected;
+
+        if (currentSpell == null) { return; }
+
+        switch (currentSpell.damageType)
+        {
+            case DamageTypes.divine:
+                magicDamageBonus = ReturnGreatestMagicStat();
+                break;
+            case DamageTypes.water:
+                magicDamageBonus = ReturnGreatestMagicStat();
+
+                break;
+            case DamageTypes.fire:
+                magicDamageBonus = ReturnGreatestMagicStat();
+
+                break;
+            case DamageTypes.forest:
+                magicDamageBonus = ReturnGreatestMagicStat();
+
+                break;
+            case DamageTypes.earth:
+                magicDamageBonus = ReturnGreatestMagicStat();
+
+                break;
+            case DamageTypes.thunder:
+                magicDamageBonus = ReturnGreatestMagicStat();
+
+                break;
+
+            default:
+                Debug.LogError("SetMagicDamageMod");
+
+                break;
+        }
+    }
+
+    private void SetMeleeDamageMod()
     {
         switch (currentWeapon.damageType)
         {
             case DamageTypes.bludgeoning:
-                statDamageBonus = ReturnGreatestMeleeStat();
+                meleeDamageBonus = ReturnGreatestMeleeStat();
                 
                 break;
             case DamageTypes.slashing:
-                statDamageBonus = ReturnGreatestMeleeStat();
+                meleeDamageBonus = ReturnGreatestMeleeStat();
 
                 break;
             case DamageTypes.piercing:
-                statDamageBonus = ReturnGreatestMeleeStat();
-
-                break;
-            case DamageTypes.divine:
-                statDamageBonus = ReturnGreatestMagicStat();
-
-                break;
-            case DamageTypes.water:
-                statDamageBonus = ReturnGreatestMagicStat();
-
-                break;
-            case DamageTypes.fire:
-                statDamageBonus = ReturnGreatestMagicStat();
-
-                break;
-            case DamageTypes.forest:
-                statDamageBonus = ReturnGreatestMagicStat();
-
-                break;
-            case DamageTypes.earth:
-                statDamageBonus = ReturnGreatestMagicStat();
-
-                break;
-            case DamageTypes.thunder:
-                statDamageBonus = ReturnGreatestMagicStat();
+                meleeDamageBonus = ReturnGreatestMeleeStat();
 
                 break;
             default:

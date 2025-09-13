@@ -79,12 +79,22 @@ public class PlayerCharacter : Character
         SetMaxCurrentStats();
 
         staminaRegainTimer = staminaRegainTimerReset;
+
+        SetCharacterMods();
     }
 
     private void Update()
     {
         ClampStats();
         RegainStamina();
+    }
+
+    public void SetStarterSpell()
+    {
+        var starterSpell = spells[0];
+        spells[0] = null;
+
+        AddItem(starterSpell);
     }
 
     public void AddItem(Item _item)
@@ -97,15 +107,15 @@ public class PlayerCharacter : Character
         }
         else if (_item is Spell)
         {
-            if (spells.Count > 3)
+            for (int i = 0; i < spells.Count; i++)
             {
-                print("Cannot have more than 3 spells");
-                return;
-            }
-            
-            Spell _spell = (Spell)_item;
-            spells.Add(_spell);
-            gameManager.UpdateSpellsHotBar(spells);
+                if (spells[i] == null)
+                {
+                    spells[i] = (Spell)_item;
+                    gameManager.UpdateSpellsHotBar(spells);
+                    return;
+                }
+            }         
         }
     }
 
