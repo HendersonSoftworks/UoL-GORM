@@ -81,6 +81,8 @@ public class PlayerCharacter : Character
         staminaRegainTimer = staminaRegainTimerReset;
 
         SetCharacterMods();
+
+        gameManager.UpdateSpellsHotBar(spells);
     }
 
     private void Update()

@@ -154,10 +154,18 @@ public class UIManager : MonoBehaviour
     {
         for (int i = 0; i < spellImages.Length; i++)
         {
-            spellImages[i].color = new Color(0.5f, 0.5f, 0.5f);
+            spellImages[i].color = new Color(
+                spellImages[i].color.r, 
+                spellImages[i].color.g,
+                spellImages[i].color.b,
+                0.2f);
             if (i == _spellSlotNum)
             {
-                spellImages[i].color = new Color(1, 1, 1);
+                spellImages[i].color = new Color(
+                    spellImages[i].color.r,
+                    spellImages[i].color.g,
+                    spellImages[i].color.b,
+                    1f);
             }
         }
     }
