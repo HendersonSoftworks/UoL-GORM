@@ -77,6 +77,14 @@ public class Character : MonoBehaviour
         SetArmourClass();
     }
 
+    public void HealCharacter(Character character, float value)
+    {
+        if (character == null) { return; }
+        if (character.currentHP >= character.maxHP) { return; }
+
+        character.currentHP += (int)value;
+    }
+
     public void DamageCharacter(Character attacker, Character defender, Spell spell)
     {
         if (attacker == null) { return; }

@@ -1186,7 +1186,7 @@ PrefabInstance:
     - target: {fileID: 3673137860268553624, guid: a0974b86f4629e549b19bd6083ed14ca, type: 3}
       propertyPath: 'spells.Array.data[0]'
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 215684828507582141, guid: da3922888a4de4b448e34af5aeccf71a, type: 3}
     - target: {fileID: 3673137860268553624, guid: a0974b86f4629e549b19bd6083ed14ca, type: 3}
       propertyPath: 'spells.Array.data[1]'
       value: 

@@ -2,12 +2,11 @@ using UnityEngine;
 
 public class CharacterCreationSelection : MonoBehaviour
 {
-    public GameObject starterSpell;
+    public Classes classes = Classes.None;
+    public Races races = Races.None;
 
-    private void Start()
+    public void SetupCharacter(Classes classe, Races race)
     {
-        // Add starter spell
-        //FindFirstObjectByType<UIManager>().chestItemImage.sprite = starterSpell.GetComponent<Spell>().sprite;
-        //FindFirstObjectByType<PlayerCharacter>().AddItem(starterSpell.GetComponent<Spell>());
+        print("todo");
     }
 }

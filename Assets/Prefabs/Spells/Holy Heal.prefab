@@ -168,8 +168,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: Holy Heal
   description: Heals a small amount of health.
-  sprite: {fileID: 7679385156476096713, guid: 527d03211ad7f6b4cbcf745bd24d5e32, type: 3}
-  explosionPrefab: {fileID: 0}
+  sprite: {fileID: 1414734203210063797, guid: ed080a2788c2a4a4fb3ce14b0f5cbc9a, type: 3}
+  explosionPrefab: {fileID: 1722980237810394701, guid: 3f69123e17accd644a50b07b93cfdabb, type: 3}
   effect: 1
   damageType: 3
   buffType: 1

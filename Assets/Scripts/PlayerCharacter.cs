@@ -5,41 +5,44 @@ using UnityEngine;
 using UnityEngine.Rendering.Universal;
 using UnityEngine.UI;
 
+public enum Classes
+{
+    None,
+    warrior,
+    Reaver,
+    Berserker,
+    Mage,
+    Acolyte,
+    Trader
+}
+
+public enum Races
+{
+    None,
+    Mestricarian,
+    SaHranii,
+    YuTai,
+    GormiteZealot,
+    Traealver,
+    Morkalver,
+    Dvaerg,
+    Qothite
+}
+
+public enum SpecialAbilities
+{
+    None,
+    HolyDevotion,
+    BetterBarter,
+    DanceOfDeath,
+    DramaticDeath,
+    SummonBeasts,
+    ShadowSyphon,
+    HeavyHitter,
+}
+
 public class PlayerCharacter : Character
 {
-    public enum Classes 
-    {   
-        None,
-        warrior,
-        Reaver,
-        Berserker,
-        Mage,
-        Acolyte,
-        Trader
-    }
-    public enum Races
-    {
-        None,
-        Mestricarian,
-        SaHranii,
-        YuTai,
-        GormiteZealot,
-        Traealver,
-        Morkalver,
-        Dvaerg,
-        Qothite
-    }
-    public enum SpecialAbilities
-    {
-        None,
-        HolyDevotion,
-        BetterBarter,
-        DanceOfDeath,
-        DramaticDeath,
-        SummonBeasts,
-        ShadowSyphon,
-        HeavyHitter,
-    }
 
     [Header("Player Config")]
     public Classes playerClass;

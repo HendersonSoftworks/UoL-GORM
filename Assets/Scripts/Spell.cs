@@ -51,7 +51,6 @@ public class Spell : Item
     {
         if (collision.tag == "Enemy" || collision.tag == "walls")
         {
-            // instantiate explosion
             InstantiateSpellExplosion();
 
             Destroy(gameObject);
@@ -79,6 +78,9 @@ public class Spell : Item
                     case buffTypes.none:
                         break;
                     case buffTypes.health:
+                        casterCharacter.HealCharacter(casterCharacter, effectValue);
+                        InstantiateSpellExplosion();
+                        Destroy(gameObject);
                         break;
                     case buffTypes.stamina:
                         break;
