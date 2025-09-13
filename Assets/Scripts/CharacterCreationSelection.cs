@@ -7,6 +7,7 @@ public class CharacterCreationSelection : MonoBehaviour
     private void Start()
     {
         // Add starter spell
-        FindFirstObjectByType<PlayerCharacter>().AddItem(starterSpell.GetComponent<Spell>());
+        //FindFirstObjectByType<UIManager>().chestItemImage.sprite = starterSpell.GetComponent<Spell>().sprite;
+        //FindFirstObjectByType<PlayerCharacter>().AddItem(starterSpell.GetComponent<Spell>());
     }
 }

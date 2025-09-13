@@ -107,15 +107,20 @@ public class PlayerCharacter : Character
         }
         else if (_item is Spell)
         {
-            for (int i = 0; i < spells.Count; i++)
+            if (spells[0] == null)
             {
-                if (spells[i] == null)
-                {
-                    spells[i] = (Spell)_item;
-                    gameManager.UpdateSpellsHotBar(spells);
-                    return;
-                }
-            }         
+                spells[0] = (Spell)_item;
+            }
+            else if (spells[1] == null)
+            {
+                spells[1] = (Spell)_item;
+            }
+            else if (spells[2] == null)
+            {
+                spells[2] = (Spell)_item;
+            }
+
+            gameManager.UpdateSpellsHotBar(spells);
         }
     }
 

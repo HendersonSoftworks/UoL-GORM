@@ -100,13 +100,9 @@ public class GameManager : MonoBehaviour
 
     public void UpdateSpellsHotBar(List<Spell> _spells)
     {
-        for (int i = 0; i < _spells.Count; i++)
-        {
-            if (_spells[i].sprite != null)
-            {
-                uiManager.spellImages[i].sprite = _spells[i].sprite;
-            }
-        }
+        if (_spells[0] != null) { uiManager.spellImages[0].sprite = _spells[0].sprite; }
+        if (_spells[1] != null) { uiManager.spellImages[1].sprite = _spells[1].sprite; }
+        if (_spells[2] != null) { uiManager.spellImages[2].sprite = _spells[2].sprite; }
     }
 
     public void ShowChestChoice()
