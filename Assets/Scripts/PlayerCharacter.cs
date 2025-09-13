@@ -85,7 +85,8 @@ public class PlayerCharacter : Character
 
         SetCharacterMods();
 
-        gameManager.UpdateSpellsHotBar(spells);
+        // TODO fix bug when loading from main menu
+        if (spells[0] != null) { gameManager.UpdateSpellsHotBar(spells); }
     }
 
     private void Update()

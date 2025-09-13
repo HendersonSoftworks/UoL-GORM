@@ -25,6 +25,9 @@ public class UIManager : MonoBehaviour
     public TextMeshProUGUI chestItemName;
     public TextMeshProUGUI chestItemDescription;
 
+    [Header("Setup - Pause Menu")]
+    public GameObject PauseMenuPanel;
+
     [Header("Setup - Player")]
     [SerializeField]
     private Slider healthSlider;

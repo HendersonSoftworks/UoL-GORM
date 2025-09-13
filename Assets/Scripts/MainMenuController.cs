@@ -29,6 +29,7 @@ public class MainMenuController : MonoBehaviour
     {
         playerInput = GetComponent<PlayerInput>();
         submitAction = playerInput.actions["Submit"];
+        Time.timeScale = 1;
     }
 
     void Update()

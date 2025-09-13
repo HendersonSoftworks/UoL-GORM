@@ -8,6 +8,7 @@ public class GameManager : MonoBehaviour
     [Header("Game Logic")]
     public bool isGamePaused = false;
     public int currentSessionFloor = 0;
+    public GameObject[] PersistentObjects;
 
     [Header("References - Loaded on startup")]
     public PlayerCharacter playerCharacter;
@@ -56,10 +57,10 @@ public class GameManager : MonoBehaviour
         SetFloorText(currentSessionFloor);
         
         ResetPlayerPos();
-        //UpdateSpellsHotBar(playerCharacter.spells);
 
         isGamePaused = true;
         uiManager.SlowlyDecreasePanelAlpha();
+
     }
 
     private void ResetPlayerPos()
@@ -167,5 +168,27 @@ public class GameManager : MonoBehaviour
         isGamePaused = value;
         if (value) { Time.timeScale = 0; }
         else { Time.timeScale = 1; }
+    }
+
+    public void OpenPauseMenu()
+    {
+        uiManager.PauseMenuPanel.SetActive(true);
+        SetPauseGame(true);
+    }
+
+    public void ClosePauseMenu()
+    {
+        uiManager.PauseMenuPanel.SetActive(false);
+        SetPauseGame(false);
+    }
+
+    public void LoadMainMenu()
+    {
+        foreach (var persistent in PersistentObjects)
+        {
+            Destroy(persistent);
+        }
+
+        SceneManager.LoadScene("intermediate", LoadSceneMode.Single);
     }
 }
