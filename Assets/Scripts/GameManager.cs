@@ -118,6 +118,9 @@ public class GameManager : MonoBehaviour
         // Populate item UI
         uiManager.chestItemImage.sprite =
             playerCharacter.currentChest.GetComponent<Chest>().chestItem.sprite;
+        uiManager.chestItemImage.color = playerCharacter.currentChest
+            .GetComponent<Chest>().chestItem.GetComponent<SpriteRenderer>().color;
+
         uiManager.chestItemName.text =
             playerCharacter.currentChest.GetComponent<Chest>().chestItem.name;
         uiManager.chestItemDescription.text =
