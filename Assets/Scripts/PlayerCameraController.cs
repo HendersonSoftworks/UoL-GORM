@@ -31,9 +31,9 @@ public class PlayerCameraController : MonoBehaviour
 
     private void Start()
     {
-        player = FindFirstObjectByType<PlayerMovementController>().gameObject;
-        canvas = FindFirstObjectByType<Canvas>();
-        canvas.worldCamera = GetComponent<Camera>();
+        SetVisuals();
+        Invoke("SetVisuals", 0.1f);
+        Invoke("SetVisuals", 2); 
     }
 
     void Update()
@@ -43,5 +43,12 @@ public class PlayerCameraController : MonoBehaviour
         transform.position = new Vector3(player.transform.position.x + xOffset,
             player.transform.position.y + yOffset,
             player.transform.position.z + zOffset);
+    }
+
+    private void SetVisuals()
+    {
+        player = FindFirstObjectByType<PlayerMovementController>().gameObject;
+        canvas = FindFirstObjectByType<Canvas>();
+        canvas.worldCamera = GetComponent<Camera>();
     }
 }

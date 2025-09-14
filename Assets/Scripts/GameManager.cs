@@ -117,6 +117,8 @@ public class GameManager : MonoBehaviour
     {
         if (isGamePaused) { return; }
 
+        uiManager.chestTakeButton.interactable = true;
+
         // Populate item UI
         uiManager.chestItemImage.sprite =
             playerCharacter.currentChest.GetComponent<Chest>().chestItem.sprite;
@@ -138,10 +140,15 @@ public class GameManager : MonoBehaviour
         {
             foreach (var spell in playerCharacter.spells)
             {
-                if (spell.itemName == playerCharacter.currentChest.GetComponent<Chest>().chestItem.itemName)
+                if (spell != null)
                 {
-                    uiManager.chestTakeButton.interactable = false;
-                    return;
+                    if (spell.itemName == playerCharacter.currentChest.GetComponent<Chest>().chestItem.itemName)
+                    {
+                        print(spell.itemName);
+                        print(playerCharacter.currentChest.GetComponent<Chest>().chestItem.itemName);
+                        uiManager.chestTakeButton.interactable = false;
+                        return;
+                    }
                 }
             }
         }
