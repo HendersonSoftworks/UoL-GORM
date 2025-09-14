@@ -20,11 +20,14 @@ public class PlayerMovementController : MonoBehaviour
     private GameManager gameManager;
     [SerializeField]
     private PlayerCharacter playerCharacter;
-    
+    [SerializeField]
+    private PlayerAttackController attackController;
+
     void Start()
     {
         gameManager = FindFirstObjectByType<GameManager>();
         playerCharacter = GetComponent<PlayerCharacter>();
+        attackController = GetComponent<PlayerAttackController>();
 
         rb2D = GetComponent<Rigidbody2D>();
         playerInput = GetComponent<PlayerInput>();
@@ -37,6 +40,7 @@ public class PlayerMovementController : MonoBehaviour
     void FixedUpdate()
     {
         if (gameManager.isGamePaused) { return; }
+        if (attackController.isCasting) { return; }
 
         moveInput = moveAction.ReadValue<Vector2>();
 

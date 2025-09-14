@@ -54,9 +54,16 @@ public class PlayerEventHelper : MonoBehaviour
         attackController.FinishAttack();
     }
 
-    public void EventCastSpell()
+    public void EventCastInvokeAttackCastSpell()
     {
+        attackController.AttackCastSpell();
+    }
 
+    public void ResetCasting()
+    {
+        attackController.isCasting = false;
+        movementController.canMove = true;
+        animationController.SetCastAnim(false);
     }
 
     public void EventPlayWalkClip()

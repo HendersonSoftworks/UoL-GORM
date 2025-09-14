@@ -71,6 +71,9 @@ public class PlayerAttackController : MonoBehaviour
 
     private void ManageCasting()
     {
+        if (isDefending) { return; }
+        if (isAttacking) { return; }
+
         // Spell slot 1
         float selectSpell1Value = selectSpell1.ReadValue<float>();
         //if (selectSpell1Value == 0) { return; }
@@ -98,14 +101,27 @@ public class PlayerAttackController : MonoBehaviour
         // Set Spell slot
         gameManager.uiManager.SetCurrentSpellSlotSelected(currentSpellSlotSelected);
 
-        //float castValue = castAction.ReadValue<float>();
+        if (playerCharacter.currentMana < currentSpellSelected.castValue)
+        {
+            return;
+        }
+
         if (castAction.WasPressedThisFrame())
         {
-            if (playerCharacter.spells[currentSpellSlotSelected] == null) { return; }
-
-            playerCharacter.spells[currentSpellSlotSelected].Cast(GetPlayerCharacter(), transform.up);
-            currentSpellSelected = playerCharacter.spells[currentSpellSlotSelected];
+            isCasting = true;
+            movementController.canMove = false;
+            movementController.SetVelToZero();
+            animationController.SetRunningAnim(false);
+            animationController.SetCastAnim(true);
         }
+    }
+
+    public void AttackCastSpell()
+    {
+        if (playerCharacter.spells[currentSpellSlotSelected] == null) { return; }
+
+        playerCharacter.spells[currentSpellSlotSelected].Cast(GetPlayerCharacter(), transform.up);
+        currentSpellSelected = playerCharacter.spells[currentSpellSlotSelected];
     }
 
     private Character GetPlayerCharacter()
@@ -119,7 +135,8 @@ public class PlayerAttackController : MonoBehaviour
     {
         //if (!movementController.canMove) { return; }
         if (isAttacking) { return; }
-        
+        if (isCasting) { return; }
+
         float blockValue = blockAction.ReadValue<float>();
 
         if (blockValue == 0) { FinishDefend(); ; }
@@ -130,6 +147,7 @@ public class PlayerAttackController : MonoBehaviour
     {
         if (isDefending) { return; }
         if (isAttacking) { return; }
+        if (isCasting) { return; }
 
         float attackValue = attackAction.ReadValue<float>();
         if (attackValue == 0) { return; }

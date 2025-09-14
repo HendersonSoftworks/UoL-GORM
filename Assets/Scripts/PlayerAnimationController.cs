@@ -26,4 +26,9 @@ public class PlayerAnimationController : MonoBehaviour
     {
         playerAnimator.SetBool("isRunning", value);
     }
+
+    public void SetCastAnim(bool value)
+    {
+        playerAnimator.SetBool("isCasting", value);
+    }
 }
