@@ -165,6 +165,11 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 2715145882967600740, guid: 2787e6aa34e1eeb489c73a50841bb5fb, type: 3}
   m_PrefabInstance: {fileID: 8593683168368486690}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1791842952 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1357597627799192931, guid: 2787e6aa34e1eeb489c73a50841bb5fb, type: 3}
+  m_PrefabInstance: {fileID: 8593683168368486690}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1797320921 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1603373311103391678, guid: 2787e6aa34e1eeb489c73a50841bb5fb, type: 3}
@@ -431,6 +436,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1712814526}
     - target: {fileID: 8342464386743282343, guid: 14989991e6374644ea0f1ccfe9fb6fb9, type: 3}
+      propertyPath: SettingsPanel
+      value: 
+      objectReference: {fileID: 1791842952}
+    - target: {fileID: 8342464386743282343, guid: 14989991e6374644ea0f1ccfe9fb6fb9, type: 3}
       propertyPath: mainMenuAudio
       value: 
       objectReference: {fileID: 1878989104}
@@ -470,7 +479,7 @@ PrefabInstance:
     - target: {fileID: 7287151147568211495, guid: 2787e6aa34e1eeb489c73a50841bb5fb, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 924932932}
+      objectReference: {fileID: 924932933}
     - target: {fileID: 7655547687962628149, guid: 2787e6aa34e1eeb489c73a50841bb5fb, type: 3}
       propertyPath: menuController
       value: 
@@ -555,6 +564,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 9155497059121065906, guid: 2787e6aa34e1eeb489c73a50841bb5fb, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 924932933}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

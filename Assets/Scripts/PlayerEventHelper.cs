@@ -15,6 +15,8 @@ public class PlayerEventHelper : MonoBehaviour
     private AudioClip swingClip;
     [SerializeField]
     private AudioClip hurtClip;
+    [SerializeField]
+    private AudioClip castClip;
 
     private void Start()
     {
@@ -52,18 +54,28 @@ public class PlayerEventHelper : MonoBehaviour
         attackController.FinishAttack();
     }
 
+    public void EventCastSpell()
+    {
+
+    }
+
     public void EventPlayWalkClip()
     {
-        GetComponentInParent<AudioSource>().PlayOneShot(walkClip, 2);
+        GetComponentInParent<AudioSource>().PlayOneShot(walkClip, 2 * AudioGlobalConfig.volScale);
     }
 
     public void EventPlaySwingClip()
     {
-        GetComponentInParent<AudioSource>().PlayOneShot(swingClip, 3);
+        GetComponentInParent<AudioSource>().PlayOneShot(swingClip, 3 * AudioGlobalConfig.volScale);
     }
 
     public void EventPlayHurtClip()
     {
-        GetComponentInParent<AudioSource>().PlayOneShot(hurtClip, 3);
+        GetComponentInParent<AudioSource>().PlayOneShot(hurtClip, 3 * AudioGlobalConfig.volScale);
+    }
+
+    public void EventPlayCastClip()
+    {
+        GetComponentInParent<AudioSource>().PlayOneShot(castClip, 3 * AudioGlobalConfig.volScale);
     }
 }

@@ -62,6 +62,7 @@ MonoBehaviour:
   startButton: {fileID: 0}
   introPanel: {fileID: 0}
   canvasAnimator: {fileID: 0}
+  SettingsPanel: {fileID: 0}
 --- !u!114 &6234795822616440124
 MonoBehaviour:
   m_ObjectHideFlags: 0

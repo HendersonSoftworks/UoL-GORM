@@ -24,6 +24,8 @@ public class MainMenuController : MonoBehaviour
     private GameObject introPanel;
     [SerializeField]
     private Animator canvasAnimator;
+    [SerializeField]
+    private GameObject SettingsPanel;
 
     void Start()
     {
@@ -69,5 +71,21 @@ public class MainMenuController : MonoBehaviour
     public void LoadDungeon()
     {
         SceneManager.LoadScene("dungeon");
+    }
+
+    public void OpenSettingsPanel()
+    {
+        choicePanel.SetActive(false);
+        SettingsPanel.SetActive(true);
+
+        mainMenuAudio.PlayMenuConfirmOneshot();
+    }
+
+    public void CloseSettingsPanel()
+    {
+        choicePanel.SetActive(true);
+        SettingsPanel.SetActive(false);
+
+        mainMenuAudio.PlayMenuConfirmOneshot();
     }
 }
