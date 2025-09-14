@@ -84,15 +84,18 @@ public class PlayerCharacter : Character
         staminaRegainTimer = staminaRegainTimerReset;
 
         SetCharacterMods();
-
-        // TODO fix bug when loading from main menu
-        if (spells[0] != null) { gameManager.UpdateSpellsHotBar(spells); }
+        Invoke("InvokeUpdateSpellHotbar", 2);
     }
 
     private void Update()
     {
         ClampStats();
         RegainStamina();
+    }
+
+    public void InvokeUpdateSpellHotbar()
+    {
+        if (spells[0] != null) { gameManager.UpdateSpellsHotBar(spells); }
     }
 
     public void SetStarterSpell()

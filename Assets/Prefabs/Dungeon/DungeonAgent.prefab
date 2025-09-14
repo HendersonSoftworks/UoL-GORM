@@ -132,7 +132,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 54bd78521e243a946a5504be26299dd9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spellsArr: []
+  spellsArr:
+  - {fileID: 7752198235031813593, guid: da3922888a4de4b448e34af5aeccf71a, type: 3}
+  - {fileID: 7752198235031813593, guid: ff906c330108fe4428ff40ff39a840d5, type: 3}
+  - {fileID: 7752198235031813593, guid: ce0a0291eb3b3c24aafd44bbdc985521, type: 3}
   itemsArr: []
   weaponsArr: []
   armourArr: []

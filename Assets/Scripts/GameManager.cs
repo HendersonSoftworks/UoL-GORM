@@ -14,17 +14,14 @@ public class GameManager : MonoBehaviour
     public PlayerCharacter playerCharacter;
     public UIManager uiManager;
 
+    #region Private Methods
+
     private void Awake()
     {
         DontDestroyOnLoad(gameObject);
         DestroyDuplicates();
         playerCharacter = FindFirstObjectByType<PlayerCharacter>();
         uiManager = GetComponent<UIManager>();
-    }
-
-    private void Start()
-    {
-        //InitialiseGame();
     }
 
     private void OnEnable()
@@ -72,6 +69,10 @@ public class GameManager : MonoBehaviour
     {
         currentSessionFloor = _currentFloor;
     }
+
+    #endregion
+
+    #region Public Methods
 
     public void IncrementFloorDatabase()
     {
@@ -131,6 +132,19 @@ public class GameManager : MonoBehaviour
         uiManager.chestTakeButton.Select();
         
         SetPauseGame(true);
+
+        // Disable Take button if spell already obtained
+        if (playerCharacter.currentChest.GetComponent<Chest>().chestItem is Spell)
+        {
+            foreach (var spell in playerCharacter.spells)
+            {
+                if (spell.itemName == playerCharacter.currentChest.GetComponent<Chest>().chestItem.itemName)
+                {
+                    uiManager.chestTakeButton.interactable = false;
+                    return;
+                }
+            }
+        }
     }
 
     public void TakeItem()
@@ -189,6 +203,8 @@ public class GameManager : MonoBehaviour
             Destroy(persistent);
         }
 
-        SceneManager.LoadScene("intermediate", LoadSceneMode.Single);
+        SceneManager.LoadScene("main_menu", LoadSceneMode.Single);
     }
+
+    #endregion
 }

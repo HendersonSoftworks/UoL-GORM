@@ -47,9 +47,7 @@ public class PlayerAttackController : MonoBehaviour
         selectSpell2 = playerInput.actions["SelectSpell2"];
         selectSpell3 = playerInput.actions["SelectSpell3"];
 
-        // Set currently selected to first spell slot
-        gameManager.uiManager.SetCurrentSpellSlotSelected(currentSpellSlotSelected);
-        currentSpellSelected = playerCharacter.spells[currentSpellSlotSelected];
+        Invoke("SetInitialSpellGraphics", 2);
     }
 
     void Update()
@@ -59,6 +57,16 @@ public class PlayerAttackController : MonoBehaviour
         ManageDefending();
         ManageAttacking();
         ManageCasting();
+    }
+
+    private void SetInitialSpellGraphics()
+    {
+        if (playerCharacter.spells[0] != null)
+        {
+            // Set currently selected to first spell slot
+            gameManager.uiManager.SetCurrentSpellSlotSelected(currentSpellSlotSelected);
+            currentSpellSelected = playerCharacter.spells[currentSpellSlotSelected];
+        }
     }
 
     private void ManageCasting()

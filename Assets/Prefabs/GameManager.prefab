@@ -46,9 +46,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canvas: {fileID: 0}
-  healthSlider: {fileID: 0}
-  staminaSlider: {fileID: 0}
-  manaSlider: {fileID: 0}
   gameManager: {fileID: 0}
   stairsContinuePanel: {fileID: 0}
   stairsYesButton: {fileID: 0}
@@ -61,6 +58,17 @@ MonoBehaviour:
   chestItemImage: {fileID: 0}
   chestItemName: {fileID: 0}
   chestItemDescription: {fileID: 0}
+  PauseMenuPanel: {fileID: 0}
+  healthSlider: {fileID: 0}
+  staminaSlider: {fileID: 0}
+  manaSlider: {fileID: 0}
+  primarySpellImage: {fileID: 0}
+  secorndarySpellImage: {fileID: 0}
+  tertiarySpellImage: {fileID: 0}
+  spellImages:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!114 &6979377235454885412
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -75,5 +83,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isGamePaused: 0
   currentSessionFloor: 0
+  PersistentObjects:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 2863075893158945233}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   playerCharacter: {fileID: 0}
   uiManager: {fileID: 0}

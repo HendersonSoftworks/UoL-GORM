@@ -797,6 +797,7 @@ GameObject:
   - component: {fileID: 3673137860268553624}
   - component: {fileID: 3760955254580178312}
   - component: {fileID: 4538855886282202845}
+  - component: {fileID: 3975450217128897166}
   m_Layer: 0
   m_Name: Player Arissa
   m_TagString: Player
@@ -1088,8 +1089,9 @@ MonoBehaviour:
   maxMana: 0
   currentMana: 0
   moveSpeedBonus: 0
-  statDamageBonus: 0
+  meleeDamageBonus: 0
   miscDamageBonus: 0
+  magicDamageBonus: 0
   armourClass: 0
   miscarmourBonus: 0
   isInvulnerable: 0
@@ -1107,7 +1109,10 @@ MonoBehaviour:
   headArmour: {fileID: 0}
   bodyArmour: {fileID: 0}
   rings: []
-  spells: []
+  spells:
+  - {fileID: 215684828507582141, guid: da3922888a4de4b448e34af5aeccf71a, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
   items: []
   proficiencies: []
   playerClass: 1
@@ -1153,10 +1158,49 @@ MonoBehaviour:
     m_Interactions: 
     m_SingletonActionBindings: []
     m_Flags: 0
+  castAction:
+    m_Name: Cast
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: 7b712072-dcaa-453b-80cf-c60fdc556ef7
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings: []
+    m_Flags: 0
+  selectSpell1:
+    m_Name: Select Spell 1
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: dbd2dca9-8d50-4f2e-bf3c-e50e602dda2f
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings: []
+    m_Flags: 0
+  selectSpell2:
+    m_Name: Select Spell 2
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: 0c6720bc-12bd-4057-9f2d-b4fb2522942c
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings: []
+    m_Flags: 0
+  selectSpell3:
+    m_Name: Select Spell 3
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: e674e08a-0054-4fa8-876d-67b9fb4e8220
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings: []
+    m_Flags: 0
+  currentSpellSlotSelected: 0
+  currentSpellSelected: {fileID: 0}
   playerCharacter: {fileID: 0}
   gameManager: {fileID: 0}
   isAttacking: 0
   isDefending: 0
+  isCasting: 0
 --- !u!114 &4538855886282202845
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1181,6 +1225,18 @@ MonoBehaviour:
     m_Flags: 0
   playerCharacter: {fileID: 0}
   gameManager: {fileID: 0}
+--- !u!114 &3975450217128897166
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8353357749969446027}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b15b7ee767868b348a7ce3d142848ead, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8733734498854750109
 GameObject:
   m_ObjectHideFlags: 0
