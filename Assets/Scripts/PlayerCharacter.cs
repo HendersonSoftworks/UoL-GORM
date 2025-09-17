@@ -353,6 +353,9 @@ public class PlayerCharacter : Character
             currentChest = collision.gameObject;
 
         }
+
+        // Kill player
+        ManageHealth();
     }
 
     private void OnTriggerExit2D(Collider2D collision)

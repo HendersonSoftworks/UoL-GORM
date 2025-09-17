@@ -8,6 +8,14 @@ public enum spellMod { intelligence, wisdom, charisma }
 
 public class Character : MonoBehaviour
 {
+    #region Config
+
+    [Header("System setup")]
+    [SerializeField]
+    private GameObject deathEffect;
+
+    #endregion
+
     #region Character Sheet
 
     [Header("Identity")]
@@ -175,7 +183,7 @@ public class Character : MonoBehaviour
 
     #region Private Methods
 
-    private void ManageHealth()
+    protected void ManageHealth()
     {
         currentHP = Mathf.Clamp(currentHP, 0, 999);
 
@@ -187,8 +195,10 @@ public class Character : MonoBehaviour
 
     private void KillCharacter()
     {
+        var effect = Instantiate(deathEffect, transform.position, Quaternion.identity);
+        effect.GetComponent<SpriteRenderer>().color = Color.red;
+
         Destroy(gameObject);
-        // TODO death anim
     }
 
     private void SetArmourClass()

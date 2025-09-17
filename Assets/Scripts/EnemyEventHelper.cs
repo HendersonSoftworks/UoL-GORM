@@ -7,11 +7,14 @@ public class EnemyEventHelper : MonoBehaviour
     private EnemyMovementController movementController;
     [SerializeField]
     private EnemyAttackController attackController;
+    [SerializeField]
+    private EnemySoundManager enemySound;
 
     private void Start()
     {
         movementController = GetComponentInParent<EnemyMovementController>();
         attackController = GetComponentInParent<EnemyAttackController>();
+        enemySound = GetComponentInParent<EnemySoundManager>();
     }
 
     public void EventSetSpeedToAttackMoveSpeed()
@@ -30,5 +33,10 @@ public class EnemyEventHelper : MonoBehaviour
         // Set movement state to chase at end of attack anim
         attackController.attackState = EnemyAttackController.AttackStates.cooldown;
         movementController.moveSpeed = movementController.normalSpeed;
+    }
+
+    public void EventPlayAttackClip()
+    {
+        enemySound.PlayEnemyAttackClip();
     }
 }

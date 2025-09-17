@@ -4,15 +4,19 @@ using UnityEngine;
 
 public class EnemyCharacter : Character
 {
-    [SerializeField]
-    private float pushDuration;
-
+    [Header("Loaded on startup")]
     [SerializeField]
     private EnemyMovementController movementController;
+    [SerializeField]
+    private EnemySoundManager soundManager;
+
+    [SerializeField]
+    private float pushDuration;
 
     private void Start()
     {
         movementController = GetComponent<EnemyMovementController>();
+        soundManager = GetComponent<EnemySoundManager>();
 
         currentWeapon = weapons[0];
     }
@@ -39,6 +43,8 @@ public class EnemyCharacter : Character
         {
             PushEnemyAway(collision);
             DamageCharacter(collision.GetComponentInParent<PlayerCharacter>(), this);
+
+            soundManager.PlayEnemyHurtClip();
         }
 
         // Damage enemy if hit by spell

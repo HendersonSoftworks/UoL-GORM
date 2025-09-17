@@ -1081,6 +1081,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b7f3d3207db9ea4bb2a4f6093474eb1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  deathEffect: {fileID: 1722980237810394701, guid: 3f69123e17accd644a50b07b93cfdabb, type: 3}
   names: []
   displayName: PlayerDisplay
   portrait: {fileID: 7482667652216324306, guid: da9cc44b356b8cd45baed6d2deafbb48, type: 3}
@@ -1254,7 +1255,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   explClip: {fileID: 8300000, guid: a388b29f8dc8ef34dba93eba794f24ff, type: 3}
   swingClip: {fileID: 8300000, guid: dbd9991adc9013a4ab41d711597c3651, type: 3}
-  hurtClip: {fileID: 0}
+  hurtClip: {fileID: 8300000, guid: 4aa36eb5db9352746b8410e2f98b1612, type: 3}
 --- !u!1 &8733734498854750109
 GameObject:
   m_ObjectHideFlags: 0

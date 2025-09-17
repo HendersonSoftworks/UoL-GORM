@@ -147,3 +147,4 @@ MonoBehaviour:
   scaryLaughClip: {fileID: 8300000, guid: 5b8b81ca40c262646bf7449f09fc593c, type: 3}
   musicSlider: {fileID: 0}
   effectsSlider: {fileID: 0}
+  effectsPreview: {fileID: 0}

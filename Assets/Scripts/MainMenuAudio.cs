@@ -14,6 +14,8 @@ public class MainMenuAudio : MonoBehaviour
     private Slider musicSlider;
     [SerializeField]
     private Slider effectsSlider;
+    [SerializeField]
+    private AudioClip effectsPreview;
 
     private void Start()
     {
@@ -36,6 +38,11 @@ public class MainMenuAudio : MonoBehaviour
     public void PlayScaryLaughOneshot()
     {
         audioSource.PlayOneShot(scaryLaughClip);
+    }
+
+    public void PlayEffectsPreviewOneshot()
+    {
+        audioSource.PlayOneShot(effectsPreview, AudioGlobalConfig.volEffects * AudioGlobalConfig.volScale);
     }
 
     public void SetMusicAudioVol()
