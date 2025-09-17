@@ -145,4 +145,5 @@ MonoBehaviour:
   audioSource: {fileID: 5854092499629739819}
   menuConfirmClip: {fileID: 8300000, guid: ef4d8b8b2424885459175d2d053379fa, type: 3}
   scaryLaughClip: {fileID: 8300000, guid: 5b8b81ca40c262646bf7449f09fc593c, type: 3}
-  audioSlider: {fileID: 0}
+  musicSlider: {fileID: 0}
+  effectsSlider: {fileID: 0}

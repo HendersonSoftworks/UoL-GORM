@@ -60,6 +60,8 @@ public class PlayerCharacter : Character
     private GameManager gameManager;
     [SerializeField]
     private Animator animator;
+    [SerializeField]
+    private PlayerAudioManager playerAudio;
 
     private void Awake()
     {
@@ -73,6 +75,8 @@ public class PlayerCharacter : Character
 
     private void Start()
     {
+        playerAudio = GetComponent<PlayerAudioManager>();
+
         // Test
         SetTestStatblock();
 
@@ -339,6 +343,8 @@ public class PlayerCharacter : Character
         {
             movementController.PushPlayerInDirection(gameObject, collision.gameObject);
             DamageCharacter(collision.GetComponentInParent<EnemyCharacter>(), this);
+
+            playerAudio.PlayHurtClip();
         }
 
         // Assign chest to player

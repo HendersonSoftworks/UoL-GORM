@@ -10,19 +10,19 @@ public class PlayerEventHelper : MonoBehaviour
     [SerializeField]
     private PlayerAnimationController animationController;
     [SerializeField]
+    private PlayerAudioManager playerAudio;
+    [SerializeField]
     private AudioClip walkClip;
     [SerializeField]
-    private AudioClip swingClip;
-    [SerializeField]
-    private AudioClip hurtClip;
-    [SerializeField]
     private AudioClip castClip;
+
 
     private void Start()
     {
         movementController = GetComponentInParent<PlayerMovementController>();
         attackController = GetComponentInParent<PlayerAttackController>();
         animationController = GetComponentInParent<PlayerAnimationController>();
+        playerAudio = GetComponentInParent<PlayerAudioManager>();
     }
 
     public void EventSetIsAttackingFlagFalse()
@@ -68,21 +68,16 @@ public class PlayerEventHelper : MonoBehaviour
 
     public void EventPlayWalkClip()
     {
-        GetComponentInParent<AudioSource>().PlayOneShot(walkClip, 2 * AudioGlobalConfig.volScale);
+        GetComponentInParent<AudioSource>().PlayOneShot(walkClip, AudioGlobalConfig.volEffects * AudioGlobalConfig.volScale);
     }
 
     public void EventPlaySwingClip()
     {
-        GetComponentInParent<AudioSource>().PlayOneShot(swingClip, 3 * AudioGlobalConfig.volScale);
-    }
-
-    public void EventPlayHurtClip()
-    {
-        GetComponentInParent<AudioSource>().PlayOneShot(hurtClip, 3 * AudioGlobalConfig.volScale);
+        playerAudio.PlaySwingClip();        
     }
 
     public void EventPlayCastClip()
     {
-        GetComponentInParent<AudioSource>().PlayOneShot(castClip, 3 * AudioGlobalConfig.volScale);
+        GetComponentInParent<AudioSource>().PlayOneShot(castClip, AudioGlobalConfig.volEffects * AudioGlobalConfig.volScale);
     }
 }

@@ -6,6 +6,8 @@ public class PlayerAudioManager : MonoBehaviour
     private AudioClip explClip;
     [SerializeField]
     private AudioClip swingClip;
+    [SerializeField]
+    private AudioClip hurtClip;
 
     private AudioSource audioSource;
 
@@ -16,11 +18,16 @@ public class PlayerAudioManager : MonoBehaviour
 
     public void PlayExplosionClip()
     {
-        audioSource.PlayOneShot(explClip, 3 * AudioGlobalConfig.volScale);
+        audioSource.PlayOneShot(explClip,  AudioGlobalConfig.volEffects * AudioGlobalConfig.volScale);
     }
 
-    public void PlayswingClip()
+    public void PlaySwingClip()
     {
-        audioSource.PlayOneShot(swingClip, 3 * AudioGlobalConfig.volScale);
+        audioSource.PlayOneShot(swingClip, AudioGlobalConfig.volEffects * AudioGlobalConfig.volScale);
+    }
+
+    public void PlayHurtClip()
+    {
+        audioSource.PlayOneShot(swingClip, AudioGlobalConfig.volEffects * AudioGlobalConfig.volScale);
     }
 }

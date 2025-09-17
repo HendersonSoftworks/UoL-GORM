@@ -12,6 +12,6 @@ public class DungeonMusicManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        audioSource.volume = AudioGlobalConfig.volScale;
+        audioSource.volume = AudioGlobalConfig.volMusic;
     }
 }

@@ -11,21 +11,21 @@ public class MainMenuAudio : MonoBehaviour
     [SerializeField]
     private AudioClip scaryLaughClip;
     [SerializeField]
-    private Slider audioSlider;
+    private Slider musicSlider;
+    [SerializeField]
+    private Slider effectsSlider;
 
     private void Start()
     {
-        //Invoke("InvokedSetSlider", 2);
+        //Adds a listener to the main slider and invokes a method when the value changes.
+        musicSlider.onValueChanged.AddListener(delegate { SetMusicAudioVol(); });
+        effectsSlider.onValueChanged.AddListener(delegate { SetEffectsAudioVol(); });
     }
 
     private void Update()
     {
-        audioSource.volume = AudioGlobalConfig.volScale;
-    }
+        audioSource.volume = AudioGlobalConfig.volMusic;
 
-    private void InvokedSetSlider()
-    {
-        audioSlider.value = AudioGlobalConfig.volScale;
     }
 
     public void PlayMenuConfirmOneshot()
@@ -38,14 +38,13 @@ public class MainMenuAudio : MonoBehaviour
         audioSource.PlayOneShot(scaryLaughClip);
     }
 
-    public void SetGlobalAudioVol()
+    public void SetMusicAudioVol()
     {
-        if (audioSlider == null)
-        {
-            audioSlider = FindFirstObjectByType<Slider>(FindObjectsInactive.Include);
-            if (audioSlider == null) return; 
-        }
+        AudioGlobalConfig.volMusic = musicSlider.value;
+    }
 
-        AudioGlobalConfig.volScale = audioSlider.value;
+    public void SetEffectsAudioVol()
+    {
+        AudioGlobalConfig.volEffects = effectsSlider.value;
     }
 }

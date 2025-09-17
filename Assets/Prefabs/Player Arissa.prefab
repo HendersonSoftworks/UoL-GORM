@@ -931,7 +931,7 @@ AudioSource:
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 0.15
+  m_Volume: 0.5
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -1127,6 +1127,7 @@ MonoBehaviour:
   movementController: {fileID: 0}
   gameManager: {fileID: 0}
   animator: {fileID: 0}
+  playerAudio: {fileID: 0}
 --- !u!114 &3760955254580178312
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1252,7 +1253,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   explClip: {fileID: 8300000, guid: a388b29f8dc8ef34dba93eba794f24ff, type: 3}
-  swingClip: {fileID: 8300000, guid: a388b29f8dc8ef34dba93eba794f24ff, type: 3}
+  swingClip: {fileID: 8300000, guid: dbd9991adc9013a4ab41d711597c3651, type: 3}
+  hurtClip: {fileID: 0}
 --- !u!1 &8733734498854750109
 GameObject:
   m_ObjectHideFlags: 0
@@ -2126,9 +2128,8 @@ MonoBehaviour:
   movementController: {fileID: 0}
   attackController: {fileID: 0}
   animationController: {fileID: 0}
+  playerAudio: {fileID: 0}
   walkClip: {fileID: 8300000, guid: 3cfdf19e895683a41bd2c0b86b1d855a, type: 3}
-  swingClip: {fileID: 0}
-  hurtClip: {fileID: 0}
   castClip: {fileID: 8300000, guid: 8ec9d898ae86e4944b6ecd5ab782a4e0, type: 3}
 --- !u!4 &5198270866742175963 stripped
 Transform:
