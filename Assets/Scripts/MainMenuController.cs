@@ -26,7 +26,8 @@ public class MainMenuController : MonoBehaviour
     private Animator canvasAnimator;
     [SerializeField]
     private GameObject SettingsPanel;
-
+    [SerializeField]
+    private GameObject howPanel;
     void Start()
     {
         playerInput = GetComponent<PlayerInput>();
@@ -85,6 +86,22 @@ public class MainMenuController : MonoBehaviour
     {
         choicePanel.SetActive(true);
         SettingsPanel.SetActive(false);
+
+        mainMenuAudio.PlayMenuConfirmOneshot();
+    }
+
+    public void OpenHowPanel()
+    {
+        choicePanel.SetActive(false);
+        howPanel.SetActive(true);
+
+        mainMenuAudio.PlayMenuConfirmOneshot();
+    }
+
+    public void CloseHowPanel()
+    {
+        choicePanel.SetActive(true);
+        howPanel.SetActive(false);
 
         mainMenuAudio.PlayMenuConfirmOneshot();
     }

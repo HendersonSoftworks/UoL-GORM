@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 2228241255751568991}
   - component: {fileID: 6255709801403382721}
   - component: {fileID: 6946301391972270470}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Chest
   m_TagString: chest
   m_Icon: {fileID: 0}
@@ -249,6 +249,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   chestItem: {fileID: 8400399621750346471, guid: 68218fa08ebc07c42bc9c5542ba07bb2, type: 3}
+  empty: 0
   dialogueIcon: {fileID: 7582586064547884567}
 --- !u!1001 &3853328675863972334
 PrefabInstance:
@@ -305,6 +306,10 @@ PrefabInstance:
     - target: {fileID: 6648166108744837113, guid: 6af65ce6a41016b4fa4dbd70fd5a0703, type: 3}
       propertyPath: m_Name
       value: dialogueIcon
+      objectReference: {fileID: 0}
+    - target: {fileID: 6648166108744837113, guid: 6af65ce6a41016b4fa4dbd70fd5a0703, type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 6648166108744837113, guid: 6af65ce6a41016b4fa4dbd70fd5a0703, type: 3}
       propertyPath: m_IsActive

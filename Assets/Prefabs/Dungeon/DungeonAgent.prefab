@@ -80,6 +80,9 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   rayRadius: 1
+  dungeonCol: {r: 0.08904416, g: 0.8207547, b: 0.6834969, a: 1}
+  swampCol: {r: 0.14174962, g: 0.4056604, b: 0.066972226, a: 1}
+  infernalCol: {r: 0.4056604, g: 0.12820399, b: 0.12820399, a: 1}
   wallDistFromAgent: 1.1
   maxSteps: 100
   currentStep: 0
@@ -100,6 +103,7 @@ MonoBehaviour:
   wallSidePrefab: {fileID: 7560836600224425988, guid: 83a4e45b4d9c3b64c99bdd8376067d15, type: 3}
   setBoundsAndScan: {fileID: 0}
   dungeonPlacer: {fileID: 0}
+  gameManager: {fileID: 0}
 --- !u!114 &1794554368927992791
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -117,6 +121,7 @@ MonoBehaviour:
   dungeonItems: {fileID: 0}
   enemies:
   - {fileID: 4974876322840412966, guid: 0a8f4adcfdeeb6748a4cc6e86719a9ed, type: 3}
+  - {fileID: 4974876322840412966, guid: 83e189c7d504445489454a21bb5dcf42, type: 3}
   stairsPrefab: {fileID: 2690485073099773176, guid: 157a53c05c173274c9cef9fcf5b03240, type: 3}
   chestPrefab: {fileID: 2485807066254277334, guid: 2092074819242cd4d8d526a12835a920, type: 3}
   maxNumberOfEnemiesInRooms: 1

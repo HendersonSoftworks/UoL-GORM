@@ -40,8 +40,7 @@ public class DungeonPlacer : MonoBehaviour
     {
         foreach (var _chest in _chests)
         {
-            int randItemTypeInt = Random.Range(0, 2);
-            //randItemTypeInt = 1;
+            int randItemTypeInt = Random.Range(0, 2+1);
             switch (randItemTypeInt)
             {
                 case 0: // Place ring
@@ -56,6 +55,13 @@ public class DungeonPlacer : MonoBehaviour
                         dungeonItems.spellsArr[randSpellInt].GetComponent<Item>();
 
                     break;
+                case 2: // Place spell
+                    int randPotionInt = Random.Range(0, dungeonItems.spellsArr.Length);
+                    _chest.GetComponent<Chest>().chestItem =
+                        dungeonItems.spellsArr[randPotionInt].GetComponent<Item>();
+
+                    break;
+
                 default:
                     Debug.LogError("Error placing chest item in: " + _chest.name);
 

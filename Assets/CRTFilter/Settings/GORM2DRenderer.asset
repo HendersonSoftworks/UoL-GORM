@@ -76,31 +76,31 @@ MonoBehaviour:
   useVolumeComponent: 0
   injectionPoint: 550
   preset: 6
-  pixelResolutionX: 491
-  pixelResolutionY: 323
-  screenBend: 8.89
-  screenOverscan: 2
-  vignetteSize: 5.6
-  vignetteSmooth: 5.95
-  vignetteRound: 85
-  blur: 2.68
+  pixelResolutionX: 256
+  pixelResolutionY: 175
+  screenBend: 8
+  screenOverscan: 0
+  vignetteSize: 5.8
+  vignetteSmooth: 10
+  vignetteRound: 1
+  blur: 0
   bleed: 0
-  smidge: 15
-  scanlinesStrength: 0.92
-  apertureStrength: 3.69
-  shadowlines: -50
-  shadowlinesSpeed: -49.81
-  shadowlinesAlpha: 0
-  noiseSize: 7.7
-  noiseSpeed: 1.52
-  noiseAlpha: 0.1
-  brightness: 1
-  contrast: 1.05
-  gamma: 1
-  red: 1.41
-  green: 0.63
-  blue: 1.07
-  chromaticAberration: -1.5
-  redOffset: {x: -0.15, y: -0.15}
-  blueOffset: {x: 0, y: 0.21}
-  greenOffset: {x: 0.15, y: -0.15}
+  smidge: 6
+  scanlinesStrength: 5.3
+  apertureStrength: 6.52
+  shadowlines: 10
+  shadowlinesSpeed: 1
+  shadowlinesAlpha: 0.015
+  noiseSize: 5
+  noiseSpeed: 10
+  noiseAlpha: 0.025
+  brightness: 0.99
+  contrast: 1
+  gamma: 1.22
+  red: 0.99
+  green: 0.41
+  blue: 0.72
+  chromaticAberration: 1.3
+  redOffset: {x: 0.13, y: 0.13}
+  blueOffset: {x: 0, y: -0.182}
+  greenOffset: {x: -0.13, y: 0.13}

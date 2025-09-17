@@ -135,6 +135,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &750978842 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 547161122824392192, guid: 2787e6aa34e1eeb489c73a50841bb5fb, type: 3}
+  m_PrefabInstance: {fileID: 8593683168368486690}
+  m_PrefabAsset: {fileID: 0}
 --- !u!20 &847869923 stripped
 Camera:
   m_CorrespondingSourceObject: {fileID: 3956803799936202176, guid: fd061a55ff1954542820e5cd123d5423, type: 3}
@@ -450,6 +455,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8342464386743282343, guid: 14989991e6374644ea0f1ccfe9fb6fb9, type: 3}
+      propertyPath: howPanel
+      value: 
+      objectReference: {fileID: 750978842}
+    - target: {fileID: 8342464386743282343, guid: 14989991e6374644ea0f1ccfe9fb6fb9, type: 3}
       propertyPath: introPanel
       value: 
       objectReference: {fileID: 1381079493}
@@ -506,6 +515,10 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 847869923}
+    - target: {fileID: 5146516429996548312, guid: 2787e6aa34e1eeb489c73a50841bb5fb, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 924932933}
     - target: {fileID: 6473982506846174766, guid: 2787e6aa34e1eeb489c73a50841bb5fb, type: 3}
       propertyPath: m_Name
       value: Canvas
@@ -520,6 +533,10 @@ PrefabInstance:
       objectReference: {fileID: 924932933}
     - target: {fileID: 7655547687962628149, guid: 2787e6aa34e1eeb489c73a50841bb5fb, type: 3}
       propertyPath: menuController
+      value: 
+      objectReference: {fileID: 924932933}
+    - target: {fileID: 7968878866850644874, guid: 2787e6aa34e1eeb489c73a50841bb5fb, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 924932933}
     - target: {fileID: 8259682710480202918, guid: 2787e6aa34e1eeb489c73a50841bb5fb, type: 3}
