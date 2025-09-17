@@ -98,8 +98,7 @@ public class DungeonPlacer : MonoBehaviour
         }
     }
 
-
-    public void RandomlyPlaceEnemies(List<GameObject> _rooms)
+    public void RandomlyPlaceEnemies(List<GameObject> _rooms, List<GameObject> _corridors)
     {
         foreach (var item in _rooms)
         {
@@ -111,7 +110,26 @@ public class DungeonPlacer : MonoBehaviour
                     float dist = Vector2.Distance(item.transform.position, playerCharacter.transform.position);
                     if (dist >= 7) // check enemies not spawning in same room as player
                     {
-                        Instantiate(enemies[0], item.transform.position, Quaternion.identity);
+                        int getRandEnemy = Random.Range(0, enemies.Count);
+                        Instantiate(enemies[getRandEnemy], item.transform.position, Quaternion.identity);
+                    }
+                }
+            }
+        }
+
+        foreach (var item in _corridors)
+        {
+            if (item != null)
+            {
+                float spawnChance = Random.Range(0f, 1f);
+
+                if (spawnChance <= 0.1f) // only spawn in ~10% of corridors
+                {
+                    float dist = Vector2.Distance(item.transform.position, playerCharacter.transform.position);
+                    if (dist >= 7) // check enemies not spawning in same room as player
+                    {
+                        int getRandEnemy = Random.Range(0, enemies.Count);
+                        Instantiate(enemies[getRandEnemy], item.transform.position, Quaternion.identity);
                     }
                 }
             }

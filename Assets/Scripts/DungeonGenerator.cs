@@ -18,10 +18,12 @@ public class DungeonGenerator : MonoBehaviour
     float rayRadius = 1f;
 
     [Header("Config")]
-    //[SerializeField]
-    //private int minRoomCount = 5;
-    //[SerializeField]
-    //private int maxRoomCount = 7;
+    [SerializeField]
+    private Color dungeonCol;
+    [SerializeField]
+    private Color swampCol;
+    [SerializeField]
+    private Color infernalCol;
     [SerializeField]
     private float wallDistFromAgent = 1.51f;
     //[SerializeField]
@@ -67,21 +69,29 @@ public class DungeonGenerator : MonoBehaviour
     private FollowPlayerAndRescan setBoundsAndScan;
     [SerializeField]
     private DungeonPlacer dungeonPlacer;
+    [SerializeField]
+    private GameManager gameManager;
 
     void Start()
     {
         dungeonPlacer = GetComponent<DungeonPlacer>();
-        
+        gameManager = FindFirstObjectByType<GameManager>();
+
         InvokePlacement();
         CleanupExtraWalls();
         
         setBoundsAndScan.SetGraphBoundsAndRescan();
         
         dungeonPlacer.PlaceStairs();
-        dungeonPlacer.RandomlyPlaceEnemies(rooms);
+        dungeonPlacer.RandomlyPlaceEnemies(rooms, corridors);
         dungeonPlacer.RandomlyPlaceRoomChests(rooms);
         dungeonPlacer.RandomlyPlaceCorridorChests(corridors, 2);
         dungeonPlacer.PopulateChestItems(chests);
+        
+        SetCorridorTexture(corridors);
+        SetWallTexture(walls);
+        SetRoomTexture(rooms);
+
     }
 
     private void ProcessGenerationStep()
@@ -352,7 +362,6 @@ public class DungeonGenerator : MonoBehaviour
         BoundsInt newBoundsInt = new BoundsInt((int)newCor.transform.position.x, (int)newCor.transform.position.y, 0,
             (int)newCor.transform.localScale.x, (int)newCor.transform.localScale.y, 0);
 
-        //newWall.transform.localScale = new Vector3(newWall.transform.localScale.x, newWall.transform.localScale.y, 0);
         newCor.GetComponent<CorridorData>().bounds = newBoundsInt;
 
         corridors.Add(newCor);
@@ -388,6 +397,86 @@ public class DungeonGenerator : MonoBehaviour
             PlaceWall(wallSidePrefab, new Vector2(transform.position.x + wallDistFromAgent, transform.position.y));
         }
     }
+
+    private void SetWallTexture(List<GameObject> walls)
+    {
+        foreach (var wall in walls)
+        {
+            var wallRenderer = wall.GetComponent<SpriteRenderer>();
+
+            switch (gameManager.floorType)
+            {
+                case floorTypes.dungeon:
+                    wallRenderer.color = dungeonCol;
+
+                    break;
+                case floorTypes.swamp:
+                    wallRenderer.color = swampCol;
+
+                    break;
+                case floorTypes.infernal:
+                    wallRenderer.color = infernalCol;
+
+                    break;
+                default:
+                    break;
+            }
+        }
+    }
+
+
+    private void SetCorridorTexture(List<GameObject> corridors)
+    {
+        foreach (var cor in corridors)
+        {
+            var corRenderer = cor.GetComponent<SpriteRenderer>();
+
+            switch (gameManager.floorType)
+            {
+                case floorTypes.dungeon:
+                    corRenderer.color = dungeonCol;
+
+                    break;
+                case floorTypes.swamp:
+                    corRenderer.color = swampCol;
+
+                    break;
+                case floorTypes.infernal:
+                    corRenderer.color = infernalCol;
+
+                    break;
+                default:
+                    break;
+            }
+        }
+    }
+
+    private void SetRoomTexture(List<GameObject> rooms)
+    {
+        foreach (var room in rooms)
+        {
+            var roomRenderer = room.GetComponent<SpriteRenderer>();
+
+            switch (gameManager.floorType)
+            {
+                case floorTypes.dungeon:
+                    roomRenderer.color = dungeonCol;
+
+                    break;
+                case floorTypes.swamp:
+                    roomRenderer.color = swampCol;
+
+                    break;
+                case floorTypes.infernal:
+                    roomRenderer.color = infernalCol;
+
+                    break;
+                default:
+                    break;
+            }
+        }
+    }
+
 
     private void PlaceWall(GameObject _wallType, Vector2 _pos)
     {

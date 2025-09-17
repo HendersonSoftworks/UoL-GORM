@@ -3,12 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+public enum floorTypes { dungeon, swamp, infernal}
+
 public class GameManager : MonoBehaviour
 {
     [Header("Game Logic")]
     public bool isGamePaused = false;
     public int currentSessionFloor = 0;
     public GameObject[] PersistentObjects;
+    public floorTypes floorType = floorTypes.dungeon;
 
     [Header("References - Loaded on startup")]
     public PlayerCharacter playerCharacter;
