@@ -5,7 +5,7 @@ using UnityEngine.UI;
 public class MainMenuAudio : MonoBehaviour
 {
     [SerializeField]
-    private AudioSource audioSource;
+    private AudioSource[] audioSources;
     [SerializeField]
     private AudioClip menuConfirmClip;
     [SerializeField]
@@ -26,23 +26,22 @@ public class MainMenuAudio : MonoBehaviour
 
     private void Update()
     {
-        audioSource.volume = AudioGlobalConfig.volMusic;
-
+        audioSources[0].volume = AudioGlobalConfig.volMusic; // bug - cannot hear effects preview if music vol is 0
     }
 
     public void PlayMenuConfirmOneshot()
     {
-        audioSource.PlayOneShot(menuConfirmClip);        
+        audioSources[1].PlayOneShot(menuConfirmClip, AudioGlobalConfig.volEffects * AudioGlobalConfig.volScale);        
     }
 
     public void PlayScaryLaughOneshot()
     {
-        audioSource.PlayOneShot(scaryLaughClip);
+        audioSources[1].PlayOneShot(scaryLaughClip, AudioGlobalConfig.volEffects * AudioGlobalConfig.volScale);
     }
 
     public void PlayEffectsPreviewOneshot()
     {
-        audioSource.PlayOneShot(effectsPreview, AudioGlobalConfig.volEffects * AudioGlobalConfig.volScale);
+        audioSources[1].PlayOneShot(effectsPreview, AudioGlobalConfig.volEffects * AudioGlobalConfig.volScale);
     }
 
     public void SetMusicAudioVol()
