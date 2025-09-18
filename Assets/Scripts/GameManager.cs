@@ -32,7 +32,6 @@ public class GameManager : MonoBehaviour
         
         playerCharacter = FindFirstObjectByType<PlayerCharacter>();
         uiManager = GetComponent<UIManager>();
-
     }
 
     private void OnEnable()
@@ -48,6 +47,11 @@ public class GameManager : MonoBehaviour
     private void OnSceneLoaded(Scene arg0, LoadSceneMode arg1)
     {
         InitialiseGame();
+    }
+
+    private void FindMusicManager()
+    {
+        audioSource = FindFirstObjectByType<DungeonMusicManager>().audioSource;
     }
 
     private void SetFloorType()
@@ -96,6 +100,7 @@ public class GameManager : MonoBehaviour
         isGamePaused = true;
         uiManager.SlowlyDecreasePanelAlpha();
 
+        Invoke("FindMusicManager", 2);
     }
 
     private void ResetPlayerPos()

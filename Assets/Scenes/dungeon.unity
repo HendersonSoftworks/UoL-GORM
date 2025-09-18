@@ -1072,6 +1072,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2021289590147903426, guid: b1a0378bf3bf1ff48a73b0d754eae695, type: 3}
     - target: {fileID: 6898707864579352175, guid: 48b2afc2cf45b3449993b1fd62b327b3, type: 3}
+      propertyPath: maxSteps
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 6898707864579352175, guid: 48b2afc2cf45b3449993b1fd62b327b3, type: 3}
       propertyPath: dreamCol.a
       value: 1
       objectReference: {fileID: 0}

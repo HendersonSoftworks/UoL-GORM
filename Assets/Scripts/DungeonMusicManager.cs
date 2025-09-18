@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class DungeonMusicManager : MonoBehaviour
 {
-    AudioSource audioSource;
+    public AudioSource audioSource;
 
     private void Start()
     {
