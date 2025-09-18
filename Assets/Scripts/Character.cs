@@ -88,9 +88,27 @@ public class Character : MonoBehaviour
     public void HealCharacter(Character character, float value)
     {
         if (character == null) { return; }
-        if (character.currentHP >= character.maxHP) { return; }
 
         character.currentHP += (int)value;
+
+        if (character.currentHP > character.maxHP) 
+        {
+            character.currentHP = (int)character.maxHP;
+            return; 
+        }
+    }
+
+    public void RestoreMana(Character character, float value)
+    {
+        if (character == null) { return; }
+
+        character.currentMana += (uint)value;
+
+        if (character.currentMana > character.maxMana)
+        {
+            character.currentMana = (uint)character.maxMana;
+            return;
+        }
     }
 
     public void DamageCharacter(Character attacker, Character defender, Spell spell)

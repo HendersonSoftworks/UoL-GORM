@@ -1,10 +1,16 @@
 fileFormatVersion: 2
-guid: 6e5c44a7f07d9e949b8f119d6dc921ce
+guid: f011385da94667f44b1f7ccefe329644
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -1004292241715702395
-    second: Ring of Speed_0
+      213: 3683664927395207733
+    second: snow-bottle_0
+  - first:
+      213: 4745077917057927956
+    second: snow-bottle_1
+  - first:
+      213: -1298640212890991931
+    second: snow-bottle_2
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -46,12 +52,12 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 32
+  spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -126,13 +132,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Ring of Speed_0
+      name: snow-bottle_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 16
-        height: 16
+        x: 70
+        y: 452
+        width: 101
+        height: 60
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -141,8 +147,52 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 585dad1f6890012f0800000000000000
-      internalID: -1004292241715702395
+      spriteID: 53ad4fc0cb10f1330800000000000000
+      internalID: 3683664927395207733
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: snow-bottle_1
+      rect:
+        serializedVersion: 2
+        x: 71
+        y: 386
+        width: 153
+        height: 116
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 41bc9cd9937e9d140800000000000000
+      internalID: 4745077917057927956
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: snow-bottle_2
+      rect:
+        serializedVersion: 2
+        x: 77
+        y: 7
+        width: 406
+        height: 426
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5c2489b5b9d4afde0800000000000000
+      internalID: -1298640212890991931
       vertices: []
       indices: 
       edges: []
@@ -151,7 +201,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 5e97eb03825dee720800000000000000
     internalID: 0
     vertices: []
     indices: 
@@ -161,7 +211,9 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Ring of Speed_0: -1004292241715702395
+      snow-bottle_0: 3683664927395207733
+      snow-bottle_1: 4745077917057927956
+      snow-bottle_2: -1298640212890991931
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

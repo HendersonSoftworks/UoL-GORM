@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public enum floorTypes { dungeon, swamp, infernal}
+public enum floorTypes { dungeon, swamp, infernal, dream}
 
 public class GameManager : MonoBehaviour
 {
@@ -32,6 +32,8 @@ public class GameManager : MonoBehaviour
         
         playerCharacter = FindFirstObjectByType<PlayerCharacter>();
         uiManager = GetComponent<UIManager>();
+
+        SetFloorType();
     }
 
     private void OnEnable()
@@ -47,6 +49,31 @@ public class GameManager : MonoBehaviour
     private void OnSceneLoaded(Scene arg0, LoadSceneMode arg1)
     {
         InitialiseGame();
+    }
+
+    private void SetFloorType()
+    {
+        if (Database.currentFloor <= 1)
+        {
+            floorType = floorTypes.dungeon;
+        }
+        else if (Database.currentFloor == 2)
+        {
+            floorType = floorTypes.swamp;
+        }
+        else if (Database.currentFloor == 3)
+        {
+            floorType = floorTypes.infernal;
+        }
+        else if (Database.currentFloor >= 4)
+        {
+            floorType = floorTypes.dream;
+        }
+        else
+        {
+            floorType = floorTypes.dream;
+        }
+        
     }
 
     private void DestroyDuplicates()

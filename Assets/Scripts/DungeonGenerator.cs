@@ -17,13 +17,17 @@ public class DungeonGenerator : MonoBehaviour
     [SerializeField]
     float rayRadius = 1f;
 
-    [Header("Config")]
+    [Header("Dungeon Colours")]
     [SerializeField]
     private Color dungeonCol;
     [SerializeField]
     private Color swampCol;
     [SerializeField]
     private Color infernalCol;
+    [SerializeField]
+    private Color dreamCol;
+
+    [Header("Config")]
     [SerializeField]
     private float wallDistFromAgent = 1.51f;
     //[SerializeField]
@@ -418,12 +422,16 @@ public class DungeonGenerator : MonoBehaviour
                     wallRenderer.color = infernalCol;
 
                     break;
+                case floorTypes.dream:
+                    wallRenderer.color = dreamCol;
+
+                    break;
+
                 default:
                     break;
             }
         }
     }
-
 
     private void SetCorridorTexture(List<GameObject> corridors)
     {
@@ -445,6 +453,11 @@ public class DungeonGenerator : MonoBehaviour
                     corRenderer.color = infernalCol;
 
                     break;
+                case floorTypes.dream:
+                    corRenderer.color = dreamCol;
+
+                    break;
+
                 default:
                     break;
             }
@@ -471,12 +484,16 @@ public class DungeonGenerator : MonoBehaviour
                     roomRenderer.color = infernalCol;
 
                     break;
+                case floorTypes.dream:
+                    roomRenderer.color = dreamCol;
+
+                    break;
+
                 default:
                     break;
             }
         }
     }
-
 
     private void PlaceWall(GameObject _wallType, Vector2 _pos)
     {

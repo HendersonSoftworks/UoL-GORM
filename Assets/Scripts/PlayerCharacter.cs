@@ -135,6 +135,27 @@ public class PlayerCharacter : Character
 
             gameManager.UpdateSpellsHotBar(spells);
         }
+        else if (_item is Potion)
+        {
+            var potion = (Potion)_item;
+
+            switch (potion.potionEffect)
+            {
+                case Potion.potionEffects.none:
+                    print("This potion has no effect");
+                    break;
+                case Potion.potionEffects.health:
+                    
+                    HealCharacter(this, 50f);
+                    break;
+                case Potion.potionEffects.mana:
+
+                    RestoreMana(this, 50f);
+                    break;
+                default:
+                    break;
+            }
+        }
     }
 
     public void AddRingEffect(Ring.ringEffects _ringEffect, Ring _ring)

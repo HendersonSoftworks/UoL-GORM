@@ -55,13 +55,12 @@ public class DungeonPlacer : MonoBehaviour
                         dungeonItems.spellsArr[randSpellInt].GetComponent<Item>();
 
                     break;
-                case 2: // Place spell
-                    int randPotionInt = Random.Range(0, dungeonItems.spellsArr.Length);
+                case 2: // Place potion
+                    int randPotionInt = Random.Range(0, dungeonItems.potionsArr.Length);
                     _chest.GetComponent<Chest>().chestItem =
-                        dungeonItems.spellsArr[randPotionInt].GetComponent<Item>();
+                        dungeonItems.potionsArr[randPotionInt].GetComponent<Item>();
 
                     break;
-
                 default:
                     Debug.LogError("Error placing chest item in: " + _chest.name);
 
