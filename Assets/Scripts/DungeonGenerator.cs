@@ -55,6 +55,7 @@ public class DungeonGenerator : MonoBehaviour
     public List<GameObject> rooms;
     public List<GameObject> walls;
     public List<GameObject> chests;
+    public List<GameObject> enemies;
 
     [Header("Prefabs")]
     [SerializeField]
@@ -96,6 +97,14 @@ public class DungeonGenerator : MonoBehaviour
         SetWallTexture(walls);
         SetRoomTexture(rooms);
 
+    }
+
+    private void SetEnemyTarget()
+    {
+        foreach (var enemy in enemies)
+        {
+            enemy.GetComponent<EnemyMovementController>().SetPlayerObject();
+        }
     }
 
     private void ProcessGenerationStep()

@@ -47,7 +47,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: Ring of Signing
   description: +1 cast speed.
-  sprite: {fileID: -2532087816333192471, guid: 9306fd017ff24e24abbfc2588f2c85ee, type: 3}
+  sprite: {fileID: 21300000, guid: 9306fd017ff24e24abbfc2588f2c85ee, type: 3}
   ringEffect: 5
   bonus: 0.2
 --- !u!212 &7052707305884733662
@@ -102,6 +102,6 @@ SpriteRenderer:
   m_Size: {x: 0.5, y: 0.5}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0

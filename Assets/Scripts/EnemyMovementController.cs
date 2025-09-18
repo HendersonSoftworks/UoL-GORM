@@ -52,6 +52,10 @@ public class EnemyMovementController : MonoBehaviour
         normalSpeed = moveSpeed;
 
         InvokeRepeating("UpdatePath", 0f, 0.5f);
+
+        Invoke("SetPlayerObject", 2);
+        Invoke("SetTargetasPlayer", 2.1f);
+
     }
 
     private void UpdatePath()
@@ -155,14 +159,14 @@ public class EnemyMovementController : MonoBehaviour
         }
     }
 
-    private void SetPlayerObject()
+    public void SetPlayerObject()
     {
         playerObject = FindAnyObjectByType<PlayerMovementController>().gameObject;
     }
 
     private void SetTargetasPlayer()
     {
-        if (playerObject == null) { return; }
+        //if (playerObject == null) { return; }
 
         targetObject = playerObject;
     }

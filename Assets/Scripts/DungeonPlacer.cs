@@ -116,7 +116,8 @@ public class DungeonPlacer : MonoBehaviour
                     if (dist >= 7) // check enemies not spawning in same room as player
                     {
                         int getRandEnemy = Random.Range(0, enemies.Count);
-                        Instantiate(enemies[getRandEnemy], item.transform.position, Quaternion.identity);
+                        var enemy = Instantiate(enemies[getRandEnemy], item.transform.position, Quaternion.identity);
+                        dungeonGenerator.enemies.Add(enemy);
                     }
                 }
             }
@@ -134,7 +135,8 @@ public class DungeonPlacer : MonoBehaviour
                     if (dist >= 7) // check enemies not spawning in same room as player
                     {
                         int getRandEnemy = Random.Range(0, enemies.Count);
-                        Instantiate(enemies[getRandEnemy], item.transform.position, Quaternion.identity);
+                        var enemy = Instantiate(enemies[getRandEnemy], item.transform.position, Quaternion.identity);
+                        dungeonGenerator.enemies.Add(enemy);
                     }
                 }
             }

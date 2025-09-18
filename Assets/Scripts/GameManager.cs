@@ -33,7 +33,6 @@ public class GameManager : MonoBehaviour
         playerCharacter = FindFirstObjectByType<PlayerCharacter>();
         uiManager = GetComponent<UIManager>();
 
-        SetFloorType();
     }
 
     private void OnEnable()
@@ -89,7 +88,9 @@ public class GameManager : MonoBehaviour
     {
         SetDungeonFloor(Database.currentFloor);
         SetFloorText(currentSessionFloor);
-        
+
+        SetFloorType();
+
         ResetPlayerPos();
 
         isGamePaused = true;

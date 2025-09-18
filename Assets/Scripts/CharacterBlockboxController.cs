@@ -11,25 +11,21 @@ public class CharacterBlockboxController : MonoBehaviour
         boxCollider.enabled = true;
     }
 
-    //private void OnTriggerStay2D(Collider2D collision)
-    //{
-    //    if (collision.tag == "eHitbox")
-    //    {
-    //        print("BLOCKED STAY");
-    //        BoxCollider2D weaponCollider = collision.GetComponent<BoxCollider2D>();
-    //        weaponCollider.enabled = false;
-    //    }
-    //}
-
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.tag == "eHitbox")
         {
             print("BLOCKED");
             BoxCollider2D weaponCollider = collision.GetComponent<BoxCollider2D>();
-            //StartCoroutine(DisableHitboxForSeconds(weaponCollider));
+            //DisableHitboxForSeconds(collision)
             // TODO block sparks effect
             // TODO block audio
+        }
+
+        if (collision.tag == "eHitboxSpell")
+        {
+            print("SPELL BLOCKED");
+            collision.GetComponent<Spell>().SpellHitEffects();
         }
     }
 }
