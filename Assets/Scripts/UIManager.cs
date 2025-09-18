@@ -25,8 +25,9 @@ public class UIManager : MonoBehaviour
     public TextMeshProUGUI chestItemName;
     public TextMeshProUGUI chestItemDescription;
 
-    [Header("Setup - Pause Menu")]
+    [Header("Setup - Pause Menus")]
     public GameObject PauseMenuPanel;
+    public GameObject DeathPanel;
 
     [Header("Setup - Player")]
     [SerializeField]

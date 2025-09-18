@@ -179,6 +179,14 @@ public class Character : MonoBehaviour
         isInvulnerable = false;
     }
 
+    public virtual void KillCharacter()
+    {
+        var effect = Instantiate(deathEffect, transform.position, Quaternion.identity);
+        effect.GetComponent<SpriteRenderer>().color = Color.red;
+
+        Destroy(gameObject);
+    }
+
     #endregion
 
     #region Private Methods
@@ -191,14 +199,6 @@ public class Character : MonoBehaviour
         {
             KillCharacter();
         }
-    }
-
-    private void KillCharacter()
-    {
-        var effect = Instantiate(deathEffect, transform.position, Quaternion.identity);
-        effect.GetComponent<SpriteRenderer>().color = Color.red;
-
-        Destroy(gameObject);
     }
 
     private void SetArmourClass()

@@ -180,36 +180,6 @@ public class PlayerCharacter : Character
         }
     }
 
-    private void DestroyDuplicates()
-    {
-        var playerChars = FindObjectsByType<PlayerCharacter>(FindObjectsSortMode.None);
-        if (playerChars.Length > 1) 
-        {
-            Destroy(gameObject);
-        }
-    }
-
-    private void ClampStats()
-    {
-        strength      = (uint)Mathf.Clamp(strength, 0, 99f);
-        dexterity     = (uint)Mathf.Clamp(dexterity, 0, 99f);
-        constitution  = (uint)Mathf.Clamp(constitution, 0, 99f);
-        intelligence  = (uint)Mathf.Clamp(intelligence, 0, 99f);
-        wisdom        = (uint)Mathf.Clamp(wisdom, 0, 99f);
-        charisma      = (uint)Mathf.Clamp(charisma, 0, 99f);
-    }
-
-    private void RegainStamina()
-    {
-        if (currentStamina == maxStamina) { return; }
-
-        staminaRegainTimer -= Time.deltaTime;
-        if (staminaRegainTimer > 0) { return; }
-        staminaRegainTimer = staminaRegainTimerReset;
-
-        if (currentStamina < maxStamina) { currentStamina += 1;}
-    }
-
     public void SetTestStatblock()
     {
         strength += 5;
@@ -329,11 +299,49 @@ public class PlayerCharacter : Character
         }
     }
 
+    public override void KillCharacter()
+    {
+        gameManager.PlayImportantDeathSound();
+        gameManager.StartDeathCoroutine();
+
+        base.KillCharacter();
+    }
+
     private void SetMaxCurrentStats()
     {
         currentHP = (int)maxHP;
         currentStamina = maxStamina;
         currentMana = maxMana;
+    }
+
+    private void DestroyDuplicates()
+    {
+        var playerChars = FindObjectsByType<PlayerCharacter>(FindObjectsSortMode.None);
+        if (playerChars.Length > 1)
+        {
+            Destroy(gameObject);
+        }
+    }
+
+    private void ClampStats()
+    {
+        strength = (uint)Mathf.Clamp(strength, 0, 99f);
+        dexterity = (uint)Mathf.Clamp(dexterity, 0, 99f);
+        constitution = (uint)Mathf.Clamp(constitution, 0, 99f);
+        intelligence = (uint)Mathf.Clamp(intelligence, 0, 99f);
+        wisdom = (uint)Mathf.Clamp(wisdom, 0, 99f);
+        charisma = (uint)Mathf.Clamp(charisma, 0, 99f);
+    }
+
+    private void RegainStamina()
+    {
+        if (currentStamina == maxStamina) { return; }
+
+        staminaRegainTimer -= Time.deltaTime;
+        if (staminaRegainTimer > 0) { return; }
+        staminaRegainTimer = staminaRegainTimerReset;
+
+        if (currentStamina < maxStamina) { currentStamina += 1; }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

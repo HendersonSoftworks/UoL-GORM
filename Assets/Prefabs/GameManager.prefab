@@ -59,6 +59,7 @@ MonoBehaviour:
   chestItemName: {fileID: 0}
   chestItemDescription: {fileID: 0}
   PauseMenuPanel: {fileID: 0}
+  DeathPanel: {fileID: 0}
   healthSlider: {fileID: 0}
   staminaSlider: {fileID: 0}
   manaSlider: {fileID: 0}
@@ -97,3 +98,6 @@ MonoBehaviour:
   floorType: 0
   playerCharacter: {fileID: 0}
   uiManager: {fileID: 0}
+  audioSource: {fileID: 0}
+  deathMusicTrack: {fileID: 8300000, guid: d7c45a4cdf1affc4da912d9580bcf8cb, type: 3}
+  impertantDeathClip: {fileID: 8300000, guid: 95b897b899ab0a241b835649810f3899, type: 3}

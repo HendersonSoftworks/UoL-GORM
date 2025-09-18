@@ -12,8 +12,8 @@ EditorBuildSettings:
     path: Assets/Scenes/dungeon.unity
     guid: 17a96ef086e46e14cac4e4267104ff51
   - enabled: 1
-    path: Assets/Scenes/test/intermediate.unity
-    guid: f347ee947b7bb0646869e484f4a49a09
+    path: Assets/Scenes/camp.unity
+    guid: 1ab2780354c57084d944cdad7f97bbda
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0

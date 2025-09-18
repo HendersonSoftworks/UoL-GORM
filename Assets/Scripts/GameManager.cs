@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -17,12 +18,18 @@ public class GameManager : MonoBehaviour
     public PlayerCharacter playerCharacter;
     public UIManager uiManager;
 
+    [Header("Audio")]
+    public AudioSource audioSource;
+    public AudioClip deathMusicTrack;
+    public AudioClip impertantDeathClip;
+
     #region Private Methods
 
     private void Awake()
     {
         DontDestroyOnLoad(gameObject);
         DestroyDuplicates();
+        
         playerCharacter = FindFirstObjectByType<PlayerCharacter>();
         uiManager = GetComponent<UIManager>();
     }
@@ -206,6 +213,37 @@ public class GameManager : MonoBehaviour
         SetPauseGame(false);
     }
 
+    public void PlayImportantDeathSound()
+    {
+        audioSource.Stop();
+
+        Time.timeScale = 0.25f;
+        
+        audioSource.PlayOneShot(impertantDeathClip, AudioGlobalConfig.volEffects * AudioGlobalConfig.volScale);
+    }
+
+    public void StartDeathCoroutine()
+    {
+        StartCoroutine(DelayedOpenDeathPanel());
+    }
+
+    public IEnumerator DelayedOpenDeathPanel()
+    {
+        yield return new WaitForSeconds(0.75f);
+
+        Time.timeScale = 1f;
+
+        OpenDeathMenu();
+    }
+
+    public void OpenDeathMenu()
+    {
+        uiManager.DeathPanel.SetActive(true);
+        SetPauseGame(true);
+
+        audioSource.PlayOneShot(deathMusicTrack, AudioGlobalConfig.volEffects * AudioGlobalConfig.volScale);
+    }
+
     public void LoadMainMenu()
     {
         foreach (var persistent in PersistentObjects)
@@ -214,6 +252,16 @@ public class GameManager : MonoBehaviour
         }
 
         SceneManager.LoadScene("main_menu", LoadSceneMode.Single);
+    }
+
+    public void LoadCampsite()
+    {
+        foreach (var persistent in PersistentObjects)
+        {
+            Destroy(persistent);
+        }
+
+        SceneManager.LoadScene("camp", LoadSceneMode.Single);
     }
 
     #endregion
