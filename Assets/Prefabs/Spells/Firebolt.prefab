@@ -173,8 +173,8 @@ MonoBehaviour:
   effect: 0
   damageType: 5
   buffType: 0
-  effectValue: 4
-  castValue: 2
+  effectValue: 6
+  castValue: 3
   casterCharacter: {fileID: 0}
   moveAngle: {x: 0, y: 0}
 --- !u!114 &2270752380057706652

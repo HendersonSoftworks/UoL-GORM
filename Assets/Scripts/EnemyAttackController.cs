@@ -28,7 +28,8 @@ public class EnemyAttackController : MonoBehaviour
     [SerializeField]
     private float attackDist = 0;
     public float attackMoveSpeed;
-
+    public Spell[] spells;
+    
     #region System Methods
 
     void Start()
@@ -108,6 +109,12 @@ public class EnemyAttackController : MonoBehaviour
             attackCooldownTimer = attackCooldownTimerReset;
             attackState = AttackStates.ready;
         }
+    }
+
+    public void FireSpell()
+    {
+        var enemy = gameObject.GetComponent<EnemyCharacter>();
+        spells[0].Cast(enemy, transform.up);
     }
 
     private void OnDrawGizmosSelected()

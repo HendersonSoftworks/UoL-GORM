@@ -30,6 +30,8 @@ public class Spell : Item
 
     public void Cast(Character originCharacter, Vector2 direction, Character targetCharacter = null)
     {
+        if (originCharacter is EnemyCharacter) { tag = "eHitboxSpell"; }
+
         casterCharacter = originCharacter;
 
         originCharacter.SetMagicDamageMod();
@@ -47,9 +49,25 @@ public class Spell : Item
         tempSpell.GetComponent<Spell>().moveAngle = direction;
     }
 
-    private void SpellHitEffects(Collider2D collision)
+    public void SpellHitEffects(Collider2D collision=null)
     {
-        if (collision.tag == "Enemy" || collision.tag == "walls")
+        if (collision == null)
+        {
+            InstantiateSpellExplosion();
+
+            Destroy(gameObject);
+
+            return;
+        }
+
+        if (tag == "eHitboxSpell" && collision.tag == "Enemy")
+        {
+            return;
+        }
+
+        if ((tag == "eHitbox" && collision.tag == "Player") || 
+            (collision.tag == "Enemy" || 
+            collision.tag == "walls"))
         {
             InstantiateSpellExplosion();
 

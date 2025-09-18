@@ -9,6 +9,8 @@ public class EnemySoundManager : MonoBehaviour
     private AudioClip attackClip;
     [SerializeField]
     private AudioClip hurtClip;
+    [SerializeField]
+    private AudioClip castClip;
 
     private void Start()
     {
@@ -23,5 +25,10 @@ public class EnemySoundManager : MonoBehaviour
     public void PlayEnemyHurtClip()
     {
         audioSource.PlayOneShot(hurtClip, AudioGlobalConfig.volEffects * AudioGlobalConfig.volScale);
+    }
+
+    public void PlayEnemyCastClip()
+    {
+        audioSource.PlayOneShot(castClip, AudioGlobalConfig.volEffects * AudioGlobalConfig.volScale);
     }
 }

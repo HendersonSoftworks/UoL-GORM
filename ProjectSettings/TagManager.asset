@@ -19,6 +19,7 @@ TagManager:
   - floorText
   - chest
   - spell
+  - eHitboxSpell
   layers:
   - Default
   - TransparentFX

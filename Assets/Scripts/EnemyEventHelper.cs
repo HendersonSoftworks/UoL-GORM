@@ -39,4 +39,10 @@ public class EnemyEventHelper : MonoBehaviour
     {
         enemySound.PlayEnemyAttackClip();
     }
+
+    public void EventEnemyFireSpell()
+    {
+        enemySound.PlayEnemyCastClip();
+        attackController.FireSpell();
+    }
 }

@@ -667,7 +667,7 @@ MonoBehaviour:
   attackController: {fileID: 0}
   animationController: {fileID: 0}
   chaseDist: 3
-  moveSpeed: 90
+  moveSpeed: 70
   normalSpeed: 0
   nextWaypointDistance: 0.1
   beingPushed: 0
@@ -707,6 +707,7 @@ MonoBehaviour:
   attackCooldownTimer: 1
   attackDist: 1.5
   attackMoveSpeed: 0
+  spells: []
 --- !u!114 &8637332832690864063
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -770,6 +771,7 @@ MonoBehaviour:
   audioSource: {fileID: 0}
   attackClip: {fileID: 8300000, guid: dbd9991adc9013a4ab41d711597c3651, type: 3}
   hurtClip: {fileID: 8300000, guid: 1be4658766862544cb5987de57a9b586, type: 3}
+  castClip: {fileID: 0}
 --- !u!1001 &1655448534699948191
 PrefabInstance:
   m_ObjectHideFlags: 0

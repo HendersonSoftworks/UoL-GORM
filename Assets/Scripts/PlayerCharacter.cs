@@ -368,11 +368,25 @@ public class PlayerCharacter : Character
     private void OnTriggerEnter2D(Collider2D collision)
     {
         // Damage player if hit by enemy attack
-        if (collision.tag == "eHitbox")
+        if (collision.tag == "eHitbox" || collision.tag == "eHitboxSpell")
         {
             movementController.PushPlayerInDirection(gameObject, collision.gameObject);
-            DamageCharacter(collision.GetComponentInParent<EnemyCharacter>(), this);
 
+            if (collision.tag == "eHitboxSpell")
+            {
+                var enemySpell = collision.GetComponent<Spell>();
+                var enemy = enemySpell.casterCharacter;
+
+                DamageCharacter(enemy, this, enemySpell);
+
+                enemySpell.SpellHitEffects();
+            }
+            else
+            {
+                DamageCharacter(collision.GetComponentInParent<EnemyCharacter>(), this);
+            }
+
+            
             playerAudio.PlayHurtClip();
         }
 

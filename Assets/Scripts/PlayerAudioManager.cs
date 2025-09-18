@@ -28,6 +28,8 @@ public class PlayerAudioManager : MonoBehaviour
 
     public void PlayHurtClip()
     {
+        if (audioSource.isPlaying) { return; }
+
         audioSource.PlayOneShot(hurtClip, AudioGlobalConfig.volEffects * AudioGlobalConfig.volScale);
     }
 }

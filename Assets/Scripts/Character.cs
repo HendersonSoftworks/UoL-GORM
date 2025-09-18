@@ -113,6 +113,10 @@ public class Character : MonoBehaviour
 
     public void DamageCharacter(Character attacker, Character defender, Spell spell)
     {
+        print("attacker: " + attacker.name);
+        print("defender: " + defender.name);
+        print("invulnerable: " + isInvulnerable);
+
         if (attacker == null) { return; }
         if (defender == null) { return; }
         if (isInvulnerable) { return; }
@@ -250,6 +254,8 @@ public class Character : MonoBehaviour
 
     public void SetMagicDamageMod() // getcomponent every frame causes unnecessary overhead - change!
     {
+        if (this is EnemyCharacter) { return; }
+
         var currentSpell = GetComponent<PlayerAttackController>().currentSpellSelected;
 
         if (currentSpell == null) { return; }
