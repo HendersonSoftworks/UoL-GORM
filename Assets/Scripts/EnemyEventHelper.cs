@@ -42,6 +42,13 @@ public class EnemyEventHelper : MonoBehaviour
 
     public void EventEnemyFireSpell()
     {
+        if (attackController.spells.Length <= 0) // bug where ranged enemies
+                                                 // only seem to work with skeleton controller
+                                                 // Needs to be fixed
+        {
+            return;
+        }
+
         enemySound.PlayEnemyCastClip();
         attackController.FireSpell();
     }

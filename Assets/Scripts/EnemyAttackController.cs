@@ -89,7 +89,7 @@ public class EnemyAttackController : MonoBehaviour
 
     private void ManageWarmupToAttacking()
     {
-        if (attackState == AttackStates.attacking) { return; }
+        //if (attackState == AttackStates.attacking) { return; }
 
         attackWarmupTimer -= Time.deltaTime;
         if (attackWarmupTimer <= 0)
