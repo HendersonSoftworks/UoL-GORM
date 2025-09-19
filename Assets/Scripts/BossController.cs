@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class BossController : MonoBehaviour
 {
@@ -14,17 +15,29 @@ public class BossController : MonoBehaviour
     private GameObject player;
     [SerializeField]
     private Animator animator;
+    [SerializeField]
+    private EnemyCharacter enemyCharacter;
+
+    public Slider healthSlider;
+    public GameObject canvas;
+
+    private PlayerCharacter playerCharacter;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         player = FindFirstObjectByType<PlayerMovementController>().gameObject;
+        playerCharacter = player.GetComponent<PlayerCharacter>();
         animator = GetComponentInChildren<Animator>();
+        enemyCharacter = GetComponent<EnemyCharacter>();
     }
 
     // Update is called once per frame
     void Update()
     {
+        SetSlider();
+        SetCanvas();
+
         // Debugging
         if (isAttacking)
         {
@@ -32,6 +45,45 @@ public class BossController : MonoBehaviour
         }
 
         ManageRotation();
+    }
+
+    private void SetCanvas()
+    {
+        if (playerCharacter.currentHP <= 0)
+        {
+            canvas.gameObject.SetActive(false);
+            return;
+        }
+
+        if (isAttacking)
+        {
+            canvas.gameObject.SetActive(true);
+        }
+        else
+        {
+            canvas.gameObject.SetActive(false);
+        }
+    }
+
+    private void SetSlider()
+    {
+        if (isAttacking)
+        {
+            healthSlider.gameObject.SetActive(true);
+        }
+        else
+        {
+            healthSlider.gameObject.SetActive(false);
+        }
+
+        if (enemyCharacter.currentHP <= 0)
+        {
+            healthSlider.gameObject.SetActive(false);
+            return;
+        }
+
+        healthSlider.maxValue = enemyCharacter.maxHP;
+        healthSlider.value = enemyCharacter.currentHP;
     }
 
     public void TeleportToRandomPoint()
@@ -51,8 +103,7 @@ public class BossController : MonoBehaviour
 
     public void FireRandSpell(int randInt)
     {
-        var enemy = gameObject.GetComponent<EnemyCharacter>();
-        spells[randInt].Cast(enemy, transform.up);
+        spells[randInt].Cast(enemyCharacter, transform.up);
     }
 
     private void RotatePlayerBody(Vector2 _moveDir)
