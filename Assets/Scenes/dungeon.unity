@@ -1007,14 +1007,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1794554368927992791, guid: 48b2afc2cf45b3449993b1fd62b327b3, type: 3}
-      propertyPath: enemies.Array.size
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 1794554368927992791, guid: 48b2afc2cf45b3449993b1fd62b327b3, type: 3}
-      propertyPath: 'enemies.Array.data[2]'
-      value: 
-      objectReference: {fileID: 4974876322840412966, guid: d188f9fca5a2989479896ab41b79b8c3, type: 3}
     - target: {fileID: 3342194431762379322, guid: 48b2afc2cf45b3449993b1fd62b327b3, type: 3}
       propertyPath: m_Name
       value: DungeonAgent
@@ -1058,58 +1050,6 @@ PrefabInstance:
     - target: {fileID: 3363361427470246223, guid: 48b2afc2cf45b3449993b1fd62b327b3, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4887046010796822830, guid: 48b2afc2cf45b3449993b1fd62b327b3, type: 3}
-      propertyPath: ringsArr.Array.size
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 4887046010796822830, guid: 48b2afc2cf45b3449993b1fd62b327b3, type: 3}
-      propertyPath: spellsArr.Array.size
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 4887046010796822830, guid: 48b2afc2cf45b3449993b1fd62b327b3, type: 3}
-      propertyPath: potionsArr.Array.size
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 4887046010796822830, guid: 48b2afc2cf45b3449993b1fd62b327b3, type: 3}
-      propertyPath: 'ringsArr.Array.data[4]'
-      value: 
-      objectReference: {fileID: 7279459389496476205, guid: 6f0c0e3de0d1bbd44805624fdcbac063, type: 3}
-    - target: {fileID: 4887046010796822830, guid: 48b2afc2cf45b3449993b1fd62b327b3, type: 3}
-      propertyPath: 'spellsArr.Array.data[3]'
-      value: 
-      objectReference: {fileID: 7752198235031813593, guid: 4a1e3a6f19fb8ef4fa24346882d4f36d, type: 3}
-    - target: {fileID: 4887046010796822830, guid: 48b2afc2cf45b3449993b1fd62b327b3, type: 3}
-      propertyPath: 'spellsArr.Array.data[4]'
-      value: 
-      objectReference: {fileID: 7752198235031813593, guid: 9dc10604cfbd0c54d843d918b139121e, type: 3}
-    - target: {fileID: 4887046010796822830, guid: 48b2afc2cf45b3449993b1fd62b327b3, type: 3}
-      propertyPath: 'potionsArr.Array.data[0]'
-      value: 
-      objectReference: {fileID: 5115182005582410034, guid: 46ef2b57c9f52ed40b92d1ddb8c8d202, type: 3}
-    - target: {fileID: 4887046010796822830, guid: 48b2afc2cf45b3449993b1fd62b327b3, type: 3}
-      propertyPath: 'potionsArr.Array.data[1]'
-      value: 
-      objectReference: {fileID: 2021289590147903426, guid: b1a0378bf3bf1ff48a73b0d754eae695, type: 3}
-    - target: {fileID: 6898707864579352175, guid: 48b2afc2cf45b3449993b1fd62b327b3, type: 3}
-      propertyPath: maxSteps
-      value: 50
-      objectReference: {fileID: 0}
-    - target: {fileID: 6898707864579352175, guid: 48b2afc2cf45b3449993b1fd62b327b3, type: 3}
-      propertyPath: dreamCol.a
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6898707864579352175, guid: 48b2afc2cf45b3449993b1fd62b327b3, type: 3}
-      propertyPath: dreamCol.b
-      value: 0.6901961
-      objectReference: {fileID: 0}
-    - target: {fileID: 6898707864579352175, guid: 48b2afc2cf45b3449993b1fd62b327b3, type: 3}
-      propertyPath: dreamCol.g
-      value: 0.3372549
-      objectReference: {fileID: 0}
-    - target: {fileID: 6898707864579352175, guid: 48b2afc2cf45b3449993b1fd62b327b3, type: 3}
-      propertyPath: dreamCol.r
-      value: 0.5057779
       objectReference: {fileID: 0}
     - target: {fileID: 6898707864579352175, guid: 48b2afc2cf45b3449993b1fd62b327b3, type: 3}
       propertyPath: setBoundsAndScan

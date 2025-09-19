@@ -195,6 +195,11 @@ public class PlayerCharacter : Character
                 _light.pointLightOuterRadius += _ring.bonus;
 
                 break;
+            case Ring.ringEffects.mana:
+                maxMana += (uint)_ring.bonus;
+                currentMana += (uint)_ring.bonus;
+
+                break;
             default:
 
                 break;

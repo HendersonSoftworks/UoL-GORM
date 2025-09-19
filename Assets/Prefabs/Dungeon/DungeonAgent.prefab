@@ -83,8 +83,9 @@ MonoBehaviour:
   dungeonCol: {r: 0.08904416, g: 0.8207547, b: 0.6834969, a: 1}
   swampCol: {r: 0.14174962, g: 0.4056604, b: 0.066972226, a: 1}
   infernalCol: {r: 0.4056604, g: 0.12820399, b: 0.12820399, a: 1}
+  dreamCol: {r: 0.5057779, g: 0.3372549, b: 0.6901961, a: 1}
   wallDistFromAgent: 1.1
-  maxSteps: 100
+  maxSteps: 50
   currentStep: 0
   agentDirection: 3
   agentPrevDirection: 3
@@ -96,6 +97,7 @@ MonoBehaviour:
   rooms: []
   walls: []
   chests: []
+  enemies: []
   roomPrefab: {fileID: 1412325085217939537, guid: 13c185ff0d02fcb4ca4e65da754bae26, type: 3}
   corridorPrefab: {fileID: 2229778524449285034, guid: 03312dbe6c62f8744ad3580f99521397, type: 3}
   wallTopPrefab: {fileID: 7560836600224425988, guid: 0e4eb8248e0cd874fa9b350e36154d6c, type: 3}
@@ -122,6 +124,7 @@ MonoBehaviour:
   enemies:
   - {fileID: 4974876322840412966, guid: 0a8f4adcfdeeb6748a4cc6e86719a9ed, type: 3}
   - {fileID: 4974876322840412966, guid: 83e189c7d504445489454a21bb5dcf42, type: 3}
+  - {fileID: 4974876322840412966, guid: d188f9fca5a2989479896ab41b79b8c3, type: 3}
   stairsPrefab: {fileID: 2690485073099773176, guid: 157a53c05c173274c9cef9fcf5b03240, type: 3}
   chestPrefab: {fileID: 2485807066254277334, guid: 2092074819242cd4d8d526a12835a920, type: 3}
   maxNumberOfEnemiesInRooms: 1
@@ -141,11 +144,16 @@ MonoBehaviour:
   - {fileID: 7752198235031813593, guid: da3922888a4de4b448e34af5aeccf71a, type: 3}
   - {fileID: 7752198235031813593, guid: ff906c330108fe4428ff40ff39a840d5, type: 3}
   - {fileID: 7752198235031813593, guid: ce0a0291eb3b3c24aafd44bbdc985521, type: 3}
-  itemsArr: []
-  weaponsArr: []
-  armourArr: []
+  - {fileID: 7752198235031813593, guid: 4a1e3a6f19fb8ef4fa24346882d4f36d, type: 3}
+  - {fileID: 7752198235031813593, guid: 9dc10604cfbd0c54d843d918b139121e, type: 3}
+  potionsArr:
+  - {fileID: 5115182005582410034, guid: 46ef2b57c9f52ed40b92d1ddb8c8d202, type: 3}
+  - {fileID: 2021289590147903426, guid: b1a0378bf3bf1ff48a73b0d754eae695, type: 3}
   ringsArr:
   - {fileID: 7279459389496476205, guid: f0a11b0547ea04741ac0756a0836a0d3, type: 3}
   - {fileID: 7279459389496476205, guid: 35962c6a66841e94db88b09dc3df0c09, type: 3}
   - {fileID: 7279459389496476205, guid: fc29e121845577b45bd7834d2009f819, type: 3}
   - {fileID: 7279459389496476205, guid: 68218fa08ebc07c42bc9c5542ba07bb2, type: 3}
+  - {fileID: 7279459389496476205, guid: 6f0c0e3de0d1bbd44805624fdcbac063, type: 3}
+  - {fileID: 7279459389496476205, guid: edbe89069eb10b74bbe1d3df5a424ea2, type: 3}
+  - {fileID: 7279459389496476205, guid: ec254e7dc5cf2df4bbce0a1fd4b21e04, type: 3}

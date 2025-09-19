@@ -353,6 +353,11 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 2634512123073483839, guid: bd5c0a4c0750b654faf28f8a25d8b3fb, type: 3}
   m_PrefabInstance: {fileID: 8047332100317859353}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &490189874 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4371744280540024549, guid: 0358a752eedd4684087008022f9cf05e, type: 3}
+  m_PrefabInstance: {fileID: 4635879032105389087}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &565013854
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -599,6 +604,10 @@ PrefabInstance:
       value: Wynn
       objectReference: {fileID: 0}
     - target: {fileID: 8532418140611775637, guid: 131dd3fd9f145a84d9eccd17dd231ded, type: 3}
+      propertyPath: canvas
+      value: 
+      objectReference: {fileID: 490189874}
+    - target: {fileID: 8532418140611775637, guid: 131dd3fd9f145a84d9eccd17dd231ded, type: 3}
       propertyPath: isAttacking
       value: 0
       objectReference: {fileID: 0}
@@ -622,6 +631,10 @@ PrefabInstance:
       propertyPath: 'telePoints.Array.data[3]'
       value: 
       objectReference: {fileID: 1006461125}
+    - target: {fileID: 8637332832690864063, guid: 131dd3fd9f145a84d9eccd17dd231ded, type: 3}
+      propertyPath: maxHP
+      value: 100
+      objectReference: {fileID: 0}
     - target: {fileID: 8637332832690864063, guid: 131dd3fd9f145a84d9eccd17dd231ded, type: 3}
       propertyPath: displayName
       value: Wynn, Goddess of Pain
@@ -2493,6 +2506,22 @@ PrefabInstance:
     - target: {fileID: 5875207561434141650, guid: 0358a752eedd4684087008022f9cf05e, type: 3}
       propertyPath: m_text
       value: Wynn, Goddess of Pain
+      objectReference: {fileID: 0}
+    - target: {fileID: 6096590670614160880, guid: 0358a752eedd4684087008022f9cf05e, type: 3}
+      propertyPath: m_Value
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6096590670614160880, guid: 0358a752eedd4684087008022f9cf05e, type: 3}
+      propertyPath: m_MaxValue
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 6096590670614160880, guid: 0358a752eedd4684087008022f9cf05e, type: 3}
+      propertyPath: m_Interactable
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6096590670614160880, guid: 0358a752eedd4684087008022f9cf05e, type: 3}
+      propertyPath: m_WholeNumbers
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6146978502191642851, guid: 0358a752eedd4684087008022f9cf05e, type: 3}
       propertyPath: m_Pivot.x
