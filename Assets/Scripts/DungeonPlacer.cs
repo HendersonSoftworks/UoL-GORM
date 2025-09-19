@@ -71,6 +71,25 @@ public class DungeonPlacer : MonoBehaviour
         }
     }
 
+    public void ReplaceDuplicateChestItems(List<GameObject> _chests)
+    {
+        foreach (var _chest in _chests)
+        {
+            foreach (var _spell in playerCharacter.spells)
+            {
+                if (_spell == null) { continue; }
+
+                if (_chest.GetComponent<Chest>().chestItem.itemName == _spell.itemName)
+                {
+                    // Set item to Ring of Power if duplicate spell
+                    // Seems broken
+                    _chest.GetComponent<Chest>().chestItem = dungeonItems.ringsArr[6].GetComponent<Ring>();
+                }
+            }
+        }
+    }
+
+
     public void RandomlyPlaceRoomChests(List<GameObject> _rooms, int _chance = 25)
     {
         foreach (var _room in _rooms)

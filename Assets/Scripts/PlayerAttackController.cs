@@ -101,14 +101,18 @@ public class PlayerAttackController : MonoBehaviour
 
         // Set Spell slot
         gameManager.uiManager.SetCurrentSpellSlotSelected(currentSpellSlotSelected);
-
-        if (playerCharacter.currentMana < currentSpellSelected.castValue)
-        {
-            return;
-        }
+        currentSpellSelected = playerCharacter.spells[currentSpellSlotSelected];
 
         if (castAction.WasPressedThisFrame())
         {
+            if (currentSpellSelected == null) { return; }
+            
+            if (playerCharacter.currentMana < currentSpellSelected.castValue)
+            {
+                print("Not enough mana");
+                return;
+            }
+
             isCasting = true;
             movementController.canMove = false;
             movementController.SetVelToZero();

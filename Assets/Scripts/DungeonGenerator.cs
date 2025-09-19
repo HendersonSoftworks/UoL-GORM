@@ -92,11 +92,11 @@ public class DungeonGenerator : MonoBehaviour
         dungeonPlacer.RandomlyPlaceRoomChests(rooms);
         dungeonPlacer.RandomlyPlaceCorridorChests(corridors, 2);
         dungeonPlacer.PopulateChestItems(chests);
-        
+        dungeonPlacer.ReplaceDuplicateChestItems(chests);
+
         SetCorridorTexture(corridors);
         SetWallTexture(walls);
         SetRoomTexture(rooms);
-
     }
 
     private void SetEnemyTarget()
