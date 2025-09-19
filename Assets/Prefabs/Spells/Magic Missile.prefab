@@ -167,7 +167,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemName: Magic Missile
-  description: Many bolts seek an enemy.
+  description: A small bolt of energy.
   sprite: {fileID: -2944794525247344034, guid: fb1bbc6e97d4d624f826e334711a1a3e, type: 3}
   explosionPrefab: {fileID: 1722980237810394701, guid: 3f69123e17accd644a50b07b93cfdabb, type: 3}
   effect: 0

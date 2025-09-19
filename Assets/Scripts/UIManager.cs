@@ -42,6 +42,12 @@ public class UIManager : MonoBehaviour
     public Image tertiarySpellImage;
     public Image[] spellImages;
 
+    [Header("References - Stat Screens")]
+    public GameObject statsPanel;
+    public TextMeshProUGUI statsDesc;
+    public GameObject spellsPanel;
+    public TextMeshProUGUI spellsDesc;
+
     private void Awake()
     {
         DontDestroyOnLoad(gameObject);

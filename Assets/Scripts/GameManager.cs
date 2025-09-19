@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -127,7 +128,8 @@ public class GameManager : MonoBehaviour
         string floorText = "F" + floorNumber;
         uiManager.floorText.text = floorText;
         uiManager.startFloorText.text = floorText;
-        uiManager.startFloorTipText.text = "The only time we can be brave is when we are afraid.";
+        uiManager.startFloorTipText.text = Database.quotes[
+            UnityEngine.Random.Range(0, Database.quotes.Length)];
     }
 
     public void ShowContinueChoice(bool value)
@@ -307,6 +309,57 @@ public class GameManager : MonoBehaviour
         Database.currentFloor = 1;
 
         SceneManager.LoadScene("dungeon", LoadSceneMode.Single);
+    }
+
+    public void OpenStatsScreen()
+    {
+        uiManager.statsPanel.SetActive(true);
+
+        var descString = "";
+
+        foreach (var ring in playerCharacter.rings)
+        {
+            descString += ring.itemName + " - ";
+            descString += ring.description + " - ";
+            descString += "\n";
+        }
+
+        uiManager.statsDesc.text = descString;
+
+        SetPauseGame(true);
+    }
+
+    public void CloseStatsScreen()
+    {
+        uiManager.statsPanel.SetActive(false);
+        SetPauseGame(false);
+    }
+
+    public void OpenSpellScreen()
+    {
+        uiManager.spellsPanel.SetActive(true);
+
+        var descString = "";
+
+        foreach (var spell in playerCharacter.spells)
+        {
+            if (spell == null){ continue; }
+
+            descString += spell.itemName + " - ";
+            descString += spell.description + "\n";
+            descString += "Power: " + spell.effectValue;
+            descString += "\n";
+        }
+
+        uiManager.spellsDesc.text = descString;
+
+        SetPauseGame(true);
+    }
+
+    public void CloseSpellScreen()
+    {
+        uiManager.spellsPanel.SetActive(false);
+        SetPauseGame(false);
     }
 
     #endregion
