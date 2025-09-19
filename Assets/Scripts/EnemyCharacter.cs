@@ -23,6 +23,8 @@ public class EnemyCharacter : Character
 
     public void PushEnemyAway(Collider2D collider, float force = 200f, float pushDuration = 0.5f)
     {
+        if (movementController == null) { return; }
+
         Vector2 forceAngle = (transform.position - collider.GetComponentInParent<Transform>().position).normalized;
 
         movementController.beingPushed = true;
