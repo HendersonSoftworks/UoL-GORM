@@ -300,8 +300,8 @@ MonoBehaviour:
   names: []
   displayName: Wynn, Goddess of Pain
   portrait: {fileID: 0}
-  maxHP: 100
-  currentHP: 100
+  maxHP: 70
+  currentHP: 70
   maxStamina: 0
   currentStamina: 0
   maxMana: 1000
@@ -349,7 +349,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   audioSource: {fileID: 0}
   attackClip: {fileID: 8300000, guid: dbd9991adc9013a4ab41d711597c3651, type: 3}
-  hurtClip: {fileID: 8300000, guid: 4aa36eb5db9352746b8410e2f98b1612, type: 3}
+  hurtClip: {fileID: 8300000, guid: 1be4658766862544cb5987de57a9b586, type: 3}
   castClip: {fileID: 8300000, guid: 8ec9d898ae86e4944b6ecd5ab782a4e0, type: 3}
 --- !u!114 &818308955337696634
 MonoBehaviour:
