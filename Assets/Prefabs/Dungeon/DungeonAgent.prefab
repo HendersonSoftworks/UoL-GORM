@@ -143,7 +143,6 @@ MonoBehaviour:
   spellsArr:
   - {fileID: 7752198235031813593, guid: da3922888a4de4b448e34af5aeccf71a, type: 3}
   - {fileID: 7752198235031813593, guid: ff906c330108fe4428ff40ff39a840d5, type: 3}
-  - {fileID: 7752198235031813593, guid: ce0a0291eb3b3c24aafd44bbdc985521, type: 3}
   - {fileID: 7752198235031813593, guid: 4a1e3a6f19fb8ef4fa24346882d4f36d, type: 3}
   - {fileID: 7752198235031813593, guid: 9dc10604cfbd0c54d843d918b139121e, type: 3}
   potionsArr:

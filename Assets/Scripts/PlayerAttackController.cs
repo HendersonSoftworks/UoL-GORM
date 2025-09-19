@@ -73,6 +73,7 @@ public class PlayerAttackController : MonoBehaviour
     {
         if (isDefending) { return; }
         if (isAttacking) { return; }
+        if (playerCharacter.spells[0] == null) { return; }
 
         // Spell slot 1
         float selectSpell1Value = selectSpell1.ReadValue<float>();

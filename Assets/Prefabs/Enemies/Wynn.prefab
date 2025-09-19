@@ -1179,3 +1179,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bossController: {fileID: 0}
   enemySound: {fileID: 0}
+  teleEffect: {fileID: 1722980237810394701, guid: bdb03b99d43ee5948966f26ae04843b3, type: 3}

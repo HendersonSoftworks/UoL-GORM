@@ -7,6 +7,8 @@ public class BossEventHelper : MonoBehaviour
     private BossController bossController;
     [SerializeField]
     private EnemySoundManager enemySound;
+    [SerializeField]
+    private GameObject teleEffect;
 
     private void Start()
     {
@@ -24,6 +26,7 @@ public class BossEventHelper : MonoBehaviour
 
     public void EventBossTeleport()
     {
+        Instantiate(teleEffect, transform.position, Quaternion.identity);
         bossController.TeleportToRandomPoint();
     }
 }

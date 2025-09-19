@@ -350,7 +350,7 @@ public class GameManager : MonoBehaviour
         foreach (var ring in playerCharacter.rings)
         {
             descString += ring.itemName + " - ";
-            descString += ring.description + " - ";
+            descString += ring.description;
             descString += "\n";
         }
 

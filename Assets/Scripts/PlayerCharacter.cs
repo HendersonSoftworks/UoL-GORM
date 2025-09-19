@@ -187,7 +187,7 @@ public class PlayerCharacter : Character
             case Ring.ringEffects.castSpeed:
                 float _castSpeedMult = animator.GetFloat("castSpeedMult");
                 _castSpeedMult += _ring.bonus;
-                animator.SetFloat("attackSpeedMult", _castSpeedMult);
+                animator.SetFloat("castSpeedMult", _castSpeedMult);
 
                 break;
             case Ring.ringEffects.torchLight:

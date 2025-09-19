@@ -167,7 +167,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemName: Firebolt
-  description: A bolt of flame is hurled at the enemy.
+  description: A bolt of flame.
   sprite: {fileID: 7679385156476096713, guid: 527d03211ad7f6b4cbcf745bd24d5e32, type: 3}
   explosionPrefab: {fileID: 1722980237810394701, guid: 3f69123e17accd644a50b07b93cfdabb, type: 3}
   effect: 0

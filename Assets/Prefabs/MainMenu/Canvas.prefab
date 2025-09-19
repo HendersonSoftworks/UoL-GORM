@@ -1353,7 +1353,7 @@ GameObject:
   - component: {fileID: 309351539073811507}
   - component: {fileID: 2268674363847352366}
   m_Layer: 5
-  m_Name: HowTo Text (TMP)
+  m_Name: HowTo Text (TMP) 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1406,17 +1406,16 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Movement - WASD / Left-stick
+  m_text: 'Movement - WASD
 
-    Attack - Left-click / button-west
+    Attack - Left-click
 
-    Block
-    - Right-click / button-east
+    Block - Right-click
 
-    Cast spell - F / button-north
+    Cast
+    spell - F
 
-
-'
+    Open chest - E'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 80284109b4334474e98c105b371b0885, type: 2}
   m_sharedMaterial: {fileID: 4831816737377819664, guid: 80284109b4334474e98c105b371b0885, type: 2}
@@ -2293,7 +2292,7 @@ GameObject:
   - component: {fileID: 3459528719518025667}
   - component: {fileID: 8939465511179304238}
   m_Layer: 5
-  m_Name: HowTo Text (TMP) (1)
+  m_Name: HowTo Text (TMP) 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2346,8 +2345,14 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Open chest - E / button-south\nSelect spell - 1, 2, 3 / d-left, d-up,
-    \nd-right\n"
+  m_text: 'Select spell - 1, 2, 3
+
+    Pause menu - F1
+
+    Stats menu - F2
+
+    Spells
+    menu - F3'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 80284109b4334474e98c105b371b0885, type: 2}
   m_sharedMaterial: {fileID: 4831816737377819664, guid: 80284109b4334474e98c105b371b0885, type: 2}

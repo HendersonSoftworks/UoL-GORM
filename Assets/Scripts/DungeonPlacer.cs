@@ -29,6 +29,8 @@ public class DungeonPlacer : MonoBehaviour
         dungeonGenerator = GetComponent<DungeonGenerator>();
         dungeonItems = GetComponent<DungeonItems>();
         playerCharacter = FindFirstObjectByType<PlayerCharacter>();
+
+        SetMaxNumberOfEnemiesInRooms();
     }
 
     public void PlaceStairs()
@@ -94,12 +96,38 @@ public class DungeonPlacer : MonoBehaviour
             {
                 int _randRoll = Random.Range(0, 100);
                 float dist = Vector2.Distance(_cor.transform.position, playerCharacter.transform.position);
+
+                if (Database.currentFloor == 2)
+                {
+                    _chance = 6;
+                }
+                else if (Database.currentFloor == 3)
+                {
+                    _chance = 7;
+                }
+                else if (Database.currentFloor == 4)
+                {
+                    _chance = 8;
+                }
+
                 if (dist >= 7 && (_randRoll <= _chance)) // check enemies not spawning in same room as player
                 {
                     var _tempchest = Instantiate(chestPrefab, _cor.transform.position, Quaternion.identity);
                     dungeonGenerator.chests.Add(_tempchest);
                 }
             }
+        }
+    }
+
+    public void SetMaxNumberOfEnemiesInRooms()
+    {
+        if (Database.currentFloor == 1 || Database.currentFloor == 2)
+        {
+            maxNumberOfEnemiesInRooms = 1;
+        }
+        else if (Database.currentFloor == 3 || Database.currentFloor == 4)
+        {
+            maxNumberOfEnemiesInRooms = 2;
         }
     }
 
@@ -116,6 +144,14 @@ public class DungeonPlacer : MonoBehaviour
                     if (dist >= 7) // check enemies not spawning in same room as player
                     {
                         int getRandEnemy = Random.Range(0, enemies.Count);
+
+                        // Make sure room enemies are appropriate to difficulty
+                        if ((Database.currentFloor == 1 || Database.currentFloor == 2) &&
+                            getRandEnemy == 2)
+                        {
+                            getRandEnemy = 1;
+                        }
+                        
                         var enemy = Instantiate(enemies[getRandEnemy], item.transform.position, Quaternion.identity);
                         dungeonGenerator.enemies.Add(enemy);
                     }
@@ -127,9 +163,15 @@ public class DungeonPlacer : MonoBehaviour
         {
             if (item != null)
             {
+                float spawnRoll = 0.05f; // only spawn in ~5% of corridors
                 float spawnChance = Random.Range(0f, 1f);
 
-                if (spawnChance <= 0.1f) // only spawn in ~10% of corridors
+                if (Database.currentFloor == 4) // increase difficulty for last room
+                {
+                    spawnRoll = 0.075f;
+                }
+
+                if (spawnChance <= spawnRoll) 
                 {
                     float dist = Vector2.Distance(item.transform.position, playerCharacter.transform.position);
                     if (dist >= 7) // check enemies not spawning in same room as player

@@ -166,15 +166,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a530edb3dff4dd149999c38f3da053a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemName: Holy Heal
-  description: Heals a small amount of health.
+  itemName: Divine Heal
+  description: Heals a great amount of health.
   sprite: {fileID: 1414734203210063797, guid: ed080a2788c2a4a4fb3ce14b0f5cbc9a, type: 3}
   explosionPrefab: {fileID: 1722980237810394701, guid: 3f69123e17accd644a50b07b93cfdabb, type: 3}
   effect: 1
   damageType: 3
   buffType: 1
   effectValue: 7
-  castValue: 3
+  castValue: 1
   casterCharacter: {fileID: 0}
   moveAngle: {x: 0, y: 0}
 --- !u!114 &-2302355395553747823

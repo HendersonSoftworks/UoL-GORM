@@ -1120,7 +1120,7 @@ MonoBehaviour:
   - {fileID: 8400399621750346471, guid: 68218fa08ebc07c42bc9c5542ba07bb2, type: 3}
   - {fileID: 8400399621750346471, guid: 35962c6a66841e94db88b09dc3df0c09, type: 3}
   spells:
-  - {fileID: 0}
+  - {fileID: 215684828507582141, guid: ce0a0291eb3b3c24aafd44bbdc985521, type: 3}
   - {fileID: 0}
   - {fileID: 0}
   items: []
