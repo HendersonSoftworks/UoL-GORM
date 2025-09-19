@@ -336,6 +336,10 @@ PrefabInstance:
       propertyPath: effectsSlider
       value: 
       objectReference: {fileID: 392797322}
+    - target: {fileID: 8180335385854993945, guid: 52bd25e5c72883e4494486c3fed07295, type: 3}
+      propertyPath: effectsPreview
+      value: 
+      objectReference: {fileID: 8300000, guid: a388b29f8dc8ef34dba93eba794f24ff, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
