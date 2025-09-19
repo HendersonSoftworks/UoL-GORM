@@ -224,7 +224,15 @@ public class GameManager : MonoBehaviour
     {
         IncrementFloorDatabase();
         SetPauseGame(false);
-        SceneManager.LoadScene("dungeon");
+
+        if (Database.currentFloor < 5)
+        {
+            SceneManager.LoadScene("dungeon");
+        }
+        else
+        {
+            SceneManager.LoadScene("boss_dungeon");
+        }
     }
 
     public void SetPauseGame(bool value)
@@ -287,14 +295,18 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadScene("main_menu", LoadSceneMode.Single);
     }
 
-    public void LoadCampsite()
+    public void ReloadGame()
     {
         foreach (var persistent in PersistentObjects)
         {
             Destroy(persistent);
         }
 
-        SceneManager.LoadScene("camp", LoadSceneMode.Single);
+        Time.timeScale = 1;
+
+        Database.currentFloor = 1;
+
+        SceneManager.LoadScene("dungeon", LoadSceneMode.Single);
     }
 
     #endregion

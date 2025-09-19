@@ -313,7 +313,7 @@ AudioSource:
   m_Resource: {fileID: 0}
   m_PlayOnAwake: 1
   m_Volume: 0.2
-  m_Pitch: 0.8
+  m_Pitch: 1
   Loop: 0
   Mute: 0
   Spatialize: 0
@@ -504,7 +504,7 @@ MonoBehaviour:
   displayName: Skeleton
   portrait: {fileID: 0}
   maxHP: 0
-  currentHP: 10
+  currentHP: 5
   maxStamina: 0
   currentStamina: 0
   maxMana: 1000

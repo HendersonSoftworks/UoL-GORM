@@ -65,7 +65,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Return to last camp site?
+  m_text: Try again?
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 78918450f605d934ab7e9514181d6ede, type: 2}
   m_sharedMaterial: {fileID: 4831816737377819664, guid: 78918450f605d934ab7e9514181d6ede, type: 2}
@@ -1803,7 +1803,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
-        m_MethodName: LoadCampsite
+        m_MethodName: ReloadGame
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

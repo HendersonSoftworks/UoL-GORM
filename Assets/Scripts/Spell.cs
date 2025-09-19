@@ -30,8 +30,6 @@ public class Spell : Item
 
     public void Cast(Character originCharacter, Vector2 direction, Character targetCharacter = null)
     {
-        if (originCharacter is EnemyCharacter) { tag = "eHitboxSpell"; }
-
         casterCharacter = originCharacter;
 
         originCharacter.SetMagicDamageMod();
@@ -47,6 +45,7 @@ public class Spell : Item
         var tempSpell = Instantiate(gameObject, originCharacter.transform.position, Quaternion.identity);
         
         tempSpell.GetComponent<Spell>().moveAngle = direction;
+        if (originCharacter.tag == "Enemy") { tempSpell.tag = "eHitboxSpell"; }
     }
 
     public void SpellHitEffects(Collider2D collision=null)

@@ -48,7 +48,7 @@ MonoBehaviour:
   itemName: Ring of Energy
   description: +1 Mana.
   sprite: {fileID: 21300000, guid: 9306fd017ff24e24abbfc2588f2c85ee, type: 3}
-  ringEffect: 5
+  ringEffect: 7
   bonus: 1
 --- !u!212 &7052707305884733662
 SpriteRenderer:

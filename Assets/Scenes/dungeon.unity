@@ -1060,9 +1060,29 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4887046010796822830, guid: 48b2afc2cf45b3449993b1fd62b327b3, type: 3}
+      propertyPath: ringsArr.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4887046010796822830, guid: 48b2afc2cf45b3449993b1fd62b327b3, type: 3}
+      propertyPath: spellsArr.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4887046010796822830, guid: 48b2afc2cf45b3449993b1fd62b327b3, type: 3}
       propertyPath: potionsArr.Array.size
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 4887046010796822830, guid: 48b2afc2cf45b3449993b1fd62b327b3, type: 3}
+      propertyPath: 'ringsArr.Array.data[4]'
+      value: 
+      objectReference: {fileID: 7279459389496476205, guid: 6f0c0e3de0d1bbd44805624fdcbac063, type: 3}
+    - target: {fileID: 4887046010796822830, guid: 48b2afc2cf45b3449993b1fd62b327b3, type: 3}
+      propertyPath: 'spellsArr.Array.data[3]'
+      value: 
+      objectReference: {fileID: 7752198235031813593, guid: 4a1e3a6f19fb8ef4fa24346882d4f36d, type: 3}
+    - target: {fileID: 4887046010796822830, guid: 48b2afc2cf45b3449993b1fd62b327b3, type: 3}
+      propertyPath: 'spellsArr.Array.data[4]'
+      value: 
+      objectReference: {fileID: 7752198235031813593, guid: 9dc10604cfbd0c54d843d918b139121e, type: 3}
     - target: {fileID: 4887046010796822830, guid: 48b2afc2cf45b3449993b1fd62b327b3, type: 3}
       propertyPath: 'potionsArr.Array.data[0]'
       value: 
