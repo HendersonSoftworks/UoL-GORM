@@ -104,7 +104,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4974876322840412966}
-  m_BodyType: 0
+  m_BodyType: 1
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
@@ -298,9 +298,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   deathEffect: {fileID: 1722980237810394701, guid: 3f69123e17accd644a50b07b93cfdabb, type: 3}
   names: []
-  displayName: Skeleton
+  displayName: Wynn, Goddess of Pain
   portrait: {fileID: 0}
-  maxHP: 0
+  maxHP: 100
   currentHP: 100
   maxStamina: 0
   currentStamina: 0
@@ -349,7 +349,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   audioSource: {fileID: 0}
   attackClip: {fileID: 8300000, guid: dbd9991adc9013a4ab41d711597c3651, type: 3}
-  hurtClip: {fileID: 8300000, guid: 1be4658766862544cb5987de57a9b586, type: 3}
+  hurtClip: {fileID: 8300000, guid: 4aa36eb5db9352746b8410e2f98b1612, type: 3}
   castClip: {fileID: 8300000, guid: 8ec9d898ae86e4944b6ecd5ab782a4e0, type: 3}
 --- !u!114 &818308955337696634
 MonoBehaviour:
@@ -392,7 +392,7 @@ MonoBehaviour:
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 1
-  m_PointLightOuterRadius: 10
+  m_PointLightOuterRadius: 29.78
   m_ShapeLightParametricSides: 5
   m_ShapeLightParametricAngleOffset: 0
   m_ShapeLightParametricRadius: 1
@@ -427,6 +427,9 @@ MonoBehaviour:
   - {fileID: 0}
   player: {fileID: 0}
   animator: {fileID: 0}
+  enemyCharacter: {fileID: 0}
+  healthSlider: {fileID: 0}
+  canvas: {fileID: 0}
 --- !u!1001 &3475095419103842340
 PrefabInstance:
   m_ObjectHideFlags: 0

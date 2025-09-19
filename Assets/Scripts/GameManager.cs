@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public enum floorTypes { dungeon, swamp, infernal, dream}
 
@@ -263,6 +264,35 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 0.25f;
         
         audioSource.PlayOneShot(impertantDeathClip, AudioGlobalConfig.volEffects * AudioGlobalConfig.volScale);
+    }
+
+    public void BossDeath()
+    {
+        StartCoroutine(TransitionToCreditScene());
+    }
+
+    public IEnumerator TransitionToCreditScene()
+    {
+        yield return new WaitForSeconds(0.75f);
+
+        isGamePaused = true;
+        
+        uiManager.floorStartPanel.SetActive(true);
+        uiManager.floorStartPanel.GetComponent<Image>().color = Color.black;
+        uiManager.startFloorText.gameObject.SetActive(true);
+        uiManager.startFloorTipText.gameObject.SetActive(true);
+        uiManager.startFloorText.text = "A game by Thomas Henderson.";
+        uiManager.startFloorTipText.text = "Thank you for playing.";
+        uiManager.startFloorText.fontSize = 128;
+        uiManager.startFloorTipText.fontSize = 128;
+
+        StartCoroutine(DelayedLoadMainMenu());
+    }
+
+    public IEnumerator DelayedLoadMainMenu()
+    {
+        yield return new WaitForSeconds(1.25f);
+        LoadMainMenu();
     }
 
     public void StartDeathCoroutine()

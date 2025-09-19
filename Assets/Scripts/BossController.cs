@@ -22,17 +22,19 @@ public class BossController : MonoBehaviour
     public GameObject canvas;
 
     private PlayerCharacter playerCharacter;
+    private GameManager gameManager;
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         player = FindFirstObjectByType<PlayerMovementController>().gameObject;
         playerCharacter = player.GetComponent<PlayerCharacter>();
         animator = GetComponentInChildren<Animator>();
         enemyCharacter = GetComponent<EnemyCharacter>();
+        gameManager = FindFirstObjectByType<GameManager>();
+
+        Invoke("SetBossToAttack", 6);
     }
 
-    // Update is called once per frame
     void Update()
     {
         SetSlider();
@@ -45,6 +47,21 @@ public class BossController : MonoBehaviour
         }
 
         ManageRotation();
+        ManageBossDeath();
+    }
+
+    private void SetBossToAttack()
+    {
+        SetAttackState(true);
+    }
+
+    private void ManageBossDeath()
+    {
+        if (enemyCharacter.currentHP <= 0)
+        {
+            gameManager.PlayImportantDeathSound();
+            gameManager.BossDeath();
+        }
     }
 
     private void SetCanvas()
@@ -127,5 +144,4 @@ public class BossController : MonoBehaviour
 
         RotatePlayerBody(_moveDir); 
     }
-
 }
