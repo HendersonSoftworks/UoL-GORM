@@ -16,7 +16,7 @@ The Crying Crypt. An everchanging dungeon, yet unconquered. Brave four floors to
 - Select spell - 1, 2, 3
 - Pause menu - F1
 - Stats menu - F2
-- Spells menu - F3
+- Spells menu - F4
 
 (Gamepad partially supported)
 
