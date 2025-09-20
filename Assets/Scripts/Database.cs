@@ -2,7 +2,7 @@ using UnityEngine;
 
 public static class Database
 {
-    public static int currentFloor = 4;
+    public static int currentFloor = 1;
 
     public static string[] quotes = { 
         "The only time we can be brave is when we are afraid.",
