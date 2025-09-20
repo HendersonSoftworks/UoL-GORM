@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 215684828507582141}
   - component: {fileID: 2270752380057706652}
   m_Layer: 0
-  m_Name: Firebolt
+  m_Name: Fireball
   m_TagString: spell
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -81,7 +81,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: -2413806693520163455, guid: 197e1bd54f11b3d47abd8f4d7ed95d27, type: 3}
-  m_Color: {r: 1, g: 0.43280405, b: 0, a: 1}
+  m_Color: {r: 1, g: 0, b: 0.06774902, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -166,14 +166,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a530edb3dff4dd149999c38f3da053a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemName: Firebolt
-  description: A bolt of flame.
-  sprite: {fileID: 7679385156476096713, guid: 527d03211ad7f6b4cbcf745bd24d5e32, type: 3}
+  itemName: Fireball
+  description: Total obliteration.
+  sprite: {fileID: 21300000, guid: 870ce6f2d7b6da94380669819785d564, type: 3}
   explosionPrefab: {fileID: 1722980237810394701, guid: 3f69123e17accd644a50b07b93cfdabb, type: 3}
   effect: 0
   damageType: 5
   buffType: 0
-  effectValue: 5
+  effectValue: 35
   castValue: 3
   casterCharacter: {fileID: 0}
   moveAngle: {x: 0, y: 0}

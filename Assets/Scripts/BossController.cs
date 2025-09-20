@@ -69,6 +69,7 @@ public class BossController : MonoBehaviour
         if (playerCharacter.currentHP <= 0)
         {
             canvas.gameObject.SetActive(false);
+            canvas.GetComponent<Canvas>().worldCamera = FindFirstObjectByType<Camera>();
             return;
         }
 
