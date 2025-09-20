@@ -1,6 +1,7 @@
 using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 
 public class DungeonPlacer : MonoBehaviour
 {
@@ -73,6 +74,8 @@ public class DungeonPlacer : MonoBehaviour
 
     public void ReplaceDuplicateChestItems(List<GameObject> _chests)
     {
+        // Bug - Seems to not work or error - cannot figure out why
+
         foreach (var _chest in _chests)
         {
             foreach (var _spell in playerCharacter.spells)
@@ -81,6 +84,8 @@ public class DungeonPlacer : MonoBehaviour
 
                 if (_chest.GetComponent<Chest>().chestItem.itemName == _spell.itemName)
                 {
+                    print("Item replaced");
+
                     // Set item to Ring of Power if duplicate spell
                     // Seems broken
                     _chest.GetComponent<Chest>().chestItem = dungeonItems.ringsArr[6].GetComponent<Ring>();
@@ -88,7 +93,6 @@ public class DungeonPlacer : MonoBehaviour
             }
         }
     }
-
 
     public void RandomlyPlaceRoomChests(List<GameObject> _rooms, int _chance = 25)
     {
