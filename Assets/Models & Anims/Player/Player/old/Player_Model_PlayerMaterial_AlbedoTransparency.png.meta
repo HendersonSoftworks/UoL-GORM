@@ -160,7 +160,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Player_Model_PlayerMaterial_AlbedoTransparency_0: -5851989621861913733
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -160,7 +160,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Arissa_DIFF_diffuse_0: -7899558840833282441
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

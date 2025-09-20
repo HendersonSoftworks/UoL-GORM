@@ -160,7 +160,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Nightshade_diffuse_0: -5145894076847315182
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -160,7 +160,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Arissa_NM_normal_0: 801961760350891975
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

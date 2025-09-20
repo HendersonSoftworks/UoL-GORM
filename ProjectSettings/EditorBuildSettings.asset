@@ -12,9 +12,6 @@ EditorBuildSettings:
     path: Assets/Scenes/dungeon.unity
     guid: 17a96ef086e46e14cac4e4267104ff51
   - enabled: 1
-    path: Assets/Scenes/test/camp.unity
-    guid: 1ab2780354c57084d944cdad7f97bbda
-  - enabled: 1
     path: Assets/Scenes/boss_dungeon.unity
     guid: def895f3f7750e34db4395b5e1847160
   m_configObjects:

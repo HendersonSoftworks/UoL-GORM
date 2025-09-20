@@ -160,7 +160,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Nightshade_glow_0: 6124165395731695565
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

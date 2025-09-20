@@ -160,7 +160,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Arissa_SPEC_specular_0: -9078725072172777565
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

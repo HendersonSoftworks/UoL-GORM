@@ -435,7 +435,19 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      spell-book_0: 3233112965471085001
+      spell-book_1: -8460923382002279494
+      spell-book_10: 3821269332959811259
+      spell-book_11: 2549958009836333547
+      spell-book_2: 2923798029857474381
+      spell-book_3: -8359009925147285720
+      spell-book_4: -5305026869900989611
+      spell-book_5: -3561111372437838611
+      spell-book_6: 493894185269309742
+      spell-book_7: 6479913461053394930
+      spell-book_8: 3254640157932622815
+      spell-book_9: 2687378164695180295
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
