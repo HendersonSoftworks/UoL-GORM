@@ -18,7 +18,7 @@ public class PlayerAudioManager : MonoBehaviour
 
     public void PlayExplosionClip()
     {
-        audioSource.PlayOneShot(explClip,  AudioGlobalConfig.volEffects * AudioGlobalConfig.volScale);
+        audioSource.PlayOneShot(explClip,  (AudioGlobalConfig.volEffects * AudioGlobalConfig.volScale) / 2);
     }
 
     public void PlaySwingClip()
