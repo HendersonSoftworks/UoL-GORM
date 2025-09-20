@@ -1,6 +1,12 @@
 # UoL-GORM
 Final project for CM3070. 
 
+Play the game here:
+https://hendersonsoftworks.itch.io/gorm-the-crying-crypt
+
+## Description
+The Crying Crypt. An everchanging dungeon, yet unconquered. Brave four floors to face its master in this roguelike action game.
+
 ## Controls
 - Movement - WASD
 - Attack - Left-click
@@ -12,7 +18,9 @@ Final project for CM3070.
 - Stats menu - F2
 - Spells menu - F3
 
+(Gamepad partially supported)
+
 ## Known Bugs
-- Gaps between some walls
-- Enemies can hit player out of walls
+- Sometimes gaps in generated walls
+- Enemies can hit player out bounds
 - Spamming stat / spell screen buttons during level loading can softlock game
